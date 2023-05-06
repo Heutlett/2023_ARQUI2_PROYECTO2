@@ -8,7 +8,7 @@ module regfile
 	output logic [31:0] RD1, RD2
 );
 
-	logic [31:0] rf[8:0];
+	logic [5:0][7:0] rf;
 	
 	always_ff @(posedge clk) begin
 	

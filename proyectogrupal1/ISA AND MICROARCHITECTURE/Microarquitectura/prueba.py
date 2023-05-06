@@ -1,4 +1,4 @@
-module control_unit
+len("module control_unit
 (	
 	// Entradas
 	input logic [5:0] Id,
@@ -7,6 +7,23 @@ module control_unit
 	output logic RegWrite, MemtoReg, MemWrite, ALUSrc, FlagsWrite, RegSrc,
 	output logic [2:0] ALUControl
 );
+	
+	// RegSrc: señal de seleccion de los dos mux que entran al banco de registros.
+					// El MSB (ra2mux): selecciona entre RM y RD
+					
+	// ALUSrc: señal de seleccion de la entrada B del ALU.
+					// 0: selecciona el registro RD2.
+				   // 1: selecciona el immediato exentedido.
+	
+	// MemtoReg: señal del mux que selecciona entre el resultado de la ALU o el dato leido de mem.
+					// 0: ALURESULT
+					// 1: ReadData (mem)
+	
+	// RegWrite: enable para escribir en el banco de registros
+	
+	// MemWrite: enable para escribir en la memoria
+	
+	
 	
 	// Instruction decoder
 	always_comb
@@ -87,7 +104,9 @@ module control_unit
 						MemWrite = 1'bx;
 			end		    
 			
-		endcase	
+		endcase
+		
+	
 	
 	// ALU Decoder
 	always_comb
@@ -107,4 +126,4 @@ module control_unit
 			default: ALUControl = 3'bx; // unimplemented
 		endcase
 					
-endmodule
+endmodule")
