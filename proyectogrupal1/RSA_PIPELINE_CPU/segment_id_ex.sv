@@ -4,13 +4,15 @@ module segment_id_ex
 	input logic clk, reset, RegWriteD, MemtoRegD, MemWriteD, ALUSrcD, FlagsWriteD,
 	input logic [2:0] ALUControlD,
 	input logic [3:0] WA3D,
-	input logic [31:0] rd1D, rd2D, ExtImmD,
-
+	input logic [5:0][7:0] rd1D, rd2D,
+	input logic [7:0] ExtImmD,
+	
 	// Salidas
 	output logic RegWriteE, MemtoRegE, MemWriteE, ALUSrcE, FlagsWriteE,
 	output logic [2:0] ALUControlE, 
 	output logic [3:0] WA3E,
-	output logic [31:0] rd1E, rd2E, ExtImmE
+	output logic [5:0][7:0] rd1E, rd2E,
+	output logic [7:0] ExtImmE
 );
 			
 	always_ff@(negedge clk, posedge reset)

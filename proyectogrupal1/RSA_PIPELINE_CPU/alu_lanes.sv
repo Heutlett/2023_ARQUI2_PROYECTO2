@@ -3,7 +3,6 @@ module alu_lanes
 	input logic clk,
 	input logic [5:0][7:0] SrcAE, SrcBE,
 	input logic [2:0] ALUControl,
-	input logic [2:0] RB,
 	output logic [1:0][5:0] ALUFlags,
 	output logic [5:0][7:0] vector
 );
