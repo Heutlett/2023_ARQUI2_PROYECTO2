@@ -5,6 +5,7 @@ module segment_id_ex
 	input logic [2:0] ALUControlD,
 	input logic [3:0] WA3D,
 	input logic [5:0][7:0] rd1D, rd2D,
+	input logic [3:0] rd2iD,
 	input logic [7:0] ExtImmD,
 	
 	// Salidas
@@ -12,6 +13,7 @@ module segment_id_ex
 	output logic [2:0] ALUControlE, 
 	output logic [3:0] WA3E,
 	output logic [5:0][7:0] rd1E, rd2E,
+	output logic [3:0] rd2iE,
 	output logic [7:0] ExtImmE
 );
 			
@@ -25,7 +27,8 @@ module segment_id_ex
 				ALUSrcE = 0;
 				WA3E = 0;
 				rd1E = 0;
-				rd2E = 0; 
+				rd2E = 0;
+				rd2iE = 0;
 				ExtImmE = 0;
 				FlagsWriteE = 0;
 			end
@@ -40,6 +43,7 @@ module segment_id_ex
 				WA3E = WA3D;
 				rd1E = rd1D;
 				rd2E = rd2D;
+				rd2iE = rd2iD;
 				ExtImmE = ExtImmD;
 				FlagsWriteE = FlagsWriteD;
 			end

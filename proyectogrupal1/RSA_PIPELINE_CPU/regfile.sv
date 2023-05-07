@@ -21,7 +21,7 @@ module regfile
 
 
 	// RD2I : indice del registro 2
-	output logic [3:0] RD2I,
+	output logic [2:0] RD2I,
 	
 	// RD1, RD2 : vectores 1 y 2
 	output logic [5:0][7:0] RD1, RD2

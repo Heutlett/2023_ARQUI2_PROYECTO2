@@ -7,7 +7,7 @@ module TB_REG_FILE_and_ALU_LANES;
 	logic [3:0] A1, A2, A3;
 	logic [5:0][7:0] WD3;
 	logic WE3;
-	logic [3:0] RD2I;
+	logic [2:0] rd2iD;
 	
 	// salidas
 	logic [5:0][7:0] rd1D, rd2D;
@@ -21,7 +21,7 @@ module TB_REG_FILE_and_ALU_LANES;
 		.WD3(WD3),
 		.RD1(rd1D),
 		.RD2(rd2D),
-		.RD2I(RD2I)
+		.RD2I(rd2iD)
 	);
 	
 	
@@ -37,6 +37,8 @@ module TB_REG_FILE_and_ALU_LANES;
 	logic [3:0] WA3E;
 	logic [7:0] ExtImmE;
 	logic [5:0][7:0] rd1E, rd2E;
+	logic [2:0] rd2iE;
+
 	
 // PIPELINE	
 	segment_id_ex segment_id_ex_inst (
@@ -51,6 +53,7 @@ module TB_REG_FILE_and_ALU_LANES;
 		.WA3D(WA3D),
 		.rd1D(rd1D),
 		.rd2D(rd2D),
+		.rd2iD(rd2iD),
 		.ExtImmD(ExtImmD),
 		.RegWriteE(RegWriteE),
 		.MemtoRegE(MemtoRegE),
@@ -61,6 +64,7 @@ module TB_REG_FILE_and_ALU_LANES;
 		.WA3E(WA3E),
 		.rd1E(rd1E),
 		.rd2E(rd2E),
+		.rd2iE(rd2iE),
 		.ExtImmE(ExtImmE)
 	);
 	
@@ -75,6 +79,7 @@ module TB_REG_FILE_and_ALU_LANES;
         .clk(clk),
         .SrcAE(rd1E),
         .SrcBE(rd2E),
+		  .SrcBiE(rd2iE),
         .ALUControl(ALUControlE),
         .ALUFlags(ALUFlags),
         .vector(vector)
