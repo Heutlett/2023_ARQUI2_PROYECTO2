@@ -18,16 +18,25 @@ module regfile
 	
 	
 // Salidas
-
-
-	// RD2I : indice del registro 2
-	output logic [2:0] RD2I,
 	
 	// RD1, RD2 : vectores 1 y 2
 	output logic [5:0][7:0] RD1, RD2
 );
-	logic [5:0][7:0] rf[9:0];
-	
+//	logic [5:0][7:0] rf[9:0] = '{default:'0}; // inicializar en cero
+
+	logic [5:0][7:0] rf[9:0] = '{ 
+											'{8'h09, 8'h09, 8'h09, 8'h09, 8'h09, 8'h09},
+											'{8'h08, 8'h08, 8'h08, 8'h08, 8'h08, 8'h08},
+											'{8'h01, 8'h02, 8'h03, 8'h04, 8'h05, 8'h06},
+											'{8'h06, 8'h06, 8'h06, 8'h06, 8'h06, 8'h06},
+											'{8'h05, 8'h05, 8'h05, 8'h05, 8'h05, 8'h05},
+											'{8'h04, 8'h04, 8'h04, 8'h04, 8'h04, 8'h04},
+											'{8'h03, 8'h03, 8'h03, 8'h03, 8'h03, 8'h03},
+											'{8'h02, 8'h02, 8'h02, 8'h02, 8'h02, 8'h02},
+											'{8'h01, 8'h01, 8'h01, 8'h01, 8'h01, 8'h01},
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}
+										};
+
 	always_ff @(posedge clk) begin
 	
 		if (WE3) rf[A3] <= WD3;
@@ -36,6 +45,5 @@ module regfile
 		
 	assign RD1 = rf[A1];
 	assign RD2 = rf[A2];
-	assign RD2I = A3;
 	
 endmodule
