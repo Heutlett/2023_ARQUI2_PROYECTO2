@@ -18,6 +18,8 @@ module TB_DATAPATH_MODULES;
 	logic [R-1:0][N-1:0] WriteDataM;
 	logic [R-1:0][N-1:0] ALUOutputM;
 	
+	
+// Data register-immediate
 	logic [1:0] tipo = 'b01;
 	logic [1:0] IS = 'b11;
 	logic [2:0] op = 'b000;
@@ -26,16 +28,13 @@ module TB_DATAPATH_MODULES;
 	logic [7:0] imm = 'd5;
 	logic [8:0] none = 'bx;
 	
-	
-	
-	
-	
-// FETCH ***********************************************************************
-
 	// para poder hacer testing con las instrucciones.
 	// cuando se quita esto, se descomenta InstrF y InstrD del las entradas.
 	logic [I-1:0] InstrF = {tipo, op, IS, rd, ra, imm, none};
 	logic [I-1:0] InstrD;
+	
+	
+// FETCH ***********************************************************************
 
 	segment_if_id seg_if_id	(
 	// Entradas
@@ -49,8 +48,22 @@ module TB_DATAPATH_MODULES;
 	
 // DECODE ***********************************************************************
 
-	logic [3:0] RA2D;	
+	control_unit c(
+	// Entradas
+		.Id(InstrD[31:25]),
+	// Salidas
+		.RegWrite(RegWrite), 
+		.MemtoReg(MemtoReg),
+		.MemWrite(MemWrite),
+		.ALUControl(ALUControl),
+		.VSIFlag(VSIFlag),
+		.FlagsWrite(FlagsWrite),
+		.RegSrc(RegSrc)
+	);
 	
+	
+	logic [3:0] RA2D;	
+
 	mux2 #(4) ra2mux	(
 	// Entradas
 		.d0(InstrD[16:13]), 
@@ -237,39 +250,74 @@ module TB_DATAPATH_MODULES;
 		#10;
 		reset = 0;
 		clk = 0;
-		#10;
-		
-// señales de control
-
-
-//		PCNext = 4;	
 	
 		$display("\n> Fetch ");
-		$display(" Tipo: %b\n OP: %b\n I: %b\n S: %b\n RD: %d\n RA: %d\n Imm: %d\n NULL: %b", InstrF[31:30], InstrF[29:27], InstrF[26],  InstrF[25], InstrF[24:21], InstrF[20:17], InstrF[16:9], InstrF[8:0]);
-	
-		#10;
-		$display("\n> DECODE ");
+
+//		$display("[ Data register-register ]");
+//		$display("  Type [31:30] : %b", InstrF[31:30]);
+//		$display("  OP   [29:27] : %b", InstrF[29:27]);
+//		$display("  IS   [26:25] : %b", InstrF[26:25]);
+//		$display("  RD   [24:21] : %b", InstrF[24:21]);
+//		$display("  RA   [20:17] : %b", InstrF[20:17]);
+//		$display("  RB   [16:13] : %b", InstrF[16:13]);
+//		$display("  NULL [12: 0] : %b", InstrF[12:0]);
 		
-		//Control Unit
-		RegWrite = 1;
-		MemtoReg = 0;
-		MemWrite = 0;
-		ALUControl = 3'b000;
-		VSIFlag = 2'b11;
-		FlagsWrite = 0;
-		RegSrc = 1; // Seleccionar Rd
+		$display("[ Data register-immediate ]");
+		$display("  Type [31:30] : %b", InstrF[31:30]);
+		$display("  OP   [29:27] : %b", InstrF[29:27]);
+		$display("  IS   [26:25] : %b", InstrF[26:25]);
+		$display("  RD   [24:21] : %b", InstrF[24:21]);
+		$display("  RA   [20:17] : %b", InstrF[20:17]);
+		$display("  Imm  [16: 9] : %b", InstrF[16:9]);
+		$display("  NULL [ 8: 0] : %b", InstrF[8:0]);
+//
+//		$display("[ Data memory ]");
+//		$display("  Type [31:30] : %b", InstrF[31:30]);
+//		$display("  OP   [29:28] : %b", InstrF[29:28]);
+//		$display("  NULL [27:25] : %b", InstrF[27:25]);
+//		$display("  RD   [24:21] : %b", InstrF[24:21]);
+//		$display("  RA   [20:17] : %b", InstrF[20:17]);
+//		$display("  Imm  [16: 9] : %b", InstrF[16:9]);
+//		$display("  NULL [ 8: 0] : %b", InstrF[8:0]);
+//		
+//		$display("[ Control ]");
+//		$display("  Type [31:30] : %b", InstrF[31:30]);
+//		$display("  OP   [29:28] : %b", InstrF[29:28]);
+//		$display("  NULL [27:25] : %b", InstrF[27:25]);
+//		$display("  NULL [24:17] : %b", InstrF[24:17]);
+//		$display("  Imm  [16: 9] : %b", InstrF[16:9]);
+//		$display("  NULL [ 8: 0] : %b", InstrF[8:0]);
 		
-		#10;
+		#10; // Clock para el registro pipeline
 		
-		$display(" Ra -> RD1D : %0d %0d %0d %0d %0d %0d", RD1D[5], RD1D[4], RD1D[3], RD1D[2], RD1D[1], RD1D[0]);
-		$display(" Rd -> RD2D : %0d %0d %0d %0d %0d %0d", RD2D[5], RD2D[4], RD2D[3], RD2D[2], RD2D[1], RD2D[0]);
+		$display("\n\n> DECODE ");
+		
+		$display("\n--- flags");
+		$display(" RegWriteD   	: %0b", RegWrite);
+		$display(" MemtoRegD   	: %0b", MemtoReg);
+		$display(" MemWriteD   	: %0b", MemWrite);
+		$display(" ALUControlD 	: %0b", ALUControl);
+		$display(" VSIFlagD    	: %0b", VSIFlag);
+		$display(" FlagsWriteD 	: %0b", FlagsWrite);
+		$display(" RegSrcD 	 	: %0b", RegSrc);
+		
+		$display("\n--- data");
+		$display(" RD   : %0d", InstrD[24:21]);
+		$display(" RA   : %0d", InstrD[20:17]);
+		if (VSIFlag[1] == 1'b1) $display(" Imm  : %0d", InstrD[16:9]); 
+		else $display(" RB   : %0d", InstrD[16:13]);
+		
+		$display(" RA2D : %0d %0d %0d %0d", RA2D[3], RA2D[2], RA2D[1], RA2D[0]);
+		$display(" RD1D : %0d %0d %0d %0d %0d %0d", RD1D[5], RD1D[4], RD1D[3], RD1D[2], RD1D[1], RD1D[0]);
+		$display(" RD2D : %0d %0d %0d %0d %0d %0d", RD2D[5], RD2D[4], RD2D[3], RD2D[2], RD2D[1], RD2D[0]);
 		
 		
-		#10;
+		#10; // Clock para el registro pipeline
+
 		
 		$display("\n\n> EXECUTE ");
 		
-		$display("--- flags");
+		$display("\n--- flags");
 		$display(" RegWriteE   : %0b", RegWriteE);
 		$display(" MemtoRegE   : %0b", MemtoRegE);
 		$display(" MemWriteE   : %0b", MemWriteE);
@@ -277,7 +325,7 @@ module TB_DATAPATH_MODULES;
 		$display(" VSIFlagE    : %0b", VSIFlagE);
 		$display(" FlagsWriteE : %0b", FlagsWriteE);
 		
-		$display("--- data");
+		$display("\n--- data");
 		$display(" RD1E : %0d %0d %0d %0d %0d %0d", RD1E[5], RD1E[4], RD1E[3], RD1E[2], RD1E[1], RD1E[0]);
 		$display(" RD2E : %0d %0d %0d %0d %0d %0d", RD2E[5], RD2E[4], RD2E[3], RD2E[2], RD2E[1], RD2E[0]);
 		$display(" RA2E : %0d", RA2E);
@@ -293,14 +341,14 @@ module TB_DATAPATH_MODULES;
 		
 		$display("\n\n> MEM ");
 		
-		$display("--- flags");
+		$display("\n--- flags");
 		$display(" RegWriteM : %0b", RegWriteM);
 		$display(" MemtoRegM : %0b", MemtoRegM);
 		$display(" MemWriteM : %0b", MemWriteM);
 		$display(" FlagsWriteM : %0b", FlagsWriteM);
 		$display(" ALUFlagsM : %0b %0b %0b %0b %0b %0b", ALUFlagsM[5], ALUFlagsM[4], ALUFlagsM[3], ALUFlagsM[2], ALUFlagsM[1], ALUFlagsM[0]);
 		
-		$display("--- data");
+		$display("\n--- data");
 		$display(" ALUOutputM : %0d %0d %0d %0d %0d %0d", ALUOutputM[5], ALUOutputM[4], ALUOutputM[3], ALUOutputM[2], ALUOutputM[1], ALUOutputM[0]);
 		$display(" AM : %0h", AM);
 		$display(" WriteDataM : %0d %0d %0d %0d %0d %0d", WriteDataM[5], WriteDataM[4], WriteDataM[3], WriteDataM[2], WriteDataM[1], WriteDataM[0]);
@@ -310,19 +358,21 @@ module TB_DATAPATH_MODULES;
 		
 		$display("\n\n> WB ");
 		
-		$display("--- flags");
+		$display("\n--- flags");
 		$display(" RegWriteW : %0b", RegWriteW);
 		$display(" MemtoRegW : %0b", MemtoRegW);
 		$display(" FlagsWriteW : %0b", FlagsWriteW);
 		$display(" ALUFlagsW : %0b %0b %0b %0b %0b %0b", ALUFlagsW[5], ALUFlagsW[4], ALUFlagsW[3], ALUFlagsW[2], ALUFlagsW[1], ALUFlagsW[0]);
 
 		
-		$display("--- data");
+		$display("\n--- data");
 		$display(" ReadDataW : %0d %0d %0d %0d %0d %0d", ReadDataW[5], ReadDataW[4], ReadDataW[3], ReadDataW[2], ReadDataW[1], ReadDataW[0]);
 		$display(" ALUOutputW : %0d %0d %0d %0d %0d %0d", ALUOutputW[5], ALUOutputW[4], ALUOutputW[3], ALUOutputW[2], ALUOutputW[1], ALUOutputW[0]);
 		$display(" WAW : %0d", WA3W);
+		
+		#10;
 		$display(" ResultW : %0d %0d %0d %0d %0d %0d", ResultW[5], ResultW[4], ResultW[3], ResultW[2], ResultW[1], ResultW[0]);
-
+		$display("\n\n\n --- FIN --- ");
 		#20 $finish;
 		
 	end
