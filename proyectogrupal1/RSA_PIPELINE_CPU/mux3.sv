@@ -15,7 +15,7 @@ module mux3 #(parameter WIDTH = 8)
             2'b01: y = d1;
             2'b11: y = d2;
 				// Si es 2, xx. No se esta utilizando.
-            default: y = 'bx; // En caso de selección inválida, salida indeterminada
+            default: y = '{default:'x}; // En caso de selección inválida, salida indeterminada
         endcase
     end
 

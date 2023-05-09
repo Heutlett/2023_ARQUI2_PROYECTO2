@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE 5CSEBA6U23I7
 set_global_assignment -name TOP_LEVEL_ENTITY datapath_vec
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:28:57  OCTOBER 04, 2022"
-set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
@@ -90,11 +90,6 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME TB_REG_FILE -section_id T
 set_global_assignment -name EDA_TEST_BENCH_NAME TB_DMEM_VECT -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id TB_DMEM_VECT
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME TB_DMEM_VECT -section_id TB_DMEM_VECT
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_FILE TB_DMEM_VECT.sv -section_id TB_DMEM_VECT
-set_global_assignment -name EDA_TEST_BENCH_FILE data_mem_init.dat -section_id TB_DMEM_VECT
 set_global_assignment -name SYSTEMVERILOG_FILE instr_mem.sv
 set_global_assignment -name LICENSE_FILE inst_mem_init.dat
 set_global_assignment -name SYSTEMVERILOG_FILE data_mem.sv
@@ -139,6 +134,10 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name SYSTEMVERILOG_FILE address_offset.sv
 set_global_assignment -name SYSTEMVERILOG_FILE TB_DATAPATH_MODULES.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME TB_DATAPATH_MODULES -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME TB_DATAPATH_MODULES -section_id TB_DATAPATH_MODULES
+set_global_assignment -name SYSTEMVERILOG_FILE mux2_vec.sv
 set_global_assignment -name EDA_TEST_BENCH_FILE data_mem_init.dat -section_id TB_TOP
 set_global_assignment -name EDA_TEST_BENCH_FILE inst_mem_init.dat -section_id TB_TOP
 set_global_assignment -name EDA_TEST_BENCH_FILE TB_TOP.sv -section_id TB_TOP
@@ -154,18 +153,6 @@ set_global_assignment -name EDA_TEST_BENCH_FILE mux3.sv -section_id TB_ALU_LANES
 set_global_assignment -name EDA_TEST_BENCH_FILE TB_REG_FILE.sv -section_id TB_REG_FILE
 set_global_assignment -name EDA_TEST_BENCH_FILE TB_DMEM_VECT.sv -section_id TB_DMEM_VECT
 set_global_assignment -name EDA_TEST_BENCH_FILE data_mem_init.dat -section_id TB_DMEM_VECT
-set_global_assignment -name EDA_TEST_BENCH_NAME TB_DATAPATH_MODULES -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME TB_DATAPATH_MODULES -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE TB_DATAPATH_MODULES.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE segment_id_ex.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE segment_if_id.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE segment_mem_wb.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE segment_ex_mem.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE regfile.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE alu_defs.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE alu.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE alu_lanes.sv -section_id TB_DATAPATH_MODULES
 set_global_assignment -name EDA_TEST_BENCH_FILE TB_DATAPATH_VEC.sv -section_id TB_DATAPATH_VEC
 set_global_assignment -name EDA_TEST_BENCH_FILE datapath_vec.sv -section_id TB_DATAPATH_VEC
 set_global_assignment -name EDA_TEST_BENCH_FILE mux2.sv -section_id TB_DATAPATH_VEC
@@ -176,4 +163,16 @@ set_global_assignment -name EDA_TEST_BENCH_FILE alu_lanes.sv -section_id TB_DATA
 set_global_assignment -name EDA_TEST_BENCH_FILE segment_id_ex.sv -section_id TB_DATAPATH_VEC
 set_global_assignment -name EDA_TEST_BENCH_FILE segment_if_id.sv -section_id TB_DATAPATH_VEC
 set_global_assignment -name EDA_TEST_BENCH_FILE regfile.sv -section_id TB_DATAPATH_VEC
+set_global_assignment -name EDA_TEST_BENCH_FILE TB_DATAPATH_MODULES.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE segment_id_ex.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE segment_if_id.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE segment_mem_wb.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE segment_ex_mem.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE regfile.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE alu_defs.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE alu.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE alu_lanes.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE mux2_vec.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE data_mem_vect.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE data_mem_init.dat -section_id TB_DATAPATH_MODULES
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

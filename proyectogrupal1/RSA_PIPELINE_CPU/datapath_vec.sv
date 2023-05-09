@@ -39,7 +39,7 @@ module datapath_vec
 
 	// -- output
 	logic [R-1:0][1:0] ALUFlagsE;
-	logic [R-1:0][N-1:0] ALUResultE;
+	logic [R-1:0][N-1:0] ALUOutputE;
 
 	// -- pass
 	logic [3:0] WA3E;
@@ -121,8 +121,8 @@ module datapath_vec
 		.FlagsWriteD(FlagsWrite),
 		.ALUControlD(ALUControl),
 		.WA3D(InstrD[25:22]), 			// Write address
-		.rd1D(RD1D),						// Reg 1
-		.rd2D(RD2D),						// Reg 2
+		.RD1D(RD1D),						// Reg 1
+		.RD2D(RD2D),						// Reg 2
 		.RA2D(RA2D),						// Reg 2 index
 		.ImmD(InstrD[16:9]),				// Immediate
 	// Salidas
@@ -133,8 +133,8 @@ module datapath_vec
 		.FlagsWriteE(FlagsWriteE),
 		.ALUControlE(ALUControlE), 
 		.WA3E(WA3E),
-		.rd1E(RD1E), 
-		.rd2E(RD2E),
+		.RD1E(RD1E), 
+		.RD2E(RD2E),
 		.RA2E(RA2E),
 		.ImmE(ImmE)
 		);
@@ -153,7 +153,7 @@ module datapath_vec
 	  .ALUControl(ALUControlE),
 	// Salidas
 	  .ALUFlags(ALUFlagsE),
-	  .ALUResult(ALUResultE)
+	  .ALUOutput(ALUOutputE)
 	);
 	
 	
@@ -175,7 +175,7 @@ module datapath_vec
 //		.FlagsWriteE(FlagsWriteE),
 //		.ALUFlagsE(ALUFlagsE),
 //		.WA3E(WA3E), 
-//		.ALUResultE(ALUResultE), 
+//		.ALUOutputE(ALUOutputE), 
 //		.WriteDataE(rd2E),
 //	// Salidas
 //		.RegWriteM(RegWriteM), 

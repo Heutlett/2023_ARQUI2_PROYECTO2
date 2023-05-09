@@ -40,7 +40,7 @@ module alu
 	end
 	
 	
-	assign result_o = result_r;
+	assign result_o = result_r[N-1:0];
 	assign ALUFlags[0] = (result_r == '0);
 	assign ALUFlags[1] = result_r[N-1];
 	

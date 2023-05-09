@@ -1,17 +1,22 @@
 module segment_mem_wb 
+#(parameter I=32, N=8, R=6)
+
 (
 	// Entradas
 	input logic clk, reset, RegWriteM, MemtoRegM, FlagsWriteM, 
-	input logic [1:0] ALUFlagsM,
+	input logic [R-1:0][1:0] ALUFlagsM,
 	input logic [3:0] WA3M, 
-	input logic [31:0] ReadDataM, ALUOutM,
+	input logic [R-1:0][N-1:0] ReadDataM, 
+	input logic [R-1:0][N-1:0] ALUOutputM,
 	
 	
 	// Salidas
 	output logic RegWriteW, MemtoRegW, FlagsWriteW, 
-	output logic [1:0] ALUFlagsW,
+	output logic [R-1:0][1:0] ALUFlagsW,
 	output logic [3:0] WA3W,
-	output logic [31:0] ReadDataW, ALUOutW
+	output logic [R-1:0][N-1:0] ReadDataW,
+	output logic [R-1:0][N-1:0] ALUOutputW
+
 );
 			
 	always_ff@(negedge clk, posedge reset)
@@ -21,7 +26,7 @@ module segment_mem_wb
 				RegWriteW = 0;
 				MemtoRegW = 0;
 				ReadDataW = 0;
-				ALUOutW = 0;
+				ALUOutputW = 0;
 				WA3W = 0;
 				FlagsWriteW = 0;
 				ALUFlagsW = 0;
@@ -34,7 +39,7 @@ module segment_mem_wb
 				RegWriteW = RegWriteM;
 				MemtoRegW = MemtoRegM;
 				ReadDataW = ReadDataM;
-				ALUOutW = ALUOutM;
+				ALUOutputW = ALUOutputM;
 				WA3W = WA3M;
 				FlagsWriteW = FlagsWriteM;
 				ALUFlagsW = ALUFlagsM;

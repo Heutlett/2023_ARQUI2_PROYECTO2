@@ -11,7 +11,7 @@ module alu_lanes #(parameter N = 8)
 	 
 	 // salidas
     output logic [5:0][1:0] ALUFlags,
-    output logic [5:0][N-1:0] ALUResult
+    output logic [5:0][N-1:0] ALUOutput
 );
 
 	logic [N-1:0] Aluresult1;
@@ -50,6 +50,6 @@ module alu_lanes #(parameter N = 8)
 	alu #(N) alu6    (SrcAE[5], SrcB6, ALUControl, Aluresult6, ALUFlags6);
 
 	assign ALUFlags = {ALUFlags6, ALUFlags5, ALUFlags4, ALUFlags3, ALUFlags2, ALUFlags1};
-	assign ALUResult = {Aluresult6, Aluresult5, Aluresult4, Aluresult3, Aluresult2, Aluresult1};
+	assign ALUOutput = {Aluresult6, Aluresult5, Aluresult4, Aluresult3, Aluresult2, Aluresult1};
 
 endmodule
