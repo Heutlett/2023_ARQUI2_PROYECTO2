@@ -1,0 +1,57 @@
+encrypt:
+    mov r6, #0 ;Op selector
+    mov r7, #8 ; msg start
+    mov r8, #0 ; set espace for public key exp
+
+encrypt_loop:
+    ldr r3, [r7]
+    ldr r4, [r8]
+    ldr r5, [r8, #4]
+    jmp exp
+encrypt_store:
+    str r1, [r7]
+    cmp r7, #404 ; Limit msg mem space
+    jeq finish
+    add r7, r7, #4
+    jmp encrypt_loop
+
+exp:
+    mov r1, #1 ; Op result
+    mov r2, #0 ; Iter counter
+exp_loop:
+    cmp r3, #0
+    jeq zero_except
+    cmp r2, r4
+    jeq exp_return
+    mul r1, r1, r3
+    jmp mod
+exp_add:
+    add r2, r2, #1
+    jmp exp_loop
+mod:
+    cmp r1, r5
+    jlt exp_add
+    sub r1, r1, r5
+    jmp mod
+exp_return:
+    cmp r6, #0
+    jeq encrypt_store
+zero_except:
+    mov r1, r3
+    jmp encrypt_store
+
+finish:
+	com
+	mov r1,#0
+	mov r0, #8
+	
+loop:
+
+	cmp		r1, #100
+	jeq		fin2
+	LDR		r2,[r0]
+	ADD		r1, r1, #1
+	ADD		r0, r0, #4
+	JMP		loop
+fin2:
+    END

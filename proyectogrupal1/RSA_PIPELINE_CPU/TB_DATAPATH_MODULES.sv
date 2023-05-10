@@ -19,18 +19,37 @@ module TB_DATAPATH_MODULES;
 	logic [R-1:0][N-1:0] ALUOutputM;
 	
 	
-// Data register-immediate
-	logic [1:0] tipo = 'b01;
-	logic [1:0] IS = 'b11;
-	logic [2:0] op = 'b000;
-	logic [3:0] ra = 'd7;
-	logic [3:0] rd = 'd6;
-	logic [7:0] imm = 'd5;
-	logic [8:0] none = 'bx;
+//// Data register-immediate
+//	logic [1:0] tipo = 'b01;
+//	logic [1:0] IS = 'b11;
+//	logic [2:0] op = 'b000;
+//	logic [3:0] ra = 'd7;
+//	logic [3:0] rd = 'd6;
+//	logic [7:0] imm = 'd5;
+//	logic [8:0] none = 'bx;
+	
+//	// MEM LD
+//	logic [1:0] tipo = 'b10;
+//	logic op = 'b0;
+//	logic [3:0] null1 = 'b0000;
+//	logic [3:0] rd = 'd6;
+//	logic [3:0] ra = 'd0;
+//	logic [7:0] imm = 'd0;
+//	logic [8:0] none = 'b0;
+	
+	// MEM STR
+	logic [1:0] tipo = 'b10;
+	logic op = 'b1;
+	logic [3:0] null1 = 'b0000;
+	logic [3:0] rd = 'd0;
+	logic [3:0] ra = 'd0;
+	logic [7:0] imm = 'd0;
+	logic [8:0] none = 'b0;
 	
 	// para poder hacer testing con las instrucciones.
 	// cuando se quita esto, se descomenta InstrF y InstrD del las entradas.
-	logic [I-1:0] InstrF = {tipo, op, IS, rd, ra, imm, none};
+	// logic [I-1:0] InstrF = {tipo, op, IS, rd, ra, imm, none};
+	logic [I-1:0] InstrF = {tipo, op, null1, rd, ra, imm, none};
 	logic [I-1:0] InstrD;
 	
 	
