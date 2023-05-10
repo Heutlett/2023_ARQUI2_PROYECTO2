@@ -2,8 +2,8 @@ module TB_PC_CONTROL_UNIT;
 	
 	logic clk, reset, start, FlagsW, EndFlag, COMFlag;
 	logic [31:0] Instr, PC;
-	logic [1:0] ALUFlags;
-	
+	logic [R-1:0][1:0]  ALUFlags;
+
 	pc_control_unit pcu(
 					// Entradas
 					.clk(clk), 
@@ -34,26 +34,26 @@ module TB_PC_CONTROL_UNIT;
 		ALUFlags = 2'b00;
 		EndFlag = 0;
 		COMFlag = 0;
-		Instr = 31'h65000007; // mov r7, #8    -> pc = pc+4
+		Instr = 32'h65000007; // mov r7, #8    -> pc = pc+4
 		
 		reset = 1;
 		start = 1;
 		#10;
 
 		// JMP encrypt_store
-		Instr = 31'hC0000050;
+		Instr = 32'hC0000050;
 		#10;
 		
 		// JEQ fin2
 		ALUFlags = 2'b01;
 		FlagsW = 1;
-		Instr = 31'hD000013C;
+		Instr = 32'hD000013C;
 		#10;
 		
 		// JLT exp_add
 		ALUFlags = 2'b10;
 		FlagsW = 1;
-		Instr = 31'hE0000094;
+		Instr = 32'hE0000094;
 		#10;
 	end
 endmodule

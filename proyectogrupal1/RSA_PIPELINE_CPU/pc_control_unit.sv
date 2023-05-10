@@ -1,19 +1,20 @@
 module pc_control_unit
+#(parameter I=32, N=8, R=6)
 (	
 	// Entradas
 	input logic clk, reset, FlagsW, start,
-	input logic [1:0] ALUFlags,
+	input logic [R-1:0][1:0] ALUFlags,
 	input logic [3:0] Id,
-	input logic [17:0] Imm,
+	input logic [N-1:0] Imm,
 	
 	// Salidas
 	output logic EndFlag, COMFlag,
-	output logic [31:0] PCNext
+	output logic [I-1:0] PCNext
 );
 
 	logic [1:0] ALUFlagsTemp;
 	logic	COMFlagTemp;
-	logic [31:0] PC;
+	logic [I-1:0] PC;
 	
 	flopenr #(2) flagreg1(
 								// Entradas

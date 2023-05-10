@@ -35,7 +35,7 @@ module control_unit (
 				//	01		 	000		11
 				FlagsWrite 	= (Id[4:2] == 3'b100)  ? 1'b1 : 1'b0;			// CMP: modifica las banderas pero no registros
 				RegWrite 	= (Id[4:2] == 3'b100)  ? 1'b0 : 1'b1;			// CMP: modifica las banderas pero no registros
-				RegSrc 		= (VSIFlag[1] == 1'b1) ? 1'b1 : 1'b0; 	// 1 -> RD, 0 -> RB
+				RegSrc 		= (VSIFlag[1] == 1'b1) ? 1'b1 : 1'b0; 			// 1 -> RD, 0 -> RB
 				MemtoReg 	= 1'b0;
 				MemWrite 	= 1'b0;
 			end
@@ -43,13 +43,13 @@ module control_unit (
 			
 			// Memory
 			2'b10: begin
-				// Tipo		Op	   NULL
-				//	6:5	 	4		3:0
-				//	10		 	0		xxxx
+				// Tipo		Op	   S	NULL
+				//	6:5	 	4		3	2:0
+				//	10		 	0		1	xxx
 				
 				FlagsWrite 	= 1'b0;
-				RegSrc 		= (Id[4] == 1'b1) ? 1'b1 : 1'b0;	// STR -> (RD y escritura en memoria)
-				MemtoReg 	= (Id[4] == 1'b1) ? 1'b0 : 1'b1; // LDR -> (RB y escritura en registro)
+				RegSrc 		= (Id[4] == 1'b1) ? 1'b1 : 1'b0;		// STR -> (RD y escritura en memoria)
+				MemtoReg 	= (Id[4] == 1'b1) ? 1'b0 : 1'b1; 	// LDR -> (RB y escritura en registro)
 				RegWrite 	= (Id[4] == 1'b1) ? 1'b0 : 1'b1;
 				MemWrite		= (Id[4] == 1'b1) ? 1'b1 : 1'b0;
 			end

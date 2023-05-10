@@ -5,6 +5,7 @@ module clock_manager
 	output logic clk
 );
 
+	logic clk_Serial;
 
 	localparam BAUD_RATE = 9600;
 

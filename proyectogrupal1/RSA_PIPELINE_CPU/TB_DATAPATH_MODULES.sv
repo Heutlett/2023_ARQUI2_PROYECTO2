@@ -28,28 +28,29 @@ module TB_DATAPATH_MODULES;
 //	logic [7:0] imm = 'd5;
 //	logic [8:0] none = 'bx;
 	
-//	// MEM LD
+	// MEM LD
+	logic [1:0] tipo = 'b10;
+	logic op = 'b0;
+	logic S = 'b0;
+	logic [2:0] null1 = 'b000;
+	logic [3:0] rd = 'd7;
+	logic [3:0] ra = 'd6;
+	logic [7:0] imm = 'd4;
+	logic [8:0] none = 'b0;
+	
+//	// MEM STR
 //	logic [1:0] tipo = 'b10;
-//	logic op = 'b0;
+//	logic op = 'b1;
 //	logic [3:0] null1 = 'b0000;
-//	logic [3:0] rd = 'd6;
+//	logic [3:0] rd = 'd0;
 //	logic [3:0] ra = 'd0;
 //	logic [7:0] imm = 'd0;
 //	logic [8:0] none = 'b0;
 	
-	// MEM STR
-	logic [1:0] tipo = 'b10;
-	logic op = 'b1;
-	logic [3:0] null1 = 'b0000;
-	logic [3:0] rd = 'd0;
-	logic [3:0] ra = 'd0;
-	logic [7:0] imm = 'd0;
-	logic [8:0] none = 'b0;
-	
 	// para poder hacer testing con las instrucciones.
 	// cuando se quita esto, se descomenta InstrF y InstrD del las entradas.
 	// logic [I-1:0] InstrF = {tipo, op, IS, rd, ra, imm, none};
-	logic [I-1:0] InstrF = {tipo, op, null1, rd, ra, imm, none};
+	logic [I-1:0] InstrF = {tipo, op, S, null1, rd, ra, imm, none};
 	logic [I-1:0] InstrD;
 	
 	
@@ -369,7 +370,7 @@ module TB_DATAPATH_MODULES;
 		
 		$display("\n--- data");
 		$display(" ALUOutputM : %0d %0d %0d %0d %0d %0d", ALUOutputM[5], ALUOutputM[4], ALUOutputM[3], ALUOutputM[2], ALUOutputM[1], ALUOutputM[0]);
-		$display(" AM : %0h", AM);
+		$display(" AM : %0b %0b ", AM);
 		$display(" WriteDataM : %0d %0d %0d %0d %0d %0d", WriteDataM[5], WriteDataM[4], WriteDataM[3], WriteDataM[2], WriteDataM[1], WriteDataM[0]);
 		$display(" WA3M : %0d", WA3M);
 		
