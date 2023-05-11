@@ -1,0 +1,422 @@
+# Reading pref.tcl
+# ERROR: No extended dataflow license exists
+# do VECTOR_CPU_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:18 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv 
+# -- Compiling module segment_mem_wb
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv(7): (vlog-13314) Defaulting port 'ALUFlagsM' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv(9): (vlog-13314) Defaulting port 'ReadDataM' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv(10): (vlog-13314) Defaulting port 'ALUOutputM' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	segment_mem_wb
+# End time: 16:15:18 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:18 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv 
+# -- Compiling module segment_if_id
+# 
+# Top level modules:
+# 	segment_if_id
+# End time: 16:15:19 on May 11,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:19 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv 
+# -- Compiling module segment_id_ex
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv(9): (vlog-13314) Defaulting port 'RD1D' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv(9): (vlog-13314) Defaulting port 'RD2D' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	segment_id_ex
+# End time: 16:15:19 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:19 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv 
+# -- Compiling module segment_ex_mem
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv(6): (vlog-13314) Defaulting port 'ALUFlagsE' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv(9): (vlog-13314) Defaulting port 'ALUOutputE' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv(9): (vlog-13314) Defaulting port 'WriteDataE' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	segment_ex_mem
+# End time: 16:15:19 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:19 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv 
+# -- Compiling module regfile
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv(16): (vlog-13314) Defaulting port 'WD3' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	regfile
+# End time: 16:15:19 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:19 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv 
+# -- Compiling module pc_control_unit
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv(6): (vlog-13314) Defaulting port 'ALUFlags' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	pc_control_unit
+# End time: 16:15:19 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:19 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv 
+# -- Compiling module mux3
+# 
+# Top level modules:
+# 	mux3
+# End time: 16:15:19 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:19 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv 
+# -- Compiling module mux2_vec
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv(5): (vlog-13314) Defaulting port 'd0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv(5): (vlog-13314) Defaulting port 'd1' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	mux2_vec
+# End time: 16:15:19 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:20 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv 
+# -- Compiling module mux2
+# 
+# Top level modules:
+# 	mux2
+# End time: 16:15:20 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopr.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:20 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopr.sv 
+# -- Compiling module flopr
+# 
+# Top level modules:
+# 	flopr
+# End time: 16:15:20 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopenr.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:20 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopenr.sv 
+# -- Compiling module flopenr
+# 
+# Top level modules:
+# 	flopenr
+# End time: 16:15:20 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:20 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv 
+# -- Compiling module datapath
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv(9): (vlog-13314) Defaulting port 'ReadData' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	datapath
+# End time: 16:15:20 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:20 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv 
+# -- Compiling module cpu
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv(7): (vlog-13314) Defaulting port 'ReadData' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	cpu
+# End time: 16:15:20 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:20 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv 
+# -- Compiling module control_unit
+# 
+# Top level modules:
+# 	control_unit
+# End time: 16:15:20 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:20 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv 
+# -- Compiling module alu_lanes
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv(6): (vlog-13314) Defaulting port 'SrcAE' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv(6): (vlog-13314) Defaulting port 'SrcBE' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	alu_lanes
+# End time: 16:15:21 on May 11,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 2
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_defs.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:21 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_defs.sv 
+# -- Compiling package alu_defs
+# 
+# Top level modules:
+# 	--none--
+# End time: 16:15:21 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:21 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv 
+# -- Compiling module address_offset
+# 
+# Top level modules:
+# 	address_offset
+# End time: 16:15:21 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:21 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv 
+# -- Compiling module alu
+# -- Importing package alu_defs
+# 
+# Top level modules:
+# 	alu
+# End time: 16:15:21 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:21 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv 
+# -- Compiling module regfile
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv(16): (vlog-13314) Defaulting port 'WD3' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	regfile
+# End time: 16:15:21 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:21 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv 
+# -- Compiling module segment_mem_wb
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv(7): (vlog-13314) Defaulting port 'ALUFlagsM' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv(9): (vlog-13314) Defaulting port 'ReadDataM' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv(10): (vlog-13314) Defaulting port 'ALUOutputM' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	segment_mem_wb
+# End time: 16:15:21 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:21 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv 
+# -- Compiling module alu_lanes
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv(6): (vlog-13314) Defaulting port 'SrcAE' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv(6): (vlog-13314) Defaulting port 'SrcBE' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	alu_lanes
+# End time: 16:15:22 on May 11,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 2
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:22 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv 
+# -- Compiling module pc_control_unit
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv(6): (vlog-13314) Defaulting port 'ALUFlags' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	pc_control_unit
+# End time: 16:15:22 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:22 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv 
+# -- Compiling module mux3
+# 
+# Top level modules:
+# 	mux3
+# End time: 16:15:22 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:22 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv 
+# -- Compiling module alu
+# -- Importing package alu_defs
+# 
+# Top level modules:
+# 	alu
+# End time: 16:15:22 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:22 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv 
+# -- Compiling module datapath
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv(9): (vlog-13314) Defaulting port 'ReadData' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	datapath
+# End time: 16:15:22 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/data_mem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:22 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/data_mem.sv 
+# -- Compiling module data_mem
+# ** Warning: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/data_mem.sv(6): (vlog-13314) Defaulting port 'WD' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# Top level modules:
+# 	data_mem
+# End time: 16:15:22 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:22 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv 
+# -- Compiling module control_unit
+# 
+# Top level modules:
+# 	control_unit
+# End time: 16:15:22 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:22 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv 
+# -- Compiling module segment_if_id
+# 
+# Top level modules:
+# 	segment_if_id
+# End time: 16:15:23 on May 11,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_defs.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:23 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_defs.sv 
+# -- Compiling package alu_defs
+# 
+# Top level modules:
+# 	--none--
+# End time: 16:15:23 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:23 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv 
+# -- Compiling module address_offset
+# 
+# Top level modules:
+# 	address_offset
+# End time: 16:15:23 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:23 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv 
+# -- Compiling module mux2
+# 
+# Top level modules:
+# 	mux2
+# End time: 16:15:23 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_CPU.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:23 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_CPU.sv 
+# -- Compiling module TB_CPU
+# 
+# Top level modules:
+# 	TB_CPU
+# End time: 16:15:23 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/jeyki/OneDrive\ -\ Estudiantes\ ITCR/semesters/2023\ -\ Sem\ I/Arquitectura\ 2/project2/vectorial_cpu/VECTOR_CPU/MODULES {C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/instr_mem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:15:23 on May 11,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES" C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/instr_mem.sv 
+# -- Compiling module instr_mem
+# 
+# Top level modules:
+# 	instr_mem
+# End time: 16:15:23 on May 11,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiv_hssi_ver -L cycloneiv_pcie_hip_ver -L cycloneiv_ver -L rtl_work -L work -voptargs="+acc"  TB_CPU
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiv_hssi_ver -L cycloneiv_pcie_hip_ver -L cycloneiv_ver -L rtl_work -L work -voptargs=""+acc"" TB_CPU 
+# Start time: 16:15:23 on May 11,2023
+# Loading sv_std.std
+# Loading work.TB_CPU
+# Loading work.cpu
+# Loading work.pc_control_unit
+# Loading work.flopenr
+# Loading work.flopr
+# Loading work.control_unit
+# Loading work.datapath
+# Loading work.segment_if_id
+# Loading work.mux2
+# Loading work.regfile
+# Loading work.segment_id_ex
+# Loading work.address_offset
+# Loading work.alu_lanes
+# Loading work.mux3
+# Loading work.alu_defs
+# Loading work.alu
+# Loading work.segment_ex_mem
+# Loading work.segment_mem_wb
+# Loading work.mux2_vec
+# Loading work.instr_mem
+# Loading work.data_mem
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+#  Instr		: x
+#  COMFlag	: 0
+#  EndFlag	: x
+#  PC		: 100
+#  MemWriteM	: 0
+#  Address	: 0
+#  WriteData	: 0 0 0 0 0 0
+# 
+# 
+# --- Write RegFile Vectorial ----
+# Vector i   (dec):-------  6
+# Write data (hex):------- 5 5 5 5 5 5
+# ** Note: $finish    : C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_CPU.sv(84)
+#    Time: 120 ps  Iteration: 0  Instance: /TB_CPU
+# 1
+# Break in Module TB_CPU at C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_CPU.sv line 84
+# End time: 16:24:13 on May 11,2023, Elapsed time: 0:08:50
+# Errors: 0, Warnings: 0

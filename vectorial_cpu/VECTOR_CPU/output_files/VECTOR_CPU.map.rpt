@@ -1,0 +1,1161 @@
+Analysis & Synthesis report for VECTOR_CPU
+Thu May 11 16:15:03 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |cpu
+ 14. Parameter Settings for User Entity Instance: pc_control_unit:pcu
+ 15. Parameter Settings for User Entity Instance: pc_control_unit:pcu|flopenr:flagreg2
+ 16. Parameter Settings for User Entity Instance: pc_control_unit:pcu|flopr:pcreg
+ 17. Parameter Settings for User Entity Instance: datapath:dp
+ 18. Parameter Settings for User Entity Instance: datapath:dp|mux2:ra2mux
+ 19. Parameter Settings for User Entity Instance: datapath:dp|segment_id_ex:seg_id_ex
+ 20. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes
+ 21. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1
+ 22. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2
+ 23. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3
+ 24. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4
+ 25. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5
+ 26. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6
+ 27. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu1
+ 28. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu2
+ 29. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu3
+ 30. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu4
+ 31. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu5
+ 32. Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu6
+ 33. Parameter Settings for User Entity Instance: datapath:dp|segment_ex_mem:seg_ex_mem
+ 34. Parameter Settings for User Entity Instance: datapath:dp|segment_mem_wb:seg_mem_wb
+ 35. Parameter Settings for User Entity Instance: datapath:dp|mux2_vec:res_mux
+ 36. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0
+ 37. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu2|lpm_mult:Mult0
+ 38. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu3|lpm_mult:Mult0
+ 39. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu4|lpm_mult:Mult0
+ 40. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu5|lpm_mult:Mult0
+ 41. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu6|lpm_mult:Mult0
+ 42. lpm_mult Parameter Settings by Entity Instance
+ 43. Port Connectivity Checks: "datapath:dp"
+ 44. Port Connectivity Checks: "pc_control_unit:pcu|flopenr:flagreg2"
+ 45. Post-Synthesis Netlist Statistics for Top Partition
+ 46. Elapsed Time Per Partition
+ 47. Analysis & Synthesis Messages
+ 48. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu May 11 16:15:03 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; VECTOR_CPU                                  ;
+; Top-level Entity Name              ; cpu                                         ;
+; Family                             ; Cyclone IV GX                               ;
+; Total logic elements               ; 1,705                                       ;
+;     Total combinational functions  ; 1,124                                       ;
+;     Dedicated logic registers      ; 891                                         ;
+; Total registers                    ; 891                                         ;
+; Total pins                         ; 198                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 6                                           ;
+; Total GXB Receiver Channel PCS     ; 0                                           ;
+; Total GXB Receiver Channel PMA     ; 0                                           ;
+; Total GXB Transmitter Channel PCS  ; 0                                           ;
+; Total GXB Transmitter Channel PMA  ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CGX150DF31C7    ;                    ;
+; Top-level entity name                                            ; cpu                ; VECTOR_CPU         ;
+; Family name                                                      ; Cyclone IV GX      ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                  ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; MODULES/segment_mem_wb.sv        ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv  ;         ;
+; MODULES/segment_if_id.sv         ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv   ;         ;
+; MODULES/segment_id_ex.sv         ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv   ;         ;
+; MODULES/segment_ex_mem.sv        ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv  ;         ;
+; MODULES/regfile.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv         ;         ;
+; MODULES/pc_control_unit.sv       ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv ;         ;
+; MODULES/mux3.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv            ;         ;
+; MODULES/mux2_vec.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv        ;         ;
+; MODULES/mux2.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv            ;         ;
+; MODULES/flopr.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopr.sv           ;         ;
+; MODULES/flopenr.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopenr.sv         ;         ;
+; MODULES/datapath.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv        ;         ;
+; MODULES/cpu.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv             ;         ;
+; MODULES/control_unit.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv    ;         ;
+; MODULES/alu_lanes.sv             ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv       ;         ;
+; MODULES/alu_defs.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_defs.sv        ;         ;
+; MODULES/alu.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv             ;         ;
+; MODULES/address_offset.sv        ; yes             ; User SystemVerilog HDL File  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv  ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf                                                                           ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                                         ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                                                        ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc                                                                           ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc                                                                           ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc                                                                           ;         ;
+; db/mult_4et.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/db/mult_4et.tdf            ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 198              ;
+;                          ;                  ;
+; DSP block 9-bit elements ; 6                ;
+;                          ;                  ;
+; Maximum fan-out node     ; clk~input        ;
+; Maximum fan-out          ; 891              ;
+; Total fan-out            ; 7202             ;
+; Average fan-out          ; 2.97             ;
++--------------------------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                     ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Entity Name     ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+-----------------+--------------+
+; |cpu                                     ; 1124 (1)            ; 891 (0)                   ; 0           ; 6            ; 6       ; 0         ; 0         ; 198  ; 0            ; |cpu                                                                                 ; cpu             ; work         ;
+;    |control_unit:cn|                     ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|control_unit:cn                                                                 ; control_unit    ; work         ;
+;    |datapath:dp|                         ; 1079 (0)            ; 858 (0)                   ; 0           ; 6            ; 6       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp                                                                     ; datapath        ; work         ;
+;       |alu_lanes:alu_lanes|              ; 181 (0)             ; 0 (0)                     ; 0           ; 6            ; 6       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes                                                 ; alu_lanes       ; work         ;
+;          |alu:alu1|                      ; 16 (16)             ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1                                        ; alu             ; work         ;
+;             |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
+;                |mult_4et:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0|mult_4et:auto_generated ; mult_4et        ; work         ;
+;          |alu:alu2|                      ; 16 (16)             ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu2                                        ; alu             ; work         ;
+;             |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu2|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
+;                |mult_4et:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu2|lpm_mult:Mult0|mult_4et:auto_generated ; mult_4et        ; work         ;
+;          |alu:alu3|                      ; 16 (16)             ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu3                                        ; alu             ; work         ;
+;             |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu3|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
+;                |mult_4et:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu3|lpm_mult:Mult0|mult_4et:auto_generated ; mult_4et        ; work         ;
+;          |alu:alu4|                      ; 16 (16)             ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu4                                        ; alu             ; work         ;
+;             |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu4|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
+;                |mult_4et:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu4|lpm_mult:Mult0|mult_4et:auto_generated ; mult_4et        ; work         ;
+;          |alu:alu5|                      ; 16 (16)             ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu5                                        ; alu             ; work         ;
+;             |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu5|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
+;                |mult_4et:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu5|lpm_mult:Mult0|mult_4et:auto_generated ; mult_4et        ; work         ;
+;          |alu:alu6|                      ; 16 (16)             ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu6                                        ; alu             ; work         ;
+;             |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu6|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
+;                |mult_4et:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu6|lpm_mult:Mult0|mult_4et:auto_generated ; mult_4et        ; work         ;
+;          |mux3:mux3_1|                   ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1                                     ; mux3            ; work         ;
+;          |mux3:mux3_2|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2                                     ; mux3            ; work         ;
+;          |mux3:mux3_3|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3                                     ; mux3            ; work         ;
+;          |mux3:mux3_4|                   ; 43 (43)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4                                     ; mux3            ; work         ;
+;          |mux3:mux3_5|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5                                     ; mux3            ; work         ;
+;          |mux3:mux3_6|                   ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6                                     ; mux3            ; work         ;
+;       |mux2:ra2mux|                      ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|mux2:ra2mux                                                         ; mux2            ; work         ;
+;       |mux2_vec:res_mux|                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|mux2_vec:res_mux                                                    ; mux2_vec        ; work         ;
+;       |regfile:reg_file|                 ; 785 (785)           ; 480 (480)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|regfile:reg_file                                                    ; regfile         ; work         ;
+;       |segment_ex_mem:seg_ex_mem|        ; 86 (86)             ; 135 (135)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_ex_mem:seg_ex_mem                                           ; segment_ex_mem  ; work         ;
+;       |segment_id_ex:seg_id_ex|          ; 8 (8)               ; 118 (118)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_id_ex:seg_id_ex                                             ; segment_id_ex   ; work         ;
+;       |segment_if_id:seg_if_id|          ; 0 (0)               ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_if_id:seg_if_id                                             ; segment_if_id   ; work         ;
+;       |segment_mem_wb:seg_mem_wb|        ; 0 (0)               ; 102 (102)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_mem_wb:seg_mem_wb                                           ; segment_mem_wb  ; work         ;
+;    |pc_control_unit:pcu|                 ; 36 (2)              ; 33 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|pc_control_unit:pcu                                                             ; pc_control_unit ; work         ;
+;       |flopenr:flagreg2|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|pc_control_unit:pcu|flopenr:flagreg2                                            ; flopenr         ; work         ;
+;       |flopr:pcreg|                      ; 33 (33)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|pc_control_unit:pcu|flopr:pcreg                                                 ; flopr           ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 6           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Simple Multipliers (36-bit)           ; 0           ;
+; Multiply Accumulators (18-bit)        ; 0           ;
+; Two-Multipliers Adders (9-bit)        ; 0           ;
+; Two-Multipliers Adders (18-bit)       ; 0           ;
+; Four-Multipliers Adders (9-bit)       ; 0           ;
+; Four-Multipliers Adders (18-bit)      ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 6           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 6           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++----------------------------------------------------+----------------------------------------+
+; Register name                                      ; Reason for Removal                     ;
++----------------------------------------------------+----------------------------------------+
+; datapath:dp|segment_id_ex:seg_id_ex|ALUControlE[2] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1              ;                                        ;
++----------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 891   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 110   ;
+; Number of registers using Asynchronous Clear ; 411   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 512   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------+
+; Inverted Register Statistics                       ;
++------------------------------------------+---------+
+; Inverted Register                        ; Fan out ;
++------------------------------------------+---------+
+; datapath:dp|regfile:reg_file|rf[1][0][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][0][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][3] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][4] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][5] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][6] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][0][7] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[1][1][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][1][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[1][2][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][2][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][2][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][2][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][2][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][2][3] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][2][4] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][2][6] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][2][7] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[1][3][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][3][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][3] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][4] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][5] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][6] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][3][7] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][4][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[1][4][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][4][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[1][5][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][5][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][5][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][3] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][4] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][5] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][6] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[6][5][7] ; 2       ;
+; Total number of inverted registers = 45  ;         ;
++------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][3][0]               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][2][2]               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][1][0]               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][4][3]               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][5][7]               ;
+; 4:1                ; 48 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUOutputM[4][7] ;
+; 10:1               ; 24 bits   ; 144 LEs       ; 24 LEs               ; 120 LEs                ; Yes        ; |cpu|pc_control_unit:pcu|flopr:pcreg|q[10]                  ;
+; 10:1               ; 6 bits    ; 36 LEs        ; 6 LEs                ; 30 LEs                 ; Yes        ; |cpu|pc_control_unit:pcu|flopr:pcreg|q[7]                   ;
+; 17:1               ; 48 bits   ; 528 LEs       ; 336 LEs              ; 192 LEs                ; Yes        ; |cpu|datapath:dp|segment_id_ex:seg_id_ex|RD2E[2][7]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][2][1]               ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][4][2]               ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][5][1]               ;
+; 16:1               ; 48 bits   ; 480 LEs       ; 336 LEs              ; 144 LEs                ; Yes        ; |cpu|datapath:dp|segment_id_ex:seg_id_ex|RD1E[1][1]         ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|Mux0       ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 0 LEs                ; 150 LEs                ; No         ; |cpu|pc_control_unit:pcu|Add0                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |cpu ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; I              ; 32    ; Signed Integer                             ;
+; N              ; 8     ; Signed Integer                             ;
+; R              ; 6     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pc_control_unit:pcu ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; I              ; 32    ; Signed Integer                          ;
+; N              ; 8     ; Signed Integer                          ;
+; R              ; 6     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pc_control_unit:pcu|flopenr:flagreg2 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pc_control_unit:pcu|flopr:pcreg ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; I              ; 32    ; Signed Integer                  ;
+; N              ; 8     ; Signed Integer                  ;
+; R              ; 6     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|mux2:ra2mux ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|segment_id_ex:seg_id_ex ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                          ;
+; R              ; 6     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; N              ; 8     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu1 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu2 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu3 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu4 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu5 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu6 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|segment_ex_mem:seg_ex_mem ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; I              ; 32    ; Signed Integer                                            ;
+; N              ; 8     ; Signed Integer                                            ;
+; R              ; 6     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|segment_mem_wb:seg_mem_wb ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; I              ; 32    ; Signed Integer                                            ;
+; N              ; 8     ; Signed Integer                                            ;
+; R              ; 6     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|mux2_vec:res_mux ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 8     ; Signed Integer                                   ;
+; R              ; 6     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------------------+
+; Parameter Name                                 ; Value         ; Type                                    ;
++------------------------------------------------+---------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE                          ;
+; LPM_WIDTHA                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHB                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHP                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHR                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED      ; Untyped                                 ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                                 ;
+; LATENCY                                        ; 0             ; Untyped                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; USE_EAB                                        ; OFF           ; Untyped                                 ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                                 ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                                 ;
+; CBXI_PARAMETER                                 ; mult_4et      ; Untyped                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                                 ;
++------------------------------------------------+---------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu2|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------------------+
+; Parameter Name                                 ; Value         ; Type                                    ;
++------------------------------------------------+---------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE                          ;
+; LPM_WIDTHA                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHB                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHP                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHR                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED      ; Untyped                                 ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                                 ;
+; LATENCY                                        ; 0             ; Untyped                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; USE_EAB                                        ; OFF           ; Untyped                                 ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                                 ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                                 ;
+; CBXI_PARAMETER                                 ; mult_4et      ; Untyped                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                                 ;
++------------------------------------------------+---------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu3|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------------------+
+; Parameter Name                                 ; Value         ; Type                                    ;
++------------------------------------------------+---------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE                          ;
+; LPM_WIDTHA                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHB                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHP                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHR                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED      ; Untyped                                 ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                                 ;
+; LATENCY                                        ; 0             ; Untyped                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; USE_EAB                                        ; OFF           ; Untyped                                 ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                                 ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                                 ;
+; CBXI_PARAMETER                                 ; mult_4et      ; Untyped                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                                 ;
++------------------------------------------------+---------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu4|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------------------+
+; Parameter Name                                 ; Value         ; Type                                    ;
++------------------------------------------------+---------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE                          ;
+; LPM_WIDTHA                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHB                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHP                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHR                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED      ; Untyped                                 ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                                 ;
+; LATENCY                                        ; 0             ; Untyped                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; USE_EAB                                        ; OFF           ; Untyped                                 ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                                 ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                                 ;
+; CBXI_PARAMETER                                 ; mult_4et      ; Untyped                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                                 ;
++------------------------------------------------+---------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu5|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------------------+
+; Parameter Name                                 ; Value         ; Type                                    ;
++------------------------------------------------+---------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE                          ;
+; LPM_WIDTHA                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHB                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHP                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHR                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED      ; Untyped                                 ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                                 ;
+; LATENCY                                        ; 0             ; Untyped                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; USE_EAB                                        ; OFF           ; Untyped                                 ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                                 ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                                 ;
+; CBXI_PARAMETER                                 ; mult_4et      ; Untyped                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                                 ;
++------------------------------------------------+---------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu6|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------------------+
+; Parameter Name                                 ; Value         ; Type                                    ;
++------------------------------------------------+---------------+-----------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE                          ;
+; LPM_WIDTHA                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHB                                     ; 8             ; Untyped                                 ;
+; LPM_WIDTHP                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHR                                     ; 16            ; Untyped                                 ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                                 ;
+; LPM_REPRESENTATION                             ; UNSIGNED      ; Untyped                                 ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                                 ;
+; LATENCY                                        ; 0             ; Untyped                                 ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                                 ;
+; USE_EAB                                        ; OFF           ; Untyped                                 ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                                 ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                                 ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K                     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                                 ;
+; CBXI_PARAMETER                                 ; mult_4et      ; Untyped                                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                                 ;
++------------------------------------------------+---------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                  ;
++---------------------------------------+---------------------------------------------------------+
+; Name                                  ; Value                                                   ;
++---------------------------------------+---------------------------------------------------------+
+; Number of entity instances            ; 6                                                       ;
+; Entity Instance                       ; datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                                       ;
+;     -- LPM_WIDTHB                     ; 8                                                       ;
+;     -- LPM_WIDTHP                     ; 16                                                      ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                      ;
+;     -- USE_EAB                        ; OFF                                                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                      ;
+; Entity Instance                       ; datapath:dp|alu_lanes:alu_lanes|alu:alu2|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                                       ;
+;     -- LPM_WIDTHB                     ; 8                                                       ;
+;     -- LPM_WIDTHP                     ; 16                                                      ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                      ;
+;     -- USE_EAB                        ; OFF                                                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                      ;
+; Entity Instance                       ; datapath:dp|alu_lanes:alu_lanes|alu:alu3|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                                       ;
+;     -- LPM_WIDTHB                     ; 8                                                       ;
+;     -- LPM_WIDTHP                     ; 16                                                      ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                      ;
+;     -- USE_EAB                        ; OFF                                                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                      ;
+; Entity Instance                       ; datapath:dp|alu_lanes:alu_lanes|alu:alu4|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                                       ;
+;     -- LPM_WIDTHB                     ; 8                                                       ;
+;     -- LPM_WIDTHP                     ; 16                                                      ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                      ;
+;     -- USE_EAB                        ; OFF                                                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                      ;
+; Entity Instance                       ; datapath:dp|alu_lanes:alu_lanes|alu:alu5|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                                       ;
+;     -- LPM_WIDTHB                     ; 8                                                       ;
+;     -- LPM_WIDTHP                     ; 16                                                      ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                      ;
+;     -- USE_EAB                        ; OFF                                                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                      ;
+; Entity Instance                       ; datapath:dp|alu_lanes:alu_lanes|alu:alu6|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                                       ;
+;     -- LPM_WIDTHB                     ; 8                                                       ;
+;     -- LPM_WIDTHP                     ; 16                                                      ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                      ;
+;     -- USE_EAB                        ; OFF                                                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                      ;
++---------------------------------------+---------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp"                                                                                 ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; InstrD[24..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "pc_control_unit:pcu|flopenr:flagreg2" ;
++------+-------+----------+----------------------------------------+
+; Port ; Type  ; Severity ; Details                                ;
++------+-------+----------+----------------------------------------+
+; d    ; Input ; Info     ; Stuck at VCC                           ;
++------+-------+----------+----------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 198                         ;
+; cycloneiii_ff         ; 891                         ;
+;     CLR               ; 331                         ;
+;     CLR SLD           ; 48                          ;
+;     ENA               ; 448                         ;
+;     ENA CLR           ; 2                           ;
+;     ENA CLR SLD       ; 30                          ;
+;     ENA SLD           ; 32                          ;
+; cycloneiii_lcell_comb ; 1124                        ;
+;     arith             ; 108                         ;
+;         2 data inputs ; 58                          ;
+;         3 data inputs ; 50                          ;
+;     normal            ; 1016                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 39                          ;
+;         2 data inputs ; 108                         ;
+;         3 data inputs ; 131                         ;
+;         4 data inputs ; 737                         ;
+; cycloneiii_mac_mult   ; 6                           ;
+; cycloneiii_mac_out    ; 6                           ;
+;                       ;                             ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 4.32                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Thu May 11 16:14:35 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VECTOR_CPU -c VECTOR_CPU
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_top_modules.sv
+    Info (12023): Found entity 1: TB_TOP_MODULES File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_TOP_MODULES.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_top.sv
+    Info (12023): Found entity 1: TB_TOP File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_TOP.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_reg_file.sv
+    Info (12023): Found entity 1: TB_REG_FILE File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_REG_FILE.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_pc_control_unit.sv
+    Info (12023): Found entity 1: TB_PC_CONTROL_UNIT File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_PC_CONTROL_UNIT.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_dmem.sv
+    Info (12023): Found entity 1: TB_DMEM File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_DMEM.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_datapath_modules.sv
+    Info (12023): Found entity 1: TB_DATAPATH_MODULES File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_DATAPATH_MODULES.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_cpu.sv
+    Info (12023): Found entity 1: TB_CPU File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_CPU.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_alu_lanes.sv
+    Info (12023): Found entity 1: TB_ALU_LANES File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_ALU_LANES.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/tb_alu.sv
+    Info (12023): Found entity 1: TB_ALU File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/TESTBENCHES/TB_ALU.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/top.sv
+    Info (12023): Found entity 1: top File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/segment_mem_wb.sv
+    Info (12023): Found entity 1: segment_mem_wb File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/segment_if_id.sv
+    Info (12023): Found entity 1: segment_if_id File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/segment_id_ex.sv
+    Info (12023): Found entity 1: segment_id_ex File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/segment_ex_mem.sv
+    Info (12023): Found entity 1: segment_ex_mem File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/regfile.sv
+    Info (12023): Found entity 1: regfile File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/pc_control_unit.sv
+    Info (12023): Found entity 1: pc_control_unit File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/mux3.sv
+    Info (12023): Found entity 1: mux3 File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/mux2_vec.sv
+    Info (12023): Found entity 1: mux2_vec File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/mux2.sv
+    Info (12023): Found entity 1: mux2 File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/instr_mem.sv
+    Info (12023): Found entity 1: instr_mem File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/instr_mem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/flopr.sv
+    Info (12023): Found entity 1: flopr File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopr.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/flopenr.sv
+    Info (12023): Found entity 1: flopenr File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopenr.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/datapath.sv
+    Info (12023): Found entity 1: datapath File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/data_mem.sv
+    Info (12023): Found entity 1: data_mem File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/data_mem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/cpu.sv
+    Info (12023): Found entity 1: cpu File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/control_unit.sv
+    Info (12023): Found entity 1: control_unit File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/clockdivider.sv
+    Info (12023): Found entity 1: clockDivider File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/clockDivider.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/clock_manager.sv
+    Info (12023): Found entity 1: clock_manager File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/clock_manager.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/alu_lanes.sv
+    Info (12023): Found entity 1: alu_lanes File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv Line: 1
+Info (12021): Found 1 design units, including 0 entities, in source file modules/alu_defs.sv
+    Info (12022): Found design unit 1: alu_defs (SystemVerilog) File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_defs.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/alu.sv
+    Info (12023): Found entity 1: alu File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modules/address_offset.sv
+    Info (12023): Found entity 1: address_offset File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv Line: 1
+Info (12127): Elaborating entity "cpu" for the top level hierarchy
+Info (12128): Elaborating entity "pc_control_unit" for hierarchy "pc_control_unit:pcu" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 36
+Info (12128): Elaborating entity "flopenr" for hierarchy "pc_control_unit:pcu|flopenr:flagreg2" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv Line: 37
+Info (12128): Elaborating entity "flopr" for hierarchy "pc_control_unit:pcu|flopr:pcreg" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv Line: 47
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:cn" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 57
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 83
+Info (12128): Elaborating entity "segment_if_id" for hierarchy "datapath:dp|segment_if_id:seg_if_id" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 31
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|mux2:ra2mux" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 45
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|regfile:reg_file" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 65
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rf" into its bus
+Info (12128): Elaborating entity "segment_id_ex" for hierarchy "datapath:dp|segment_id_ex:seg_id_ex" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 104
+Info (12128): Elaborating entity "address_offset" for hierarchy "datapath:dp|address_offset:offset_model" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 115
+Info (12128): Elaborating entity "alu_lanes" for hierarchy "datapath:dp|alu_lanes:alu_lanes" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 133
+Info (12128): Elaborating entity "mux3" for hierarchy "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv Line: 38
+Info (12128): Elaborating entity "alu" for hierarchy "datapath:dp|alu_lanes:alu_lanes|alu:alu1" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv Line: 45
+Info (12128): Elaborating entity "segment_ex_mem" for hierarchy "datapath:dp|segment_ex_mem:seg_ex_mem" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 164
+Info (12128): Elaborating entity "segment_mem_wb" for hierarchy "datapath:dp|segment_mem_wb:seg_mem_wb" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 190
+Info (12128): Elaborating entity "mux2_vec" for hierarchy "datapath:dp|mux2_vec:res_mux" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 203
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "control_unit:cn|RegSrc" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv Line: 6
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "datapath:dp|alu_lanes:alu_lanes|alu:alu1|Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "datapath:dp|alu_lanes:alu_lanes|alu:alu2|Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "datapath:dp|alu_lanes:alu_lanes|alu:alu3|Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "datapath:dp|alu_lanes:alu_lanes|alu:alu4|Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "datapath:dp|alu_lanes:alu_lanes|alu:alu5|Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "datapath:dp|alu_lanes:alu_lanes|alu:alu6|Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+Info (12130): Elaborated megafunction instantiation "datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+Info (12133): Instantiated megafunction "datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0" with the following parameter: File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_4et.tdf
+    Info (12023): Found entity 1: mult_4et File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/db/mult_4et.tdf Line: 29
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/output_files/VECTOR_CPU.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 9 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Instr[0]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[1]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[2]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[3]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[4]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[5]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[6]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[7]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+    Warning (15610): No output dependent on input pin "Instr[8]" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 6
+Info (21057): Implemented 1962 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 83 input pins
+    Info (21059): Implemented 115 output pins
+    Info (21061): Implemented 1758 logic cells
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4875 megabytes
+    Info: Processing ended: Thu May 11 16:15:03 2023
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:16
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/output_files/VECTOR_CPU.map.smsg.
+
+

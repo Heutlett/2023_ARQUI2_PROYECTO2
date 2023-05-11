@@ -1,6 +1,6 @@
 module TB_PC_CONTROL_UNIT;
 	
-	logic clk, reset, start, FlagsW, EndFlag, COMFlag;
+	logic clk, reset, start, FlagsWrite, EndFlag, COMFlag;
 	logic [31:0] Instr, PC;
 	logic [5:0][1:0]  ALUFlags;
 
@@ -9,7 +9,7 @@ module TB_PC_CONTROL_UNIT;
 					.clk(clk), 
 					.reset(reset),
 					.start(start),
-					.FlagsW(FlagsW),
+					.FlagsWrite(FlagsWrite),
 					.Id(Instr[31:28]), 
 					.ALUFlags(ALUFlags),
 					.Imm(Instr[17:0]),
@@ -30,7 +30,7 @@ module TB_PC_CONTROL_UNIT;
 		reset = 0;
 		#10
 		
-		FlagsW = 0;
+		FlagsWrite = 0;
 		ALUFlags = 2'b00;
 		EndFlag = 0;
 		COMFlag = 0;
@@ -46,13 +46,13 @@ module TB_PC_CONTROL_UNIT;
 		
 		// JEQ fin2
 		ALUFlags = 2'b01;
-		FlagsW = 1;
+		FlagsWrite = 1;
 		Instr = 32'hD000013C;
 		#10;
 		
 		// JLT exp_add
 		ALUFlags = 2'b10;
-		FlagsW = 1;
+		FlagsWrite = 1;
 		Instr = 32'hE0000094;
 		#10;
 	end

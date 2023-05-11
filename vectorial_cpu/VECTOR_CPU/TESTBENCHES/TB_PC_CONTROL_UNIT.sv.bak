@@ -2,7 +2,7 @@ module TB_PC_CONTROL_UNIT;
 	
 	logic clk, reset, start, FlagsW, EndFlag, COMFlag;
 	logic [31:0] Instr, PC;
-	logic [5:0][1:0]  ALUFlags;
+	logic [R-1:0][1:0]  ALUFlags;
 
 	pc_control_unit pcu(
 					// Entradas

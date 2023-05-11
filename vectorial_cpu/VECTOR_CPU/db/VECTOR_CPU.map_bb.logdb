@@ -1,0 +1,7 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,datapath:dp|alu_lanes:alu_lanes|alu:alu6|lpm_mult:Mult0|mult_4et:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,datapath:dp|alu_lanes:alu_lanes|alu:alu5|lpm_mult:Mult0|mult_4et:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,datapath:dp|alu_lanes:alu_lanes|alu:alu4|lpm_mult:Mult0|mult_4et:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,datapath:dp|alu_lanes:alu_lanes|alu:alu3|lpm_mult:Mult0|mult_4et:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,datapath:dp|alu_lanes:alu_lanes|alu:alu2|lpm_mult:Mult0|mult_4et:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0|mult_4et:auto_generated|mac_out2,
