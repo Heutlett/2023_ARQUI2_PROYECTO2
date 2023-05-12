@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VECTOR_CPU
-Thu May 11 16:15:03 2023
+Thu May 11 18:59:23 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -48,12 +48,13 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  40. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu5|lpm_mult:Mult0
  41. Parameter Settings for Inferred Entity Instance: datapath:dp|alu_lanes:alu_lanes|alu:alu6|lpm_mult:Mult0
  42. lpm_mult Parameter Settings by Entity Instance
- 43. Port Connectivity Checks: "datapath:dp"
- 44. Port Connectivity Checks: "pc_control_unit:pcu|flopenr:flagreg2"
- 45. Post-Synthesis Netlist Statistics for Top Partition
- 46. Elapsed Time Per Partition
- 47. Analysis & Synthesis Messages
- 48. Analysis & Synthesis Suppressed Messages
+ 43. Port Connectivity Checks: "datapath:dp|segment_mem_wb:seg_mem_wb"
+ 44. Port Connectivity Checks: "datapath:dp"
+ 45. Port Connectivity Checks: "pc_control_unit:pcu|flopenr:flagreg2"
+ 46. Post-Synthesis Netlist Statistics for Top Partition
+ 47. Elapsed Time Per Partition
+ 48. Analysis & Synthesis Messages
+ 49. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -80,15 +81,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 11 16:15:03 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 11 18:59:23 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; VECTOR_CPU                                  ;
 ; Top-level Entity Name              ; cpu                                         ;
 ; Family                             ; Cyclone IV GX                               ;
-; Total logic elements               ; 1,705                                       ;
-;     Total combinational functions  ; 1,124                                       ;
-;     Dedicated logic registers      ; 891                                         ;
-; Total registers                    ; 891                                         ;
+; Total logic elements               ; 1,706                                       ;
+;     Total combinational functions  ; 1,134                                       ;
+;     Dedicated logic registers      ; 893                                         ;
+; Total registers                    ; 893                                         ;
 ; Total pins                         ; 198                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -201,8 +202,8 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -249,9 +250,9 @@ https://fpgasoftware.intel.com/eula.
 ; DSP block 9-bit elements ; 6                ;
 ;                          ;                  ;
 ; Maximum fan-out node     ; clk~input        ;
-; Maximum fan-out          ; 891              ;
-; Total fan-out            ; 7202             ;
-; Average fan-out          ; 2.97             ;
+; Maximum fan-out          ; 893              ;
+; Total fan-out            ; 7213             ;
+; Average fan-out          ; 2.96             ;
 +--------------------------+------------------+
 
 
@@ -260,10 +261,10 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Entity Name     ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+-----------------+--------------+
-; |cpu                                     ; 1124 (1)            ; 891 (0)                   ; 0           ; 6            ; 6       ; 0         ; 0         ; 198  ; 0            ; |cpu                                                                                 ; cpu             ; work         ;
+; |cpu                                     ; 1134 (1)            ; 893 (0)                   ; 0           ; 6            ; 6       ; 0         ; 0         ; 198  ; 0            ; |cpu                                                                                 ; cpu             ; work         ;
 ;    |control_unit:cn|                     ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|control_unit:cn                                                                 ; control_unit    ; work         ;
-;    |datapath:dp|                         ; 1079 (0)            ; 858 (0)                   ; 0           ; 6            ; 6       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp                                                                     ; datapath        ; work         ;
-;       |alu_lanes:alu_lanes|              ; 181 (0)             ; 0 (0)                     ; 0           ; 6            ; 6       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes                                                 ; alu_lanes       ; work         ;
+;    |datapath:dp|                         ; 1089 (0)            ; 860 (0)                   ; 0           ; 6            ; 6       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp                                                                     ; datapath        ; work         ;
+;       |alu_lanes:alu_lanes|              ; 179 (0)             ; 0 (0)                     ; 0           ; 6            ; 6       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes                                                 ; alu_lanes       ; work         ;
 ;          |alu:alu1|                      ; 16 (16)             ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1                                        ; alu             ; work         ;
 ;             |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
 ;                |mult_4et:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1|lpm_mult:Mult0|mult_4et:auto_generated ; mult_4et        ; work         ;
@@ -285,16 +286,16 @@ https://fpgasoftware.intel.com/eula.
 ;          |mux3:mux3_1|                   ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1                                     ; mux3            ; work         ;
 ;          |mux3:mux3_2|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2                                     ; mux3            ; work         ;
 ;          |mux3:mux3_3|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3                                     ; mux3            ; work         ;
-;          |mux3:mux3_4|                   ; 43 (43)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4                                     ; mux3            ; work         ;
+;          |mux3:mux3_4|                   ; 42 (42)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4                                     ; mux3            ; work         ;
 ;          |mux3:mux3_5|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5                                     ; mux3            ; work         ;
-;          |mux3:mux3_6|                   ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6                                     ; mux3            ; work         ;
+;          |mux3:mux3_6|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6                                     ; mux3            ; work         ;
 ;       |mux2:ra2mux|                      ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|mux2:ra2mux                                                         ; mux2            ; work         ;
 ;       |mux2_vec:res_mux|                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|mux2_vec:res_mux                                                    ; mux2_vec        ; work         ;
-;       |regfile:reg_file|                 ; 785 (785)           ; 480 (480)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|regfile:reg_file                                                    ; regfile         ; work         ;
-;       |segment_ex_mem:seg_ex_mem|        ; 86 (86)             ; 135 (135)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_ex_mem:seg_ex_mem                                           ; segment_ex_mem  ; work         ;
+;       |regfile:reg_file|                 ; 797 (797)           ; 480 (480)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|regfile:reg_file                                                    ; regfile         ; work         ;
+;       |segment_ex_mem:seg_ex_mem|        ; 86 (86)             ; 136 (136)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_ex_mem:seg_ex_mem                                           ; segment_ex_mem  ; work         ;
 ;       |segment_id_ex:seg_id_ex|          ; 8 (8)               ; 118 (118)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_id_ex:seg_id_ex                                             ; segment_id_ex   ; work         ;
 ;       |segment_if_id:seg_if_id|          ; 0 (0)               ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_if_id:seg_if_id                                             ; segment_if_id   ; work         ;
-;       |segment_mem_wb:seg_mem_wb|        ; 0 (0)               ; 102 (102)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_mem_wb:seg_mem_wb                                           ; segment_mem_wb  ; work         ;
+;       |segment_mem_wb:seg_mem_wb|        ; 0 (0)               ; 103 (103)                 ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|datapath:dp|segment_mem_wb:seg_mem_wb                                           ; segment_mem_wb  ; work         ;
 ;    |pc_control_unit:pcu|                 ; 36 (2)              ; 33 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|pc_control_unit:pcu                                                             ; pc_control_unit ; work         ;
 ;       |flopenr:flagreg2|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|pc_control_unit:pcu|flopenr:flagreg2                                            ; flopenr         ; work         ;
 ;       |flopr:pcreg|                      ; 33 (33)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|pc_control_unit:pcu|flopr:pcreg                                                 ; flopr           ; work         ;
@@ -341,10 +342,10 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 891   ;
+; Total registers                              ; 893   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 110   ;
-; Number of registers using Asynchronous Clear ; 411   ;
+; Number of registers using Asynchronous Clear ; 413   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 512   ;
 ; Number of registers using Preset             ; 0     ;
@@ -358,7 +359,9 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +------------------------------------------+---------+
 ; datapath:dp|regfile:reg_file|rf[1][0][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][0][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][0][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][0][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][0][1] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][0][1] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][0][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][0][3] ; 2       ;
@@ -368,10 +371,13 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; datapath:dp|regfile:reg_file|rf[6][0][7] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[1][1][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][1][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][1][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[1][2][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][2][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][2][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][2][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][2][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][2][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][2][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][2][3] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][2][4] ; 2       ;
@@ -379,8 +385,10 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; datapath:dp|regfile:reg_file|rf[6][2][7] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[1][3][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][3][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][3][1] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][3][1] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][3][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][3][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][3][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][3][3] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][3][4] ; 2       ;
@@ -388,20 +396,24 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; datapath:dp|regfile:reg_file|rf[6][3][6] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][3][7] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][4][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][4][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[1][4][0] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][4][1] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][4][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][4][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][0] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[1][5][0] ; 2       ;
-; datapath:dp|regfile:reg_file|rf[0][5][1] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][1] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[0][5][1] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[0][5][2] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][2] ; 2       ;
+; datapath:dp|regfile:reg_file|rf[9][5][3] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][3] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][4] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][5] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][6] ; 2       ;
 ; datapath:dp|regfile:reg_file|rf[6][5][7] ; 2       ;
-; Total number of inverted registers = 45  ;         ;
+; Total number of inverted registers = 56  ;         ;
 +------------------------------------------+---------+
 
 
@@ -410,20 +422,20 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][3][0]               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][3][3]               ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][2][2]               ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][1][0]               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][1][3]               ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][4][3]               ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][5][7]               ;
-; 4:1                ; 48 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUOutputM[4][7] ;
-; 10:1               ; 24 bits   ; 144 LEs       ; 24 LEs               ; 120 LEs                ; Yes        ; |cpu|pc_control_unit:pcu|flopr:pcreg|q[10]                  ;
+; 4:1                ; 48 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUOutputM[4][5] ;
+; 10:1               ; 24 bits   ; 144 LEs       ; 24 LEs               ; 120 LEs                ; Yes        ; |cpu|pc_control_unit:pcu|flopr:pcreg|q[11]                  ;
 ; 10:1               ; 6 bits    ; 36 LEs        ; 6 LEs                ; 30 LEs                 ; Yes        ; |cpu|pc_control_unit:pcu|flopr:pcreg|q[7]                   ;
-; 17:1               ; 48 bits   ; 528 LEs       ; 336 LEs              ; 192 LEs                ; Yes        ; |cpu|datapath:dp|segment_id_ex:seg_id_ex|RD2E[2][7]         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][2][1]               ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][4][2]               ;
+; 17:1               ; 48 bits   ; 528 LEs       ; 336 LEs              ; 192 LEs                ; Yes        ; |cpu|datapath:dp|segment_id_ex:seg_id_ex|RD2E[2][6]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][2][0]               ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][4][0]               ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cpu|datapath:dp|regfile:reg_file|rf[0][5][1]               ;
-; 16:1               ; 48 bits   ; 480 LEs       ; 336 LEs              ; 144 LEs                ; Yes        ; |cpu|datapath:dp|segment_id_ex:seg_id_ex|RD1E[1][1]         ;
-; 9:1                ; 8 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|Mux0       ;
+; 16:1               ; 48 bits   ; 480 LEs       ; 336 LEs              ; 144 LEs                ; Yes        ; |cpu|datapath:dp|segment_id_ex:seg_id_ex|RD1E[1][2]         ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|Mux7       ;
 ; 8:1                ; 30 bits   ; 150 LEs       ; 0 LEs                ; 150 LEs                ; No         ; |cpu|pc_control_unit:pcu|Add0                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
@@ -955,6 +967,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+---------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp|segment_mem_wb:seg_mem_wb"                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; VSIFlagW[1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "datapath:dp"                                                                                 ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -979,28 +1000,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 198                         ;
-; cycloneiii_ff         ; 891                         ;
-;     CLR               ; 331                         ;
+; cycloneiii_ff         ; 893                         ;
+;     CLR               ; 333                         ;
 ;     CLR SLD           ; 48                          ;
 ;     ENA               ; 448                         ;
 ;     ENA CLR           ; 2                           ;
 ;     ENA CLR SLD       ; 30                          ;
 ;     ENA SLD           ; 32                          ;
-; cycloneiii_lcell_comb ; 1124                        ;
+; cycloneiii_lcell_comb ; 1134                        ;
 ;     arith             ; 108                         ;
 ;         2 data inputs ; 58                          ;
 ;         3 data inputs ; 50                          ;
-;     normal            ; 1016                        ;
+;     normal            ; 1026                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 39                          ;
-;         2 data inputs ; 108                         ;
-;         3 data inputs ; 131                         ;
-;         4 data inputs ; 737                         ;
+;         1 data inputs ; 50                          ;
+;         2 data inputs ; 110                         ;
+;         3 data inputs ; 129                         ;
+;         4 data inputs ; 736                         ;
 ; cycloneiii_mac_mult   ; 6                           ;
 ; cycloneiii_mac_out    ; 6                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 4.32                        ;
+; Average LUT depth     ; 4.28                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1009,7 +1030,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -1019,7 +1040,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu May 11 16:14:35 2023
+    Info: Processing started: Thu May 11 18:59:02 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VECTOR_CPU -c VECTOR_CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1095,17 +1116,65 @@ Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:cn" 
 Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 83
 Info (12128): Elaborating entity "segment_if_id" for hierarchy "datapath:dp|segment_if_id:seg_if_id" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 31
 Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|mux2:ra2mux" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 45
-Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|regfile:reg_file" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 65
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|regfile:reg_file" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 66
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rf" into its bus
-Info (12128): Elaborating entity "segment_id_ex" for hierarchy "datapath:dp|segment_id_ex:seg_id_ex" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 104
-Info (12128): Elaborating entity "address_offset" for hierarchy "datapath:dp|address_offset:offset_model" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 115
+Info (12128): Elaborating entity "segment_id_ex" for hierarchy "datapath:dp|segment_id_ex:seg_id_ex" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 105
+Info (12128): Elaborating entity "address_offset" for hierarchy "datapath:dp|address_offset:offset_model" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 116
 Info (12128): Elaborating entity "alu_lanes" for hierarchy "datapath:dp|alu_lanes:alu_lanes" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 133
 Info (12128): Elaborating entity "mux3" for hierarchy "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv Line: 38
 Info (12128): Elaborating entity "alu" for hierarchy "datapath:dp|alu_lanes:alu_lanes|alu:alu1" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv Line: 45
-Info (12128): Elaborating entity "segment_ex_mem" for hierarchy "datapath:dp|segment_ex_mem:seg_ex_mem" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 164
-Info (12128): Elaborating entity "segment_mem_wb" for hierarchy "datapath:dp|segment_mem_wb:seg_mem_wb" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 190
-Info (12128): Elaborating entity "mux2_vec" for hierarchy "datapath:dp|mux2_vec:res_mux" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 203
+Info (12128): Elaborating entity "segment_ex_mem" for hierarchy "datapath:dp|segment_ex_mem:seg_ex_mem" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 167
+Info (12128): Elaborating entity "segment_mem_wb" for hierarchy "datapath:dp|segment_mem_wb:seg_mem_wb" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 195
+Info (12128): Elaborating entity "mux2_vec" for hierarchy "datapath:dp|mux2_vec:res_mux" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv Line: 208
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[0]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[1]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[2]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[3]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[4]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[5]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[6]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6|y[7]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[0]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[1]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[2]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[3]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[4]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[5]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[6]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5|y[7]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[0]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[1]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[2]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[3]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[4]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[5]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[6]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4|y[7]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[0]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[1]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[2]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[3]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[4]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[5]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[6]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3|y[7]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[0]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[1]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[2]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[3]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[4]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[5]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[6]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2|y[7]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[0]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[1]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[2]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[3]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[4]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[5]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[6]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
+    Warning (13049): Converted tri-state buffer "datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1|y[7]" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv Line: 9
     Warning (13049): Converted tri-state buffer "control_unit:cn|RegSrc" feeding internal logic into a wire File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/control_unit.sv Line: 6
 Info (278001): Inferred 6 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "datapath:dp|alu_lanes:alu_lanes|alu:alu1|Mult0" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv Line: 29
@@ -1146,11 +1215,11 @@ Info (21057): Implemented 1962 device resources after synthesis - the final reso
     Info (21059): Implemented 115 output pins
     Info (21061): Implemented 1758 logic cells
     Info (21062): Implemented 6 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4875 megabytes
-    Info: Processing ended: Thu May 11 16:15:03 2023
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 61 warnings
+    Info: Peak virtual memory: 4858 megabytes
+    Info: Processing ended: Thu May 11 18:59:23 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:18
 
 
 +------------------------------------------+

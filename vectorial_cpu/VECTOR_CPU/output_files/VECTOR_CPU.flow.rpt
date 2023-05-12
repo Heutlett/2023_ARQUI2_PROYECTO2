@@ -1,5 +1,5 @@
 Flow report for VECTOR_CPU
-Thu May 11 16:15:03 2023
+Thu May 11 18:59:23 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu May 11 16:15:03 2023       ;
+; Flow Status                        ; Successful - Thu May 11 18:59:23 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; VECTOR_CPU                                  ;
 ; Top-level Entity Name              ; cpu                                         ;
 ; Family                             ; Cyclone IV GX                               ;
 ; Device                             ; EP4CGX150DF31C7                             ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,705                                       ;
-;     Total combinational functions  ; 1,124                                       ;
-;     Dedicated logic registers      ; 891                                         ;
-; Total registers                    ; 891                                         ;
+; Total logic elements               ; 1,706                                       ;
+;     Total combinational functions  ; 1,134                                       ;
+;     Dedicated logic registers      ; 893                                         ;
+; Total registers                    ; 893                                         ;
 ; Total pins                         ; 198                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -69,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/11/2023 16:14:37 ;
+; Start date & time ; 05/11/2023 18:59:03 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; VECTOR_CPU          ;
 +-------------------+---------------------+
@@ -80,7 +80,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 74780423315271.168384327725876         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 74780423315271.168385314313064         ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_TOP                            ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_DATAPATH_MODULES               ;
@@ -207,8 +207,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:27     ; 1.0                     ; 4875 MB             ; 00:00:16                           ;
-; Total                ; 00:00:27     ; --                      ; --                  ; 00:00:16                           ;
+; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4858 MB             ; 00:00:18                           ;
+; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:18                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

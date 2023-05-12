@@ -98,7 +98,9 @@ module TB_DATAPATH_MODULES;
 	logic [R-1:0][N-1:0] ResultW;	// Se recibe de la etapa Write-back
 	logic RegWriteW;					// Se recibe de la etapa Write-back
 	logic [R-1:0][N-1:0] RD1D, RD2D;
+	logic [1:0] VSIFlagW;
 
+	
 	regfile reg_file (
 	// Entradas
 		.clk(clk), 
@@ -106,11 +108,13 @@ module TB_DATAPATH_MODULES;
 		.A1(InstrD[20:17]), 
 		.A2(RA2D),
 		.A3(WA3W),
+		.SFlag(VSIFlagW[0]),
 		.WD3(ResultW),
 	// Salidas
 		.RD1(RD1D), 
 		.RD2(RD2D)
 	);
+	
 	
 		
 		
@@ -121,7 +125,7 @@ module TB_DATAPATH_MODULES;
 	logic [R-1:0][N-1:0] RD1E, RD2E;
 	logic [3:0] RA2E;
 	logic [N-1:0] ImmE;
-
+	logic [1:0] VSIFlagE;
 	logic [3:0] WA3E;
 	
 	segment_id_ex seg_id_ex	(
@@ -152,6 +156,7 @@ module TB_DATAPATH_MODULES;
 		.RA2E(RA2E),
 		.ImmE(ImmE)
 	);
+	
 	
 	
 		
@@ -188,7 +193,8 @@ module TB_DATAPATH_MODULES;
 	logic [R-1:0][1:0] ALUFlagsM;
 	logic [R-1:0][N-1:0] ALUOutputM;
 	logic [3:0] WA3M;	
-
+	logic [1:0] VSIFlagM;
+	
 	segment_ex_mem seg_ex_mem	(
 	// Entradas
 		.clk(clk), 
@@ -196,6 +202,7 @@ module TB_DATAPATH_MODULES;
 		.RegWriteE(RegWriteE), 
 		.MemtoRegE(MemtoRegE), 
 		.MemWriteE(MemWriteE), 
+		.VSIFlagE(VSIFlagE),
 		.FlagsWriteE(FlagsWriteE),
 		.ALUFlagsE(ALUFlagsE),
 		.WA3E(WA3E),
@@ -206,6 +213,7 @@ module TB_DATAPATH_MODULES;
 		.RegWriteM(RegWriteM), 
 		.MemtoRegM(MemtoRegM), 
 		.MemWriteM(MemWriteM), 
+		.VSIFlagM(VSIFlagM),
 		.FlagsWriteM(FlagsWriteM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
@@ -213,8 +221,6 @@ module TB_DATAPATH_MODULES;
 		.ALUOutputM(ALUOutputM),
 		.WriteDataM(WriteDataM)
 	);
-	
-
 
 
 	
@@ -242,6 +248,7 @@ module TB_DATAPATH_MODULES;
 		.RegWriteM(RegWriteM), 
 		.MemtoRegM(MemtoRegM), 
 		.FlagsWriteM(FlagsWriteM),
+		.VSIFlagM(VSIFlagM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
 		.ReadDataM(ReadData), 
@@ -251,6 +258,7 @@ module TB_DATAPATH_MODULES;
 		.MemtoRegW(MemtoRegW),
 		.FlagsWriteW(FlagsWriteW),
 		.ALUFlagsW(ALUFlagsW),
+		.VSIFlagW(VSIFlagW),
 		.WA3W(WA3W),
 		.ReadDataW(ReadDataW),
 		.ALUOutputW(ALUOutputW)

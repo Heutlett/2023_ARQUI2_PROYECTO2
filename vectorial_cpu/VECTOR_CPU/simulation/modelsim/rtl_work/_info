@@ -11,7 +11,7 @@ cModel Technology
 Z0 dC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/simulation/modelsim
 vaddress_offset
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1683843323
+Z2 !s110 1683853926
 !i10b 1
 !s100 N8jNQMCeI>0Mj>S;Y=oKW3
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1683843323.000000
+Z6 !s108 1683853926.000000
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/address_offset.sv|
 !i113 1
@@ -38,7 +38,7 @@ Z9 tCvgOpt 0
 valu
 R1
 DXx4 work 8 alu_defs 0 22 0fjo3AR7e59HClXEf9FA51
-Z10 !s110 1683843322
+Z10 !s110 1683853925
 !i10b 1
 !s100 <M>fVG@GBDG<4SK6ScoZ11
 R3
@@ -55,7 +55,7 @@ R5
 r1
 !s85 0
 31
-Z11 !s108 1683843322.000000
+Z11 !s108 1683853925.000000
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu.sv|
 !i113 1
@@ -90,7 +90,7 @@ R8
 R9
 valu_lanes
 R1
-R10
+Z13 !s110 1683853924
 !i10b 1
 !s100 BeM3jBTjUiCX[@CnkOzd23
 R3
@@ -107,7 +107,7 @@ R5
 r1
 !s85 0
 31
-Z13 !s108 1683843321.000000
+Z14 !s108 1683853924.000000
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/alu_lanes.sv|
 !i113 1
@@ -142,7 +142,7 @@ R8
 R9
 vcpu
 R1
-Z14 !s110 1683843320
+!s110 1683853923
 !i10b 1
 !s100 16AU14lXXL^HS52Od7Z4a1
 R3
@@ -159,7 +159,7 @@ R5
 r1
 !s85 0
 31
-Z15 !s108 1683843320.000000
+Z15 !s108 1683853922.000000
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv|
 !i113 1
@@ -196,17 +196,17 @@ vdatapath
 R1
 R10
 !i10b 1
-!s100 F:F0c2@dY>RQn0Ui9]X462
+!s100 jF2bac25VL@ia]nQ8e_JA3
 R3
-IoeBfbHog`=MR?BBRMM7@Q1
+I^>Eo_67oSGD222nLL_=LK2
 R4
 S1
 R0
-w1683831713
+w1683853066
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/datapath.sv
 !i122 24
-L0 1 206
+L0 1 211
 R5
 r1
 !s85 0
@@ -220,7 +220,7 @@ R8
 R9
 vflopenr
 R1
-R14
+Z16 !s110 1683853922
 !i10b 1
 !s100 JBC3FeblDl3VIV^gTBdZ_3
 R3
@@ -232,7 +232,7 @@ R12
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopenr.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopenr.sv
 !i122 10
-Z16 L0 1 15
+Z17 L0 1 15
 R5
 r1
 !s85 0
@@ -246,7 +246,7 @@ R8
 R9
 vflopr
 R1
-R14
+R16
 !i10b 1
 !s100 bZ94i^1ECObo]zZK8AEHo2
 R3
@@ -258,7 +258,7 @@ R12
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopr.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/flopr.sv
 !i122 9
-R16
+R17
 R5
 r1
 !s85 0
@@ -272,7 +272,7 @@ R8
 R9
 vinstr_mem
 R1
-R2
+!s110 1683853927
 !i10b 1
 !s100 0=I@1NoOf4CO2fmFIkCm@1
 R3
@@ -289,7 +289,7 @@ R5
 r1
 !s85 0
 31
-R6
+!s108 1683853927.000000
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/instr_mem.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/instr_mem.sv|
 !i113 1
@@ -310,7 +310,7 @@ R12
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2.sv
 !i122 30
-Z17 L0 1 13
+Z18 L0 1 13
 R5
 r1
 !s85 0
@@ -324,7 +324,7 @@ R8
 R9
 vmux2_vec
 R1
-Z18 !s110 1683843319
+R16
 !i10b 1
 !s100 AfFUBCY[1FFbAFSXNmPIE1
 R3
@@ -336,12 +336,12 @@ w1683562648
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv
 !i122 7
-R17
+R18
 R5
 r1
 !s85 0
 31
-Z19 !s108 1683843319.000000
+R15
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux2_vec.sv|
 !i113 1
@@ -350,24 +350,24 @@ R8
 R9
 vmux3
 R1
-R10
+R13
 !i10b 1
-!s100 _GBgn0dRncMLNE8Ogn7mY3
+!s100 PM=MZ0o>REHGDIcoLCWZT0
 R3
-IIf]MPfmDa2TVl3H?5:N1@2
+IlW?L8ZakGK`TKCRIbYaP`0
 R4
 S1
 R0
-w1683801277
+w1683843874
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv
 !i122 22
-Z20 L0 1 22
+Z19 L0 1 22
 R5
 r1
 !s85 0
 31
-R11
+R14
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/mux3.sv|
 !i113 1
@@ -376,7 +376,7 @@ R8
 R9
 vpc_control_unit
 R1
-R10
+R13
 !i10b 1
 !s100 YEcgfeOUgmc_=LhFl`=R`3
 R3
@@ -393,7 +393,7 @@ R5
 r1
 !s85 0
 31
-R11
+R14
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv|
 !i113 1
@@ -402,24 +402,24 @@ R8
 R9
 vregfile
 R1
-Z21 !s110 1683843321
+R13
 !i10b 1
-!s100 CO:`FoGSY2idgTkJDONBI0
+!s100 CNd<>WNiVg^2Rmob4nkAd1
 R3
-I[V]AN@W=iKI<775Z5MkQ91
+IEk35GWT9A6IQobAEZAL2D2
 R4
 S1
 R0
-w1683843136
+w1683844812
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv
 !i122 18
-L0 1 74
+L0 1 77
 R5
 r1
 !s85 0
 31
-R13
+R14
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/regfile.sv|
 !i113 1
@@ -428,24 +428,24 @@ R8
 R9
 vsegment_ex_mem
 R1
-R18
+Z20 !s110 1683853921
 !i10b 1
-!s100 ?WML<`@k0Vkh>L_WHdFnh3
+!s100 4=k];zaA>S8[dIATGaECf3
 R3
-ImR`]T5dBbl2mSaKA4>L<:2
+InbPVXfB<HPhESkXzcY`bn3
 R4
 S1
 R0
-w1683749182
+w1683853108
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv
 !i122 3
-L0 1 50
+Z21 L0 1 54
 R5
 r1
 !s85 0
 31
-R19
+Z22 !s108 1683853921.000000
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_ex_mem.sv|
 !i113 1
@@ -454,7 +454,7 @@ R8
 R9
 vsegment_id_ex
 R1
-R18
+R20
 !i10b 1
 !s100 g405WX2H=D<?LdO5geS262
 R3
@@ -466,12 +466,12 @@ w1683588442
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv
 !i122 2
-L0 1 54
+R21
 R5
 r1
 !s85 0
 31
-R19
+R22
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_id_ex.sv|
 !i113 1
@@ -480,7 +480,7 @@ R8
 R9
 vsegment_if_id
 R1
-R2
+R10
 !i10b 1
 !s100 jW_KLJY^aoPbJAb]XDN;f1
 R3
@@ -492,7 +492,7 @@ R12
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_if_id.sv
 !i122 27
-R20
+R19
 R5
 r1
 !s85 0
@@ -506,24 +506,24 @@ R8
 R9
 vsegment_mem_wb
 R1
-R21
+R13
 !i10b 1
-!s100 k=IGlmPK_VgaK`FY_P]`70
+!s100 @z[QzFJozaGkg7`PIhAj^2
 R3
-Ica>AA^E=a^4P5h`0eEDHB0
+I0^_VgAVLL6M=CLbbaIXG53
 R4
 S1
 R0
-w1683567414
+w1683853130
 8C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv
 FC:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv
 !i122 19
-L0 1 49
+L0 1 53
 R5
 r1
 !s85 0
 31
-R13
+R14
 !s107 C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES|C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/segment_mem_wb.sv|
 !i113 1

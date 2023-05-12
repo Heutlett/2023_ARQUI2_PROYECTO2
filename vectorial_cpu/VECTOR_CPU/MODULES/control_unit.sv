@@ -43,9 +43,9 @@ module control_unit (
 			
 			// Memory
 			2'b10: begin
-				// Tipo		Op	   S	NULL
-				//	6:5	 	4		3	2:0
-				//	10		 	0		1	xxx
+				// Tipo		Op	   NULL	 IS
+				//	6:5	 	4		3:2    1:0
+				//	10		 	0		xx	    00
 				
 				FlagsWrite 	= 1'b0;
 				RegSrc 		= (Id[4] == 1'b1) ? 1'b1 : 1'b0;		// STR -> (RD y escritura en memoria)

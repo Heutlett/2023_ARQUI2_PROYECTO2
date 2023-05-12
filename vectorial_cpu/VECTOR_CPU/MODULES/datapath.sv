@@ -48,6 +48,7 @@ module datapath
 	logic [R-1:0][N-1:0] ResultW;	// Se recibe de la etapa Write-back
 	logic RegWriteW;					// Se recibe de la etapa Write-back
 	logic [R-1:0][N-1:0] RD1D, RD2D;
+	logic [1:0] VSIFlagW;
 
 	
 	regfile reg_file (
@@ -57,7 +58,7 @@ module datapath
 		.A1(InstrD[20:17]), 
 		.A2(RA2D),
 		.A3(WA3W),
-		.SFlag(VSIFlagD[0]),
+		.SFlag(VSIFlagW[0]),
 		.WD3(ResultW),
 	// Salidas
 		.RD1(RD1D), 
@@ -71,7 +72,7 @@ module datapath
 	logic [R-1:0][N-1:0] RD1E, RD2E;
 	logic [3:0] RA2E;
 	logic [N-1:0] ImmE;
-	logic [1:0] VSIFlagE;
+
 	logic [3:0] WA3E;
 	
 	segment_id_ex seg_id_ex	(
@@ -114,7 +115,6 @@ module datapath
 		.A(AddressE)
 	);
 
-
 	logic [R-1:0][1:0] ALUFlagsE;
 	logic [R-1:0][N-1:0] ALUOutputE;
 	
@@ -137,7 +137,8 @@ module datapath
 	logic [R-1:0][1:0] ALUFlagsM;
 	logic [R-1:0][N-1:0] ALUOutputM;
 	logic [3:0] WA3M;	
-
+	logic [1:0] VSIFlagM;
+	
 	segment_ex_mem seg_ex_mem	(
 	// Entradas
 		.clk(clk), 
@@ -145,6 +146,7 @@ module datapath
 		.RegWriteE(RegWriteE), 
 		.MemtoRegE(MemtoRegE), 
 		.MemWriteE(MemWriteE), 
+		.VSIFlagE(VSIFlagE),
 		.FlagsWriteE(FlagsWriteE),
 		.ALUFlagsE(ALUFlagsE),
 		.WA3E(WA3E),
@@ -155,6 +157,7 @@ module datapath
 		.RegWriteM(RegWriteM), 
 		.MemtoRegM(MemtoRegM), 
 		.MemWriteM(MemWriteM), 
+		.VSIFlagM(VSIFlagM),
 		.FlagsWriteM(FlagsWriteM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
@@ -175,6 +178,7 @@ module datapath
 		.RegWriteM(RegWriteM), 
 		.MemtoRegM(MemtoRegM), 
 		.FlagsWriteM(FlagsWriteM),
+		.VSIFlagM(VSIFlagM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
 		.ReadDataM(ReadData), 
@@ -184,6 +188,7 @@ module datapath
 		.MemtoRegW(MemtoRegW),
 		.FlagsWriteW(FlagsWriteW),
 		.ALUFlagsW(ALUFlagsW),
+		.VSIFlagW(VSIFlagW),
 		.WA3W(WA3W),
 		.ReadDataW(ReadDataW),
 		.ALUOutputW(ALUOutputW)

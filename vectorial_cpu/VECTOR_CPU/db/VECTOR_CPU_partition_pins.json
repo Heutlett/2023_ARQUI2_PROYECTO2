@@ -556,10 +556,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "Instr[25]",
-					"strict" : false
-				},
-				{
 					"name" : "ReadData[0][0]",
 					"strict" : false
 				},
@@ -749,6 +745,10 @@
 				},
 				{
 					"name" : "ReadData[5][7]",
+					"strict" : false
+				},
+				{
+					"name" : "Instr[25]",
 					"strict" : false
 				},
 				{
