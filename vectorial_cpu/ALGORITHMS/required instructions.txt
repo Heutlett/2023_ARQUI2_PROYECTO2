@@ -1,0 +1,10 @@
+Faltantes:
+xor vectorial-scalar
+or vectorial
+right shift vectorial
+left shift vectorial
+
+Listas:
+suma vector-scalar
+load vectorial
+str vectorial
