@@ -72,6 +72,7 @@ module datapath
 	logic [R-1:0][N-1:0] RD1E, RD2E;
 	logic [3:0] RA2E;
 	logic [N-1:0] ImmE;
+	logic [1:0] VSIFlagE;
 
 	logic [3:0] WA3E;
 	

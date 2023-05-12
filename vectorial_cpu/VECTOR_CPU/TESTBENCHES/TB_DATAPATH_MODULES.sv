@@ -120,12 +120,12 @@ module TB_DATAPATH_MODULES;
 		
 	logic RegWriteE, MemtoRegE, MemWriteE, FlagsWriteE;
 	logic [2:0] ALUControlE;
-	logic [1:0] VSIFlagE;
 
 	logic [R-1:0][N-1:0] RD1E, RD2E;
 	logic [3:0] RA2E;
 	logic [N-1:0] ImmE;
 	logic [1:0] VSIFlagE;
+
 	logic [3:0] WA3E;
 	
 	segment_id_ex seg_id_ex	(

@@ -1,5 +1,5 @@
 Flow report for VECTOR_CPU
-Thu May 11 18:59:23 2023
+Thu May 11 20:06:16 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu May 11 18:59:23 2023       ;
+; Flow Status                        ; Successful - Thu May 11 20:06:15 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; VECTOR_CPU                                  ;
 ; Top-level Entity Name              ; cpu                                         ;
 ; Family                             ; Cyclone IV GX                               ;
 ; Device                             ; EP4CGX150DF31C7                             ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,706                                       ;
-;     Total combinational functions  ; 1,134                                       ;
+; Total logic elements               ; 1,743                                       ;
+;     Total combinational functions  ; 1,171                                       ;
 ;     Dedicated logic registers      ; 893                                         ;
 ; Total registers                    ; 893                                         ;
 ; Total pins                         ; 198                                         ;
@@ -69,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/11/2023 18:59:03 ;
+; Start date & time ; 05/11/2023 20:05:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; VECTOR_CPU          ;
 +-------------------+---------------------+
@@ -80,46 +80,37 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 74780423315271.168385314313064         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 74780423315271.168385714105164         ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_TOP                            ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_DATAPATH_MODULES               ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_CPU                            ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_timing_analysis               ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_formal_verification           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_symbol           ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; TB_CPU                                 ; --            ; --          ; eda_simulation                    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; TB_TOP_MODULES                         ; --            ; --          ; eda_simulation                    ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation                    ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --                                ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/data_mem_init.dat              ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/inst_mem_init.dat              ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_TEST_BENCH_FILE                  ; TESTBENCHES/TB_TOP_MODULES.sv          ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/address_offset.sv              ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/alu.sv                         ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/alu_defs.sv                    ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/alu_lanes.sv                   ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/clock_manager.sv               ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/clockDivider.sv                ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/control_unit.sv                ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/cpu.sv                         ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/data_mem.sv                    ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/datapath.sv                    ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/flopenr.sv                     ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/flopr.sv                       ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/instr_mem.sv                   ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/mux2.sv                        ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/mux2_vec.sv                    ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/mux3.sv                        ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/pc_control_unit.sv             ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/regfile.sv                     ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/top.sv                         ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/segment_mem_wb.sv              ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/alu_lanes.sv                   ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/pc_control_unit.sv             ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/mux3.sv                        ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/alu.sv                         ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/datapath.sv                    ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/data_mem.sv                    ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/control_unit.sv                ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/segment_if_id.sv               ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/segment_id_ex.sv               ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/segment_ex_mem.sv              ; --            ; --          ; TB_TOP_MODULES                    ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/regfile.sv.bak                 ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/alu_defs.sv                    ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/address_offset.sv              ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/mux2.sv                        ; --            ; --          ; TB_TOP_MODULES                    ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/instr_mem.sv                   ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_TEST_BENCH_FILE                  ; TESTBENCHES/TB_TOP.sv                  ; --            ; --          ; TB_TOP                            ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/top.sv                         ; --            ; --          ; TB_TOP                            ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/segment_if_id.sv               ; --            ; --          ; TB_TOP                            ;
@@ -163,31 +154,12 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TEST_BENCH_FILE                  ; MODULES/alu_defs.sv                    ; --            ; --          ; TB_DATAPATH_MODULES               ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/alu.sv                         ; --            ; --          ; TB_DATAPATH_MODULES               ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/address_offset.sv              ; --            ; --          ; TB_DATAPATH_MODULES               ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/data_mem_init.dat              ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/inst_mem_init.dat              ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/regfile.sv                     ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/segment_mem_wb.sv              ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/alu_lanes.sv                   ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/pc_control_unit.sv             ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/mux3.sv                        ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/alu.sv                         ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/datapath.sv                    ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/data_mem.sv                    ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/control_unit.sv                ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/segment_if_id.sv               ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/alu_defs.sv                    ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/address_offset.sv              ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/mux2.sv                        ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; TESTBENCHES/TB_CPU.sv                  ; --            ; --          ; TB_CPU                            ;
-; EDA_TEST_BENCH_FILE                  ; MODULES/instr_mem.sv                   ; --            ; --          ; TB_CPU                            ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; TB_TOP_MODULES                         ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; TB_TOP                                 ; --            ; --          ; TB_TOP                            ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; TB_DATAPATH_MODULES                    ; --            ; --          ; TB_DATAPATH_MODULES               ;
-; EDA_TEST_BENCH_MODULE_NAME           ; TB_CPU                                 ; --            ; --          ; TB_CPU                            ;
 ; EDA_TEST_BENCH_NAME                  ; TB_DATAPATH_MODULES                    ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; TB_TOP                                 ; --            ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; TB_TOP_MODULES                         ; --            ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; TB_CPU                                 ; --            ; --          ; eda_simulation                    ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                                ;
@@ -207,8 +179,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4858 MB             ; 00:00:18                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:18                           ;
+; Analysis & Synthesis ; 00:00:32     ; 1.0                     ; 4876 MB             ; 00:00:31                           ;
+; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:31                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

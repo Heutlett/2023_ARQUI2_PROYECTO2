@@ -14,26 +14,27 @@ module alu_lanes #(parameter N = 8)
     output logic [5:0][N-1:0] ALUOutputE
 );
 
-	logic [N-1:0] Aluresult1;
-	logic [N-1:0] Aluresult2;
-	logic [N-1:0] Aluresult3;
-	logic [N-1:0] Aluresult4;
-	logic [N-1:0] Aluresult5;
-	logic [N-1:0] Aluresult6;
+	logic [N-1:0] Aluresult1 = 0;
+	logic [N-1:0] Aluresult2 = 0;
+	logic [N-1:0] Aluresult3 = 0;
+	logic [N-1:0] Aluresult4 = 0;
+	logic [N-1:0] Aluresult5 = 0;
+	logic [N-1:0] Aluresult6 = 0;
 
-	logic [1:0] ALUFlags1;
-	logic [1:0] ALUFlags2;
-	logic [1:0] ALUFlags3;
-	logic [1:0] ALUFlags4;
-	logic [1:0] ALUFlags5;
-	logic [1:0] ALUFlags6;
+	logic [1:0] ALUFlags1 = 0;
+	logic [1:0] ALUFlags2 = 0;
+	logic [1:0] ALUFlags3 = 0;
+	logic [1:0] ALUFlags4 = 0;
+	logic [1:0] ALUFlags5 = 0;
+	logic [1:0] ALUFlags6 = 0;
 
-	logic [N-1:0] SrcB1;
-	logic [N-1:0] SrcB2;
-	logic [N-1:0] SrcB3;
-	logic [N-1:0] SrcB4;
-	logic [N-1:0] SrcB5;
-	logic [N-1:0] SrcB6;
+	logic [N-1:0] SrcB1 = 0;
+	logic [N-1:0] SrcB2 = 0;
+	logic [N-1:0] SrcB3 = 0;
+	logic [N-1:0] SrcB4 = 0;
+	logic [N-1:0] SrcB5 = 0;
+	logic [N-1:0] SrcB6 = 0;
+
 
 	mux3 #(N) mux3_1    (VSIFlagE, SrcBE[0], SrcBE[SrcBiE], ImmE, SrcB1);
 	mux3 #(N) mux3_2    (VSIFlagE, SrcBE[1], SrcBE[SrcBiE], ImmE, SrcB2);
