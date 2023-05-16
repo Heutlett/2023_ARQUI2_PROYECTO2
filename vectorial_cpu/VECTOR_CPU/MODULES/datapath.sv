@@ -10,7 +10,7 @@ module datapath
 	
 	// Salidas
 	output logic MemWriteM, FlagsWriteW,
-	output logic [R-1:0][1:0] ALUFlagsW,
+	output logic [1:0] ALUFlagsW,
 	output logic [I-1:0] InstrD,
 	output logic [I-1:0] AddressM,
 	output logic [R-1:0][N-1:0] WriteDataM
@@ -116,7 +116,7 @@ module datapath
 		.A(AddressE)
 	);
 
-	logic [R-1:0][1:0] ALUFlagsE;
+	logic [1:0] ALUFlagsE;
 	logic [R-1:0][N-1:0] ALUOutputE;
 	
  	alu_lanes alu_lanes (
@@ -135,7 +135,7 @@ module datapath
 
 
 	logic RegWriteM, MemtoRegM, FlagsWriteM;
-	logic [R-1:0][1:0] ALUFlagsM;
+	logic [1:0] ALUFlagsM;
 	logic [R-1:0][N-1:0] ALUOutputM;
 	logic [3:0] WA3M;	
 	logic [1:0] VSIFlagM;

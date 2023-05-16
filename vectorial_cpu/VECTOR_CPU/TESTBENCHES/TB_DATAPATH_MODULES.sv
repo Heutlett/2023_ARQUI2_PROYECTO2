@@ -14,7 +14,7 @@ module TB_DATAPATH_MODULES;
 	
 	// Output
 	logic MemWriteM, FlagsWriteW;
-	logic [R-1:0][1:0] ALUFlagsW;
+	logic [1:0] ALUFlagsW;
 //	logic [I-1:0] InstrD;
 	logic [I-1:0] AddressM;
 	logic [R-1:0][N-1:0] WriteDataM;
@@ -171,7 +171,7 @@ module TB_DATAPATH_MODULES;
 	);
 
 
-	logic [R-1:0][1:0] ALUFlagsE;
+	logic [1:0] ALUFlagsE;
 	logic [R-1:0][N-1:0] ALUOutputE;
 	
  	alu_lanes alu_lanes (
@@ -190,7 +190,7 @@ module TB_DATAPATH_MODULES;
 
 
 	logic RegWriteM, MemtoRegM, FlagsWriteM;
-	logic [R-1:0][1:0] ALUFlagsM;
+	logic [1:0] ALUFlagsM;
 	logic [R-1:0][N-1:0] ALUOutputM;
 	logic [3:0] WA3M;	
 	logic [1:0] VSIFlagM;
@@ -368,7 +368,7 @@ module TB_DATAPATH_MODULES;
 		$display(" RA2E : %0d", RA2E);
 		$display(" ImmE : %0d", ImmE);
 
-		$display(" ALUFlagsE : %0b %0b %0b %0b %0b %0b", ALUFlagsE[5], ALUFlagsE[4], ALUFlagsE[3], ALUFlagsE[2], ALUFlagsE[1], ALUFlagsE[0]);
+		$display(" ALUFlagsE : %0b", ALUFlagsE);
 		$display(" ALUOutputE : %0d %0d %0d %0d %0d %0d", ALUOutputE[5], ALUOutputE[4], ALUOutputE[3], ALUOutputE[2], ALUOutputE[1], ALUOutputE[0]);
 		$display(" AddressE : %0h", AddressE);
 		$display(" WriteDataE : %0d %0d %0d %0d %0d %0d", RD2E[5], RD2E[4], RD2E[3], RD2E[2], RD2E[1], RD2E[0]);
@@ -383,7 +383,7 @@ module TB_DATAPATH_MODULES;
 		$display(" MemtoRegM : %0b", MemtoRegM);
 		$display(" MemWriteM : %0b", MemWriteM);
 		$display(" FlagsWriteM : %0b", FlagsWriteM);
-		$display(" ALUFlagsM : %0b %0b %0b %0b %0b %0b", ALUFlagsM[5], ALUFlagsM[4], ALUFlagsM[3], ALUFlagsM[2], ALUFlagsM[1], ALUFlagsM[0]);
+		$display(" ALUFlagsM : %0b", ALUFlagsM);
 		
 		$display("\n--- data");
 		$display(" ALUOutputM : %0d %0d %0d %0d %0d %0d", ALUOutputM[5], ALUOutputM[4], ALUOutputM[3], ALUOutputM[2], ALUOutputM[1], ALUOutputM[0]);
@@ -399,7 +399,7 @@ module TB_DATAPATH_MODULES;
 		$display(" RegWriteW : %0b", RegWriteW);
 		$display(" MemtoRegW : %0b", MemtoRegW);
 		$display(" FlagsWriteW : %0b", FlagsWriteW);
-		$display(" ALUFlagsW : %0b %0b %0b %0b %0b %0b", ALUFlagsW[5], ALUFlagsW[4], ALUFlagsW[3], ALUFlagsW[2], ALUFlagsW[1], ALUFlagsW[0]);
+		$display(" ALUFlagsW : %0b", ALUFlagsW);
 
 		
 		$display("\n--- data");

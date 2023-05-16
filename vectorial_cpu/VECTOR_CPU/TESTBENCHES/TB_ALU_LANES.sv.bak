@@ -9,7 +9,7 @@ module TB_ALU_LANES;
 	logic [N-1:0] imm;
 	logic [2:0] ALUControl;
 	logic [1:0] vsi_flag;
-	logic [1:0] ALUFlags;
+	logic [R-1:0][1:0] ALUFlags;
 	logic [R-1:0][N-1:0] vector;
 	
 	alu_lanes #(N) alu_lanes_unit (clk, SrcAE, SrcBE, SrcBiE, imm, ALUControl, vsi_flag, ALUFlags, vector);

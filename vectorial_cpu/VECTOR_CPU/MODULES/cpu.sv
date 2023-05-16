@@ -16,7 +16,7 @@ module cpu // Unidades de control y ruta de datos
 );
 
 	logic FlagsWriteW;
-	logic [R-1:0][1:0] ALUFlags;
+	logic [1:0] ALUFlagsW;
 
 	// PC Control
 	pc_control_unit pcu(
@@ -26,7 +26,7 @@ module cpu // Unidades de control y ruta de datos
 		.start(start),
 		.FlagsWrite(FlagsWriteW),
 		.Id(Instr[31:28]), 
-		.ALUFlags(ALUFlags),
+		.ALUFlags(ALUFlagsW),
 		.Imm(Instr[16:9]),
 		
 		// Salidas
@@ -76,7 +76,7 @@ module cpu // Unidades de control y ruta de datos
 		// Salidas
 		.MemWriteM(MemWriteM),
 		.FlagsWriteW(FlagsWriteW),
-		.ALUFlagsW(ALUFlags),
+		.ALUFlagsW(ALUFlagsW),
 		.InstrD(InstrD),
 		.AddressM(Address),
 		.WriteDataM(WriteData)

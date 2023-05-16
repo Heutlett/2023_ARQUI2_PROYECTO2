@@ -3,7 +3,7 @@ module pc_control_unit
 (	
 	// Entradas
 	input logic clk, reset, FlagsWrite, start,
-	input logic [R-1:0][1:0] ALUFlags,
+	input logic [1:0] ALUFlags,
 	input logic [3:0] Id,
 	input logic [N-1:0] Imm,
 	
@@ -12,19 +12,19 @@ module pc_control_unit
 	output logic [I-1:0] PCNext
 );
 
-//	logic [1:0] ALUFlagsTemp;
+	logic [1:0] ALUFlagsTemp;
 	logic	COMFlagTemp;
 	logic [I-1:0] PC;
 	
-//	flopenr #(2) flagreg1(
-//								// Entradas
-//								.clk(clk), 
-//								.reset(reset), 
-//								.en(FlagsWrite), 
-//								.d(ALUFlags), 
-//								// Salidas
-//								.q(ALUFlagsTemp)
-//								);
+	flopenr #(2) flagreg1(
+								// Entradas
+								.clk(clk), 
+								.reset(reset), 
+								.en(FlagsWrite), 
+								.d(ALUFlags), 
+								// Salidas
+								.q(ALUFlagsTemp)
+								);
 								
 	flopenr #(1) flagreg2(
 								// Entradas
@@ -68,22 +68,22 @@ module pc_control_unit
 	
 			4'b1100: PC <= Imm; 						// JMP
 			
-//			4'b1101: if (ALUFlagsTemp[0])		 	// JEQ
-//						begin 
-//							PC <= Imm;	
-//						end
-//						else begin
-//							PC <= PCNext + 4;
-//						end
-//						
-//			4'b1110: if (ALUFlagsTemp[1])			// JLT
-//						begin
-//							PC <= Imm;
-//						end
-//						
-//						else begin
-//							PC <= PCNext + 4;
-//						end
+			4'b1101: if (ALUFlagsTemp[0])		 	// JEQ
+						begin 
+							PC <= Imm;	
+						end
+						else begin
+							PC <= PCNext + 4;
+						end
+						
+			4'b1110: if (ALUFlagsTemp[1])			// JLT
+						begin
+							PC <= Imm;
+						end
+						
+						else begin
+							PC <= PCNext + 4;
+						end
 			
 			default: PC <= PCNext + 4;				// Not control instruction
 		

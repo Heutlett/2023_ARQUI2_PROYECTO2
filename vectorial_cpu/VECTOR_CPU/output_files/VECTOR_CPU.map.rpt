@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VECTOR_CPU
-Fri May 12 14:10:24 2023
+Sun May 14 23:14:41 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -19,35 +19,38 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  11. Parameter Settings for User Entity Instance: Top-level Entity: |top
  12. Parameter Settings for User Entity Instance: cpu:cpu
  13. Parameter Settings for User Entity Instance: cpu:cpu|pc_control_unit:pcu
- 14. Parameter Settings for User Entity Instance: cpu:cpu|pc_control_unit:pcu|flopenr:flagreg2
- 15. Parameter Settings for User Entity Instance: cpu:cpu|pc_control_unit:pcu|flopr:pcreg
- 16. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp
- 17. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|mux2:ra2mux
- 18. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex
- 19. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes
- 20. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1
- 21. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2
- 22. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3
- 23. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4
- 24. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5
- 25. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6
- 26. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1
- 27. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu2
- 28. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu3
- 29. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu4
- 30. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu5
- 31. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu6
- 32. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem
- 33. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb
- 34. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|mux2_vec:res_mux
- 35. Port Connectivity Checks: "cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb"
- 36. Port Connectivity Checks: "cpu:cpu|datapath:dp"
- 37. Port Connectivity Checks: "cpu:cpu|pc_control_unit:pcu|flopenr:flagreg2"
- 38. Port Connectivity Checks: "cpu:cpu"
- 39. Post-Synthesis Netlist Statistics for Top Partition
- 40. Elapsed Time Per Partition
- 41. Analysis & Synthesis Messages
- 42. Analysis & Synthesis Suppressed Messages
+ 14. Parameter Settings for User Entity Instance: cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1
+ 15. Parameter Settings for User Entity Instance: cpu:cpu|pc_control_unit:pcu|flopenr:flagreg2
+ 16. Parameter Settings for User Entity Instance: cpu:cpu|pc_control_unit:pcu|flopr:pcreg
+ 17. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp
+ 18. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|mux2:ra2mux
+ 19. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex
+ 20. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes
+ 21. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_1
+ 22. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_2
+ 23. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_3
+ 24. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_4
+ 25. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_5
+ 26. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|mux3:mux3_6
+ 27. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu1
+ 28. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu2
+ 29. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu3
+ 30. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu4
+ 31. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu5
+ 32. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|alu_lanes:alu_lanes|alu:alu6
+ 33. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem
+ 34. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb
+ 35. Parameter Settings for User Entity Instance: cpu:cpu|datapath:dp|mux2_vec:res_mux
+ 36. Port Connectivity Checks: "cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb"
+ 37. Port Connectivity Checks: "cpu:cpu|datapath:dp|alu_lanes:alu_lanes"
+ 38. Port Connectivity Checks: "cpu:cpu|datapath:dp"
+ 39. Port Connectivity Checks: "cpu:cpu|pc_control_unit:pcu|flopenr:flagreg2"
+ 40. Port Connectivity Checks: "cpu:cpu|pc_control_unit:pcu"
+ 41. Port Connectivity Checks: "cpu:cpu"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
+ 45. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -74,7 +77,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 12 14:10:24 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun May 14 23:14:41 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; VECTOR_CPU                                  ;
 ; Top-level Entity Name              ; top                                         ;
@@ -254,28 +257,41 @@ https://fpgasoftware.intel.com/eula.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------+
-; Registers Removed During Synthesis                                    ;
-+--------------------------------------------------+--------------------+
-; Register name                                    ; Reason for Removal ;
-+--------------------------------------------------+--------------------+
-; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2..31] ; Lost fanout        ;
-; Total Number of Removed Registers = 30           ;                    ;
-+--------------------------------------------------+--------------------+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++------------------------------------------------------------+----------------------------------------+
+; Register name                                              ; Reason for Removal                     ;
++------------------------------------------------------------+----------------------------------------+
+; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[0,1]        ; Stuck at GND due to stuck port data_in ;
+; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; Lost fanout                            ;
+; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; Lost fanout                            ;
+; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; Lost fanout                            ;
+; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[27..31] ; Lost fanout                            ;
+; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2..31]           ; Lost fanout                            ;
+; Total Number of Removed Registers = 40                     ;                                        ;
++------------------------------------------------------------+----------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                       ;
-+----------------------------------------------+--------------------+-----------------------------------------------+
-; Register name                                ; Reason for Removal ; Registers Removed due to This Register        ;
-+----------------------------------------------+--------------------+-----------------------------------------------+
-; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2] ; Lost Fanouts       ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3], ;
-;                                              ;                    ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4], ;
-;                                              ;                    ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5], ;
-;                                              ;                    ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6], ;
-;                                              ;                    ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7], ;
-;                                              ;                    ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]  ;
-+----------------------------------------------+--------------------+-----------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                ;
++---------------------------------------------------+---------------------------+------------------------------------------------------------+
+; Register name                                     ; Reason for Removal        ; Registers Removed due to This Register                     ;
++---------------------------------------------------+---------------------------+------------------------------------------------------------+
+; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1] ; Stuck at GND              ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW, ;
+;                                                   ; due to stuck port data_in ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM, ;
+;                                                   ;                           ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE,   ;
+;                                                   ;                           ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29],    ;
+;                                                   ;                           ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[28],    ;
+;                                                   ;                           ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[27],    ;
+;                                                   ;                           ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31],    ;
+;                                                   ;                           ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[30]     ;
+; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]      ; Lost Fanouts              ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3],              ;
+;                                                   ;                           ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4],              ;
+;                                                   ;                           ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5],              ;
+;                                                   ;                           ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6],              ;
+;                                                   ;                           ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7],              ;
+;                                                   ;                           ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ;
++---------------------------------------------------+---------------------------+------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -326,6 +342,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; N              ; 8     ; Signed Integer                                  ;
 ; R              ; 6     ; Signed Integer                                  ;
 +----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; WIDTH          ; 2     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -556,6 +582,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:cpu|datapath:dp|alu_lanes:alu_lanes"                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; ALUFlagsE[5..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "cpu:cpu|datapath:dp"                                                                         ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -572,6 +607,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+------------------------------------------------+
 ; d    ; Input ; Info     ; Stuck at VCC                                   ;
 +------+-------+----------+------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:cpu|pc_control_unit:pcu"                                                                                                                                                                 ;
++-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ALUFlags        ; Input ; Warning  ; Input port expression (12 bits) is wider than the input port (2 bits) it drives.  The 10 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; ALUFlags[1][-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
@@ -613,7 +658,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri May 12 14:10:00 2023
+    Info: Processing started: Sun May 14 23:14:16 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VECTOR_CPU -c VECTOR_CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -682,6 +727,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file modules
 Info (12127): Elaborating entity "top" for the top level hierarchy
 Info (12128): Elaborating entity "cpu" for hierarchy "cpu:cpu" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/top.sv Line: 51
 Info (12128): Elaborating entity "pc_control_unit" for hierarchy "cpu:cpu|pc_control_unit:pcu" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 36
+Info (12128): Elaborating entity "flopenr" for hierarchy "cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv Line: 27
 Info (12128): Elaborating entity "flopenr" for hierarchy "cpu:cpu|pc_control_unit:pcu|flopenr:flagreg2" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv Line: 37
 Info (12128): Elaborating entity "flopr" for hierarchy "cpu:cpu|pc_control_unit:pcu|flopr:pcreg" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/pc_control_unit.sv Line: 47
 Info (12128): Elaborating entity "control_unit" for hierarchy "cpu:cpu|control_unit:cn" File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/cpu.sv Line: 57
@@ -710,9 +756,10 @@ Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "instr_mem:instr_mem|RAM" is uninferred due to asynchronous read logic File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/instr_mem.sv Line: 15
 Critical Warning (127005): Memory depth (128) in the design file differs from memory depth (101) in the Memory Initialization File "C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/db/VECTOR_CPU.ram0_instr_mem_8ff0214b.hdl.mif" -- setting initial value for remaining addresses to 0
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/db/VECTOR_CPU.ram0_instr_mem_8ff0214b.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "EndFlag" is stuck at GND File: C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/MODULES/top.sv Line: 16
-Info (17049): 30 registers lost all their fanouts during netlist optimizations.
+Info (17049): 38 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/jeyki/OneDrive - Estudiantes ITCR/semesters/2023 - Sem I/Arquitectura 2/project2/vectorial_cpu/VECTOR_CPU/output_files/VECTOR_CPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -723,11 +770,11 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
 Info (21057): Implemented 4 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 1 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 4812 megabytes
-    Info: Processing ended: Fri May 12 14:10:24 2023
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:30
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4811 megabytes
+    Info: Processing ended: Sun May 14 23:14:41 2023
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:33
 
 
 +------------------------------------------+

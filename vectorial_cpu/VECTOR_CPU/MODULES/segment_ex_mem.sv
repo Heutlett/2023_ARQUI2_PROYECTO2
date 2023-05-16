@@ -3,7 +3,7 @@ module segment_ex_mem
 (
 	// Entradas
 	input logic clk, reset, RegWriteE, MemtoRegE, MemWriteE, FlagsWriteE, 
-	input logic [R-1:0][1:0] ALUFlagsE,
+	input logic [1:0] ALUFlagsE,
 	input logic [3:0] WA3E,
 	input logic [I-1:0] AddressE,
 	input logic [1:0] VSIFlagE, 
@@ -11,7 +11,7 @@ module segment_ex_mem
 	
 	// Salidas
 	output logic RegWriteM, MemtoRegM, MemWriteM, FlagsWriteM, 
-	output logic [R-1:0][1:0] ALUFlagsM,
+	output logic [1:0] ALUFlagsM,
 	output logic [3:0] WA3M,
 	output logic [I-1:0] AddressM,
 	output logic [1:0] VSIFlagM, 

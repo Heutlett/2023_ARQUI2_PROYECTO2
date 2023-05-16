@@ -8,6 +8,7 @@ module control_unit (
 	output logic [2:0] ALUControl
 );
 
+	import alu_defs::*;
 	
 	// Instruction decoder
 	always_comb begin
@@ -67,28 +68,20 @@ module control_unit (
 			end
 
 			default: begin  // Unimplemented
-				FlagsWrite 	= 1'bx;
-				RegSrc 		= 1'bx;
-				VSIFlag  	= 2'bx;
-				MemtoReg 	= 1'bx;
-				RegWrite 	= 1'bx;
-				MemWrite 	= 1'bx;
+				FlagsWrite 	= 1'bz;
+				RegSrc 		= 1'bz;
+				VSIFlag  	= 2'bz;
+				MemtoReg 	= 1'bz;
+				RegWrite 	= 1'bz;
+				MemWrite 	= 1'bz;
 				end
 		endcase
 	end
 
 	// ALU Decoder
-	always_comb begin
-		unique case (Id[4:2])
-		3'b000: ALUControl  = 3'b000; // ADD
-		3'b001: ALUControl  = 3'b001; // SUB
-		3'b010: ALUControl  = 3'b010; // MOV
-		3'b011: ALUControl  = 3'b011; // MUL
-		3'b100: ALUControl  = 3'b001; // CMP
-		default: ALUControl = 3'bx; // unimplemented
-		endcase
-		
-		// Overwrite -> ADD for MEM Instructions
-		ALUControl = (Id[6:5] == 2'b10) ? 3'b000 : ALUControl;
-	end			
+	always_comb begin		
+		// Arith operation or -overwrite -> ADD for MEM Instructions
+		ALUControl = (Id[6:5] == 2'b10) ? 3'b000 : Id[4:2];
+	
+	end
 endmodule
