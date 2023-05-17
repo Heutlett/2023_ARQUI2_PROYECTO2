@@ -24,7 +24,7 @@ class Compiler:
     def compile(self):
         self.read()
         self.run()
-        # self.write()
+        self.write()
         print(f"\33[32m" + "\nSe ha compilado el programa correctamente\n" + "\33[0m")
 
     def read(self):
@@ -34,7 +34,6 @@ class Compiler:
     def write(self):
         with open(self.o_file, "w") as file:
             for i in range(0, len(self.instructions) - 1):
-                print(self.instructions[i])
                 file.write(self.instructions[i] + "\n")
             file.write(self.instructions[len(self.instructions) - 1])
 
@@ -45,7 +44,7 @@ class Compiler:
         labels, instr = self.extract_instr()
         Binary.Labels = labels
         self.instructions = list(map(self.parse, instr))
-        
+
     def parse(self, x):
         instr = Binary(Line=x["line"], Mnemonic=x["mnem"], Rest=x["body"])
         # print(instr)
@@ -109,5 +108,3 @@ class Compiler:
 
         labels = list(labels.items())
         return labels, instr
-
-

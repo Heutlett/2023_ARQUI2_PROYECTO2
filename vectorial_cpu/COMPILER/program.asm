@@ -3,7 +3,7 @@
 MOVS RS1, #5
 
 encrypt: 
-    ADDV RV1, RV1, RV0
+    ADDV RV1, RV1, RS1
     @ ADDS RV1, RV0, RS0
     @ ADDS RV2, RV0, #10
 
@@ -18,9 +18,9 @@ encrypt:
     @ jmp encrypt
     @ jeq encrypt
     @ jlt encrypt
-    LDR RV1, [RV0]
-    LDR RS0, [RV1, #4]
-    LDR RV1, [RV0, #8]
+    LDR RV1, [RV1]
+    LDR RS1, [RV1, #4]
+    LDR RV1, [RV1, #8]
     @ STR RV1, [RV1]
     @ STR RV0, [RV3, #8]
 

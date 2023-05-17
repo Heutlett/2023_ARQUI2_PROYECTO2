@@ -63,22 +63,22 @@ getbinary = lambda x, n: format(x, "b").zfill(n)
 
 regs_dict = {
     # Scalar
-    "rs0": "0000",
-    "rs1": "0001",
-    "rs2": "0010",
-    "rs3": "0011",
-    "rs4": "0100",
-    "rs5": "0101",
+    "rs1": "0000",
+    "rs2": "0001",
+    "rs3": "0010",
+    "rs4": "0011",
+    "rs5": "0100",
+    "rs6": "0101",
     # Vectorial
-    "rv0": "0001",
-    "rv1": "0010",
-    "rv2": "0011",
-    "rv3": "0100",
-    "rv4": "0101",
-    "rv5": "0110",
-    "rv6": "0111",
-    "rv7": "1000",
-    "rv8": "1001",
+    "rv1": "0001",
+    "rv2": "0010",
+    "rv3": "0011",
+    "rv4": "0100",
+    "rv5": "0101",
+    "rv6": "0110",
+    "rv7": "0111",
+    "rv8": "1000",
+    "rv9": "1001",
 }
 
 
@@ -86,13 +86,12 @@ class Binary:
     IMM_SIZE = 8
     REG_SIZE = 4
     Labels = []
-    
+
     color_system = "33"
     color_memory = "34"
-    color_data3  = "35"
-    color_data2  = "36"
+    color_data3 = "35"
+    color_data2 = "36"
     color_control = "31"
-
 
     def __init__(self, Mnemonic, Rest, Line):
         self.Line = Line
@@ -109,7 +108,6 @@ class Binary:
         }
 
         self.process()
-
 
     def __str__(self):
         return self.Bin
