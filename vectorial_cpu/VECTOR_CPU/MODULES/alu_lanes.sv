@@ -50,7 +50,7 @@ module alu_lanes #(parameter N = 8)
 	alu #(N) alu5    (SrcAE[4], SrcB5, ALUControlE, Aluresult5, ALUFlags5);
 	alu #(N) alu6    (SrcAE[5], SrcB6, ALUControlE, Aluresult6, ALUFlags6);
 
-	assign ALUFlagsE = {ALUFlags6, ALUFlags5, ALUFlags4, ALUFlags3, ALUFlags2, ALUFlags1};
+	assign ALUFlagsE = ALUFlags1;
 	assign ALUOutputE = {Aluresult6, Aluresult5, Aluresult4, Aluresult3, Aluresult2, Aluresult1};
 
 endmodule
