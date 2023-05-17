@@ -10,7 +10,7 @@ module alu_lanes #(parameter N = 8)
     input logic [1:0] VSIFlagE,
 	 
 	 // salidas
-    output logic [5:0][1:0] ALUFlagsE,
+    output logic [1:0] ALUFlagsE,
     output logic [5:0][N-1:0] ALUOutputE
 );
 
