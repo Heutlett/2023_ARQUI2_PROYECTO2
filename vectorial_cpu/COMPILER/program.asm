@@ -1,29 +1,44 @@
-@ MOVV RV0, RV1
-@ MOVS RS0, RS1
-MOVS RS1, #5
+@ Los registros estan inicializados de la siguiente manera:
 
-encrypt: 
-    ADDV RV1, RV1, RS1
-    @ ADDS RV1, RV0, RS0
-    @ ADDS RV2, RV0, #10
+@ Registros vectoriales:
+@ RV9 = {06, 05, 04, 03, 02, 01}
+@ RV8 = {00, 00, 00, 00, 00, 00}
+@ RV7 = {00, 00, 00, 00, 00, 00}
+@ RV6 = {00, 00, 00, 00, 00, 00}
+@ RV5 = {00, 00, 00, 00, 00, 00}
+@ RV4 = {00, 00, 00, 00, 00, 00}
+@ RV3 = {00, 00, 00, 00, 00, 00}
+@ RV2 = {00, 00, 00, 00, 00, 00}
+@ RV1 = {00, 00, 00, 00, 00, 00}
 
-    @ XORV RV3, RV1, RV0
-    @ XORS RV4, RV0, RS3
-    @ XORS RV5, RV0, #5
+@ Registros escalares:
+@ {00, 00, 00, 00, 00, 00}
 
-    @ ORV RV6, RV2, RV3
-    @ ORS RV7, RV6, RS2
-    @ ORS RV8, RV7, #5
+@ La memoria esta inicializada de la siguiente manera:
+@ 0x0 = 10CC442211FF
 
-    @ jmp encrypt
-    @ jeq encrypt
-    @ jlt encrypt
-    LDR RV1, [RV1]
-    LDR RS1, [RV1, #4]
-    LDR RV1, [RV1, #8]
-    @ STR RV1, [RV1]
-    @ STR RV0, [RV3, #8]
+@ Operaciones: Memoria
+LDR RV2, [RV1]          @ Carga el valor de la dir 0x0 de memoria en el registro vectorial RV2
+NOP
+NOP
+STR RV2, [RV1, #4]      @ Guarda el valor del registro RV2 en la dir 0x4 de memoria
+NOP
+NOP
 
-    @ NOP
-    @ COM
-    END
+@ Operaciones: Data register-register / vectorial-vectorial
+
+@ ADDV:
+ADDV RV3, RV9, RV9
+NOP
+NOP
+STR RV3, [RV1, #8]
+NOP
+NOP
+
+@ MOVV:
+MOVV RV3, RV9 
+NOP
+NOP
+STR RV3, [RV1, #12]
+NOP
+NOP
