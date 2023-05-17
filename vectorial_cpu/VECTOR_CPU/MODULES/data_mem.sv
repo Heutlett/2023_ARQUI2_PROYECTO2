@@ -21,10 +21,10 @@ module data_mem
 		
 			RAM[A[13:2]] = WD;
 			
-			$display("\n\n---Write cycle DataMem----");
-			$display("Address (hex):---------- %h", A);
-			$display("Write data (hex):------- %h", WD);
-			$display("Write data (dec):------- %d", WD);
+			$display("\n\n--- Write cycle DataMem ----");
+			$display("Address    (hex):  %0h", A);
+			$display("Write data (dex):  %0d", WD);
+			$display("Write data (hex):  %0h %0h %0h %0h %0h %0h", WD[5], WD[4], WD[3], WD[2], WD[1], WD[0]);
 
 		end
 		

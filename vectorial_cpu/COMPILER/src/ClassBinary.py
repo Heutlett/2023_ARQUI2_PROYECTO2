@@ -256,11 +256,12 @@ class Binary:
         RD = "0" * (self.REG_SIZE)
 
         # Si es MOV, entonces RA es cero.
-        if self.Mnemonic == "mov":
+        if "mov" in self.Mnemonic:
+            print(regs[0])
             RD = regs_dict[regs[0]]
 
         # Si es CMP, entonces RD es cero.
-        elif self.Mnemonic == "cmp":
+        elif "cmp" in self.Mnemonic:
             RA = regs_dict[regs[0]]
 
         # Get IS and RB or IMM

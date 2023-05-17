@@ -147,8 +147,8 @@ set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_lanes.sv -section_id
 set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_defs.sv -section_id TB_TOP
 set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu.sv -section_id TB_TOP
 set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/address_offset.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE INIT/data_mem_init.dat -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE INIT/inst_mem_init.dat -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem_init.dat -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/inst_mem_init.dat -section_id TB_TOP
 set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem_init.dat -section_id TB_TOP_MODULES
 set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/inst_mem_init.dat -section_id TB_TOP_MODULES
 set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCHES/TB_TOP_MODULES.sv -section_id TB_TOP_MODULES

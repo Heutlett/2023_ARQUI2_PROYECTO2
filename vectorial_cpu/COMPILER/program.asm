@@ -28,7 +28,7 @@ NOP
 @ Operaciones: Data register-register / vectorial-vectorial
 
 @ ADDV:
-ADDV RV3, RV9, RV9
+ADDV RV3, RV9, RV8
 NOP
 NOP
 STR RV3, [RV1, #8]
