@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sun May 14 23:14:41 2023
-Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Wed May 17 14:16:46 2023
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : VECTOR_CPU
 Top-level Entity Name : top
 Family : Cyclone IV GX
-Total logic elements : 0
-    Total combinational functions : 0
-    Dedicated logic registers : 0
-Total registers : 0
+Total logic elements : 43
+    Total combinational functions : 39
+    Dedicated logic registers : 17
+Total registers : 17
 Total pins : 4
 Total virtual pins : 0
 Total memory bits : 0

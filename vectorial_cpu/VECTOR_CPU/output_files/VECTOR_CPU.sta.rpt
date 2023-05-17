@@ -1,0 +1,1149 @@
+Timing Analyzer report for VECTOR_CPU
+Wed May 17 14:17:05 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'clk'
+ 22. Slow 1200mV 0C Model Hold: 'clk'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'clk'
+ 30. Fast 1200mV 0C Model Hold: 'clk'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; VECTOR_CPU                                          ;
+; Device Family         ; Cyclone IV GX                                       ;
+; Device Name           ; EP4CGX150DF31C7                                     ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 10          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.3%      ;
+;     Processors 3-10        ;   0.2%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 237.08 MHz ; 237.08 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -2.355 ; -22.565            ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.392 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -28.500                          ;
++-------+--------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                                                                                     ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                  ; To Node                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.355 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.262      ;
+; -2.355 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.262      ;
+; -2.355 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.262      ;
+; -2.355 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.262      ;
+; -2.251 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.158      ;
+; -2.233 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.140      ;
+; -2.233 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.140      ;
+; -2.233 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.140      ;
+; -2.233 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.140      ;
+; -2.193 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.100      ;
+; -2.162 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.069      ;
+; -2.153 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.060      ;
+; -2.152 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.059      ;
+; -2.134 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.041      ;
+; -2.120 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 3.027      ;
+; -2.070 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.977      ;
+; -2.068 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.975      ;
+; -2.066 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.973      ;
+; -2.063 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.970      ;
+; -2.062 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.969      ;
+; -2.061 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.968      ;
+; -2.061 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.968      ;
+; -2.012 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.919      ;
+; -2.012 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.919      ;
+; -2.012 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.919      ;
+; -2.012 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.919      ;
+; -2.012 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.919      ;
+; -2.009 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.916      ;
+; -2.008 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.915      ;
+; -2.007 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.914      ;
+; -2.007 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.914      ;
+; -1.885 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.792      ;
+; -1.863 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.770      ;
+; -1.857 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.764      ;
+; -1.769 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.676      ;
+; -1.759 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.666      ;
+; -1.756 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.663      ;
+; -1.755 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.662      ;
+; -1.754 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.661      ;
+; -1.754 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.661      ;
+; -1.688 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.595      ;
+; -1.679 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.586      ;
+; -1.658 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.565      ;
+; -1.650 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.557      ;
+; -1.649 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.556      ;
+; -1.646 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.553      ;
+; -1.645 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.552      ;
+; -1.644 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.551      ;
+; -1.609 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.099     ; 2.008      ;
+; -1.576 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.975      ;
+; -1.535 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.934      ;
+; -1.531 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.930      ;
+; -1.475 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.874      ;
+; -1.423 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 2.330      ;
+; -1.368 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.767      ;
+; -1.330 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.729      ;
+; -1.327 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.726      ;
+; -1.324 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.723      ;
+; -1.310 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.709      ;
+; -1.289 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.688      ;
+; -1.285 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.684      ;
+; -1.273 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.672      ;
+; -1.267 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.666      ;
+; -1.219 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.618      ;
+; -1.131 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.530      ;
+; -1.115 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.514      ;
+; -1.083 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.091     ; 1.990      ;
+; -1.003 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.402      ;
+; -0.978 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.377      ;
+; -0.974 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.373      ;
+; -0.947 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.091     ; 1.854      ;
+; -0.934 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.333      ;
+; -0.927 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.091     ; 1.834      ;
+; -0.924 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.091     ; 1.831      ;
+; -0.923 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.091     ; 1.830      ;
+; -0.922 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.091     ; 1.829      ;
+; -0.922 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.091     ; 1.829      ;
+; -0.896 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.295      ;
+; -0.893 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.292      ;
+; -0.859 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.258      ;
+; -0.808 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.207      ;
+; -0.770 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.169      ;
+; -0.747 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.146      ;
+; -0.717 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.099     ; 1.116      ;
+; -0.642 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.500        ; -0.081     ; 1.059      ;
+; -0.375 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.500        ; -0.081     ; 0.792      ;
+; -0.367 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.088     ; 1.277      ;
+; -0.345 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.088     ; 1.255      ;
+; -0.321 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.088     ; 1.231      ;
+; -0.213 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.087     ; 1.124      ;
+; 0.125  ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUFlagsM[1] ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; clk          ; clk         ; 1.000        ; -0.088     ; 0.785      ;
+; 0.127  ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; clk          ; clk         ; 1.000        ; -0.088     ; 0.783      ;
+; 0.128  ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; clk          ; clk         ; 1.000        ; -0.088     ; 0.782      ;
+; 0.173  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 1.000        ; -0.091     ; 0.734      ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                                                                     ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                  ; To Node                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.392 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 0.669      ;
+; 0.392 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.000        ; 0.091      ; 0.669      ;
+; 0.418 ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; clk          ; clk         ; 0.000        ; 0.088      ; 0.692      ;
+; 0.419 ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUFlagsM[1] ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; clk          ; clk         ; 0.000        ; 0.088      ; 0.693      ;
+; 0.419 ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; clk          ; clk         ; 0.000        ; 0.088      ; 0.693      ;
+; 0.771 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.088      ; 1.045      ;
+; 0.844 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.088      ; 1.118      ;
+; 0.870 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.088      ; 1.144      ;
+; 0.880 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; -0.500       ; 0.099      ; 0.685      ;
+; 0.894 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.088      ; 1.168      ;
+; 1.022 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.299      ;
+; 1.104 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; -0.500       ; 0.099      ; 0.909      ;
+; 1.165 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.442      ;
+; 1.175 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.452      ;
+; 1.210 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.081      ; 0.997      ;
+; 1.227 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.504      ;
+; 1.232 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.019      ;
+; 1.270 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.547      ;
+; 1.273 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.060      ;
+; 1.303 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.090      ;
+; 1.314 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.591      ;
+; 1.369 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.646      ;
+; 1.370 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.080      ; 1.156      ;
+; 1.390 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.177      ;
+; 1.421 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.208      ;
+; 1.422 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.699      ;
+; 1.422 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.699      ;
+; 1.423 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.700      ;
+; 1.424 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.701      ;
+; 1.427 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.704      ;
+; 1.439 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.226      ;
+; 1.441 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.228      ;
+; 1.442 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.229      ;
+; 1.456 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.243      ;
+; 1.459 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.736      ;
+; 1.460 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.737      ;
+; 1.462 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.739      ;
+; 1.466 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.743      ;
+; 1.481 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.758      ;
+; 1.482 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.759      ;
+; 1.511 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.788      ;
+; 1.514 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.791      ;
+; 1.515 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.792      ;
+; 1.517 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.080      ; 1.303      ;
+; 1.526 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.803      ;
+; 1.528 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.805      ;
+; 1.533 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.810      ;
+; 1.550 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.827      ;
+; 1.583 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.860      ;
+; 1.586 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.080      ; 1.372      ;
+; 1.597 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.384      ;
+; 1.603 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.880      ;
+; 1.619 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.896      ;
+; 1.621 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.898      ;
+; 1.623 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.900      ;
+; 1.626 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.903      ;
+; 1.641 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.080      ; 1.427      ;
+; 1.647 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.924      ;
+; 1.678 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.955      ;
+; 1.685 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.472      ;
+; 1.691 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.478      ;
+; 1.695 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.482      ;
+; 1.696 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.483      ;
+; 1.699 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.486      ;
+; 1.708 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 1.985      ;
+; 1.716 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.503      ;
+; 1.720 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.507      ;
+; 1.727 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.004      ;
+; 1.729 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.006      ;
+; 1.732 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.009      ;
+; 1.757 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.544      ;
+; 1.759 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.036      ;
+; 1.762 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.080      ; 1.548      ;
+; 1.764 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.041      ;
+; 1.765 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.042      ;
+; 1.766 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.553      ;
+; 1.771 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.048      ;
+; 1.776 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.080      ; 1.562      ;
+; 1.795 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.072      ;
+; 1.803 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.080      ; 1.589      ;
+; 1.805 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.082      ;
+; 1.806 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.083      ;
+; 1.809 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.086      ;
+; 1.851 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.128      ;
+; 1.907 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.081      ; 1.694      ;
+; 1.964 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.241      ;
+; 1.985 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.262      ;
+; 1.994 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.271      ;
+; 2.001 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.278      ;
+; 2.003 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.280      ;
+; 2.017 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.294      ;
+; 2.041 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.318      ;
+; 2.059 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.336      ;
+; 2.069 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.091      ; 2.346      ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                        ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note                                                          ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+; 257.2 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -2.085 ; -19.683           ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.344 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -28.500                         ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                                                                                      ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                  ; To Node                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.085 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 3.002      ;
+; -2.085 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 3.002      ;
+; -2.085 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 3.002      ;
+; -2.085 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 3.002      ;
+; -1.964 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.881      ;
+; -1.947 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.864      ;
+; -1.947 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.864      ;
+; -1.947 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.864      ;
+; -1.947 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.864      ;
+; -1.895 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.812      ;
+; -1.891 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.808      ;
+; -1.882 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.799      ;
+; -1.878 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.795      ;
+; -1.841 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.758      ;
+; -1.834 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.751      ;
+; -1.794 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.711      ;
+; -1.791 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.708      ;
+; -1.791 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.708      ;
+; -1.790 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.707      ;
+; -1.790 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.707      ;
+; -1.784 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.701      ;
+; -1.772 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.689      ;
+; -1.772 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.689      ;
+; -1.772 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.689      ;
+; -1.772 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.689      ;
+; -1.760 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.677      ;
+; -1.759 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.676      ;
+; -1.741 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.658      ;
+; -1.741 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.658      ;
+; -1.741 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.658      ;
+; -1.741 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.658      ;
+; -1.622 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.539      ;
+; -1.606 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.523      ;
+; -1.581 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.498      ;
+; -1.523 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.440      ;
+; -1.520 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.437      ;
+; -1.520 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.437      ;
+; -1.519 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.436      ;
+; -1.519 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.436      ;
+; -1.513 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.430      ;
+; -1.445 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.362      ;
+; -1.444 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.841      ;
+; -1.434 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.351      ;
+; -1.431 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.348      ;
+; -1.431 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.348      ;
+; -1.430 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.347      ;
+; -1.424 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.341      ;
+; -1.420 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.337      ;
+; -1.408 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.805      ;
+; -1.399 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.316      ;
+; -1.373 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.770      ;
+; -1.353 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.750      ;
+; -1.284 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.681      ;
+; -1.209 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 2.126      ;
+; -1.206 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.603      ;
+; -1.180 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.577      ;
+; -1.156 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.553      ;
+; -1.146 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.543      ;
+; -1.145 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.542      ;
+; -1.144 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.541      ;
+; -1.143 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.540      ;
+; -1.124 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.521      ;
+; -1.112 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.509      ;
+; -1.091 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.488      ;
+; -0.991 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.388      ;
+; -0.985 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.382      ;
+; -0.885 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.282      ;
+; -0.874 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.271      ;
+; -0.866 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.263      ;
+; -0.859 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.082     ; 1.776      ;
+; -0.813 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.210      ;
+; -0.798 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.195      ;
+; -0.796 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.193      ;
+; -0.767 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.082     ; 1.684      ;
+; -0.753 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.082     ; 1.670      ;
+; -0.750 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.082     ; 1.667      ;
+; -0.750 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.082     ; 1.667      ;
+; -0.749 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.082     ; 1.666      ;
+; -0.749 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.082     ; 1.666      ;
+; -0.725 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.122      ;
+; -0.685 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.082      ;
+; -0.656 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.053      ;
+; -0.630 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.027      ;
+; -0.609 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; -0.102     ; 1.006      ;
+; -0.509 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.500        ; -0.061     ; 0.947      ;
+; -0.279 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.500        ; -0.061     ; 0.717      ;
+; -0.221 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.079     ; 1.141      ;
+; -0.219 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.079     ; 1.139      ;
+; -0.200 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.079     ; 1.120      ;
+; -0.102 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.079     ; 1.022      ;
+; 0.216  ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUFlagsM[1] ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; clk          ; clk         ; 1.000        ; -0.080     ; 0.703      ;
+; 0.216  ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; clk          ; clk         ; 1.000        ; -0.080     ; 0.703      ;
+; 0.217  ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; clk          ; clk         ; 1.000        ; -0.080     ; 0.702      ;
+; 0.258  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 1.000        ; -0.082     ; 0.659      ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                                                                      ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                  ; To Node                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.344 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 0.597      ;
+; 0.344 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.597      ;
+; 0.383 ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.634      ;
+; 0.384 ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUFlagsM[1] ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; clk          ; clk         ; 0.000        ; 0.080      ; 0.635      ;
+; 0.384 ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.635      ;
+; 0.715 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.080      ; 0.966      ;
+; 0.780 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.080      ; 1.031      ;
+; 0.805 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.809 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.080      ; 1.060      ;
+; 0.826 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; -0.500       ; 0.102      ; 0.619      ;
+; 0.916 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.169      ;
+; 1.040 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; -0.500       ; 0.102      ; 0.833      ;
+; 1.068 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.321      ;
+; 1.069 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.322      ;
+; 1.122 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.375      ;
+; 1.159 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.412      ;
+; 1.160 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.060      ; 0.911      ;
+; 1.170 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.423      ;
+; 1.179 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.060      ; 0.930      ;
+; 1.219 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.060      ; 0.970      ;
+; 1.245 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.060      ; 0.996      ;
+; 1.264 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.517      ;
+; 1.289 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.542      ;
+; 1.289 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.542      ;
+; 1.290 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.543      ;
+; 1.291 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.544      ;
+; 1.294 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.547      ;
+; 1.310 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.563      ;
+; 1.314 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.065      ;
+; 1.328 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.079      ;
+; 1.332 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.585      ;
+; 1.335 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.588      ;
+; 1.338 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.089      ;
+; 1.339 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.592      ;
+; 1.344 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.597      ;
+; 1.350 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.603      ;
+; 1.359 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.110      ;
+; 1.359 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.110      ;
+; 1.362 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.113      ;
+; 1.371 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.624      ;
+; 1.372 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.625      ;
+; 1.374 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.125      ;
+; 1.379 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.632      ;
+; 1.381 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.634      ;
+; 1.382 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.635      ;
+; 1.385 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.638      ;
+; 1.400 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.653      ;
+; 1.431 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.182      ;
+; 1.432 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.685      ;
+; 1.436 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.689      ;
+; 1.452 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.705      ;
+; 1.465 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.718      ;
+; 1.470 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.723      ;
+; 1.477 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.730      ;
+; 1.494 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.245      ;
+; 1.501 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.252      ;
+; 1.513 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.766      ;
+; 1.533 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.786      ;
+; 1.551 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.804      ;
+; 1.558 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.309      ;
+; 1.565 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.818      ;
+; 1.566 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.819      ;
+; 1.582 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.835      ;
+; 1.582 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.333      ;
+; 1.583 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.836      ;
+; 1.591 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.844      ;
+; 1.592 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.343      ;
+; 1.593 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.344      ;
+; 1.595 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.848      ;
+; 1.601 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.352      ;
+; 1.603 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.354      ;
+; 1.603 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.354      ;
+; 1.621 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.874      ;
+; 1.634 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.385      ;
+; 1.642 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.895      ;
+; 1.644 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.897      ;
+; 1.645 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.898      ;
+; 1.647 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.900      ;
+; 1.655 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.406      ;
+; 1.656 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.407      ;
+; 1.659 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.410      ;
+; 1.663 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.414      ;
+; 1.666 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 1.919      ;
+; 1.713 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.464      ;
+; 1.793 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.060      ; 1.544      ;
+; 1.795 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.048      ;
+; 1.810 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.063      ;
+; 1.818 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.071      ;
+; 1.823 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.076      ;
+; 1.826 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.079      ;
+; 1.827 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.080      ;
+; 1.847 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.100      ;
+; 1.847 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.100      ;
+; 1.876 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.082      ; 2.129      ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -0.617 ; -4.866            ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.175 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -20.588                         ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                                                                                      ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                  ; To Node                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.617 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.555      ;
+; -0.617 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.555      ;
+; -0.617 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.555      ;
+; -0.617 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.555      ;
+; -0.580 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.519      ;
+; -0.559 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.498      ;
+; -0.549 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.487      ;
+; -0.549 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.487      ;
+; -0.549 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.487      ;
+; -0.549 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.487      ;
+; -0.536 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.475      ;
+; -0.531 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.470      ;
+; -0.509 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.448      ;
+; -0.508 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.446      ;
+; -0.500 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.439      ;
+; -0.492 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.431      ;
+; -0.492 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.431      ;
+; -0.481 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.419      ;
+; -0.478 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.416      ;
+; -0.477 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.415      ;
+; -0.477 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.415      ;
+; -0.477 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.415      ;
+; -0.477 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.415      ;
+; -0.474 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.412      ;
+; -0.472 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.410      ;
+; -0.469 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.407      ;
+; -0.468 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.406      ;
+; -0.453 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.391      ;
+; -0.453 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.391      ;
+; -0.453 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.391      ;
+; -0.453 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.391      ;
+; -0.416 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.500        ; -0.394     ; 0.509      ;
+; -0.382 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.321      ;
+; -0.379 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.318      ;
+; -0.366 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.304      ;
+; -0.356 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.295      ;
+; -0.337 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.275      ;
+; -0.335 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.273      ;
+; -0.334 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.272      ;
+; -0.332 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.270      ;
+; -0.332 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.270      ;
+; -0.318 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.257      ;
+; -0.299 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.237      ;
+; -0.296 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.234      ;
+; -0.295 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.233      ;
+; -0.294 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.232      ;
+; -0.294 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.232      ;
+; -0.293 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 1.231      ;
+; -0.280 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.500        ; -0.394     ; 0.373      ;
+; -0.279 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.218      ;
+; -0.186 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.969      ;
+; -0.167 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 1.106      ;
+; -0.162 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.945      ;
+; -0.161 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.944      ;
+; -0.127 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.910      ;
+; -0.124 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.907      ;
+; -0.062 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.845      ;
+; -0.058 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.841      ;
+; -0.057 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.840      ;
+; -0.041 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.824      ;
+; -0.031 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 1.000        ; -0.048     ; 0.970      ;
+; -0.026 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.809      ;
+; -0.024 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.807      ;
+; -0.024 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.807      ;
+; -0.014 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.797      ;
+; 0.003  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.780      ;
+; 0.023  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.760      ;
+; 0.034  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.749      ;
+; 0.058  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 1.000        ; -0.048     ; 0.881      ;
+; 0.058  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 1.000        ; -0.049     ; 0.880      ;
+; 0.061  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 1.000        ; -0.049     ; 0.877      ;
+; 0.063  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 1.000        ; -0.049     ; 0.875      ;
+; 0.072  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 1.000        ; -0.049     ; 0.866      ;
+; 0.073  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 1.000        ; -0.049     ; 0.865      ;
+; 0.081  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.702      ;
+; 0.114  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.669      ;
+; 0.120  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.663      ;
+; 0.126  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.657      ;
+; 0.131  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.652      ;
+; 0.158  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.625      ;
+; 0.160  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.623      ;
+; 0.171  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.612      ;
+; 0.197  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.586      ;
+; 0.222  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.561      ;
+; 0.233  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.550      ;
+; 0.251  ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; 0.500        ; 0.296      ; 0.532      ;
+; 0.318  ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.049     ; 0.620      ;
+; 0.331  ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.049     ; 0.607      ;
+; 0.347  ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.049     ; 0.591      ;
+; 0.388  ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 1.000        ; -0.048     ; 0.551      ;
+; 0.564  ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUFlagsM[1] ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; clk          ; clk         ; 1.000        ; -0.049     ; 0.374      ;
+; 0.566  ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; clk          ; clk         ; 1.000        ; -0.049     ; 0.372      ;
+; 0.566  ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; clk          ; clk         ; 1.000        ; -0.049     ; 0.372      ;
+; 0.589  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 1.000        ; -0.048     ; 0.350      ;
++--------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                                                                      ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                  ; To Node                                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.175 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.307      ;
+; 0.175 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; 0.000        ; 0.048      ; 0.307      ;
+; 0.180 ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; clk          ; clk         ; 0.000        ; 0.049      ; 0.313      ;
+; 0.181 ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|FlagsWriteM  ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; clk          ; clk         ; 0.000        ; 0.049      ; 0.314      ;
+; 0.182 ; cpu:cpu|datapath:dp|segment_ex_mem:seg_ex_mem|ALUFlagsM[1] ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; clk          ; clk         ; 0.000        ; 0.049      ; 0.315      ;
+; 0.346 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.050      ; 0.480      ;
+; 0.375 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.050      ; 0.509      ;
+; 0.384 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.050      ; 0.518      ;
+; 0.398 ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; cpu:cpu|datapath:dp|segment_id_ex:seg_id_ex|FlagsWriteE    ; clk          ; clk         ; 0.000        ; 0.050      ; 0.532      ;
+; 0.464 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.462      ;
+; 0.470 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.603      ;
+; 0.476 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.474      ;
+; 0.494 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.492      ;
+; 0.515 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.513      ;
+; 0.532 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.530      ;
+; 0.534 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.667      ;
+; 0.537 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.670      ;
+; 0.537 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.536      ;
+; 0.563 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.696      ;
+; 0.563 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.562      ;
+; 0.564 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.563      ;
+; 0.564 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.563      ;
+; 0.577 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.576      ;
+; 0.584 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.716      ;
+; 0.585 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.583      ;
+; 0.591 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.724      ;
+; 0.595 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.593      ;
+; 0.624 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.756      ;
+; 0.655 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.653      ;
+; 0.656 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.393      ; 0.653      ;
+; 0.661 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.659      ;
+; 0.666 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.799      ;
+; 0.666 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.665      ;
+; 0.671 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.804      ;
+; 0.675 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.674      ;
+; 0.677 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.809      ;
+; 0.678 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.810      ;
+; 0.678 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.811      ;
+; 0.679 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.811      ;
+; 0.679 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.811      ;
+; 0.683 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.815      ;
+; 0.687 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.686      ;
+; 0.700 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.699      ;
+; 0.700 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.699      ;
+; 0.701 ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.833      ;
+; 0.701 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.834      ;
+; 0.701 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.700      ;
+; 0.703 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.836      ;
+; 0.708 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.841      ;
+; 0.709 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.842      ;
+; 0.709 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.842      ;
+; 0.710 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[31]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.709      ;
+; 0.712 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[16]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.711      ;
+; 0.715 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.848      ;
+; 0.716 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.849      ;
+; 0.718 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.850      ;
+; 0.723 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.856      ;
+; 0.731 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.729      ;
+; 0.734 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.393      ; 0.731      ;
+; 0.734 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.733      ;
+; 0.735 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.868      ;
+; 0.735 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.868      ;
+; 0.744 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.877      ;
+; 0.750 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.883      ;
+; 0.752 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[13]     ; clk          ; clk         ; -0.500       ; 0.394      ; 0.750      ;
+; 0.780 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.913      ;
+; 0.784 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.916      ;
+; 0.784 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.917      ;
+; 0.789 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.921      ;
+; 0.793 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.925      ;
+; 0.793 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.926      ;
+; 0.797 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|datapath:dp|segment_if_id:seg_if_id|InstrD[29]     ; clk          ; clk         ; -0.500       ; 0.395      ; 0.796      ;
+; 0.805 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.937      ;
+; 0.809 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.942      ;
+; 0.811 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.944      ;
+; 0.811 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.944      ;
+; 0.823 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.956      ;
+; 0.828 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.960      ;
+; 0.835 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[3]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.968      ;
+; 0.843 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.976      ;
+; 0.844 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.049      ; 0.977      ;
+; 0.862 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; clk          ; clk         ; 0.000        ; 0.048      ; 0.994      ;
+; 0.888 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.048      ; 1.020      ;
+; 0.911 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.048      ; 1.043      ;
+; 0.923 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.049      ; 1.056      ;
+; 0.930 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[2]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.049      ; 1.063      ;
+; 0.931 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.048      ; 1.063      ;
+; 0.932 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.048      ; 1.064      ;
+; 0.945 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[4]               ; clk          ; clk         ; 0.000        ; 0.049      ; 1.078      ;
+; 0.945 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[8]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; clk          ; clk         ; 0.000        ; 0.049      ; 1.078      ;
+; 0.947 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[6]               ; clk          ; clk         ; 0.000        ; 0.048      ; 1.079      ;
+; 0.960 ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[5]               ; cpu:cpu|pc_control_unit:pcu|flopr:pcreg|q[7]               ; clk          ; clk         ; 0.000        ; 0.049      ; 1.093      ;
+; 1.008 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|FlagsWriteW  ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; -0.500       ; -0.297     ; 0.315      ;
+; 1.112 ; cpu:cpu|datapath:dp|segment_mem_wb:seg_mem_wb|ALUFlagsW[1] ; cpu:cpu|pc_control_unit:pcu|flopenr:flagreg1|q[1]          ; clk          ; clk         ; -0.500       ; -0.297     ; 0.419      ;
++-------+------------------------------------------------------------+------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.355  ; 0.175 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -2.355  ; 0.175 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -22.565 ; 0.0   ; 0.0      ; 0.0     ; -28.5               ;
+;  clk             ; -22.565 ; 0.000 ; N/A      ; N/A     ; -28.500             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; EndFlag       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_NCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++------------------------------------------------------------------------+
+; Input Transition Times                                                 ;
++---------------------+--------------+-----------------+-----------------+
+; Pin                 ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++---------------------+--------------+-----------------+-----------------+
+; start               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; reset               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_NCSO~       ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++---------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; EndFlag       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.37 V              ; -0.00994 V          ; 0.186 V                              ; 0.028 V                              ; 4.98e-10 s                  ; 4.96e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.37 V             ; -0.00994 V         ; 0.186 V                             ; 0.028 V                             ; 4.98e-10 s                 ; 4.96e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_NCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.92e-09 V                   ; 2.47 V              ; -0.0283 V           ; 0.229 V                              ; 0.031 V                              ; 1.27e-10 s                  ; 2.34e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.92e-09 V                  ; 2.47 V             ; -0.0283 V          ; 0.229 V                             ; 0.031 V                             ; 1.27e-10 s                 ; 2.34e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.59e-09 V                   ; 2.37 V              ; -0.038 V            ; 0.188 V                              ; 0.093 V                              ; 3.06e-10 s                  ; 2.83e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.59e-09 V                  ; 2.37 V             ; -0.038 V           ; 0.188 V                             ; 0.093 V                             ; 3.06e-10 s                 ; 2.83e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; EndFlag       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.35 V              ; -0.00942 V          ; 0.116 V                              ; 0.033 V                              ; 6.66e-10 s                  ; 6.27e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.35 V             ; -0.00942 V         ; 0.116 V                             ; 0.033 V                             ; 6.66e-10 s                 ; 6.27e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_NCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.56e-07 V                   ; 2.36 V              ; -0.0218 V           ; 0.05 V                               ; 0.038 V                              ; 2.27e-10 s                  ; 3.26e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.56e-07 V                  ; 2.36 V             ; -0.0218 V          ; 0.05 V                              ; 0.038 V                             ; 2.27e-10 s                 ; 3.26e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.55e-07 V                   ; 2.35 V              ; -0.00881 V          ; 0.093 V                              ; 0.011 V                              ; 4.44e-10 s                  ; 3.77e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.55e-07 V                  ; 2.35 V             ; -0.00881 V         ; 0.093 V                             ; 0.011 V                             ; 4.44e-10 s                 ; 3.77e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; EndFlag       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_NCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.65e-08 V                   ; 3.12 V              ; -0.147 V            ; 0.571 V                              ; 0.186 V                              ; 8.91e-11 s                  ; 1.76e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.65e-08 V                  ; 3.12 V             ; -0.147 V           ; 0.571 V                             ; 0.186 V                             ; 8.91e-11 s                 ; 1.76e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.26e-08 V                   ; 2.73 V              ; -0.0622 V           ; 0.148 V                              ; 0.088 V                              ; 2.68e-10 s                  ; 2.25e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.26e-08 V                  ; 2.73 V             ; -0.0622 V          ; 0.148 V                             ; 0.088 V                             ; 2.68e-10 s                 ; 2.25e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 246      ; 2        ; 34       ; 7        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 246      ; 2        ; 34       ; 7        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 24    ; 24   ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 7     ; 7    ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; start      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; EndFlag     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; start      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; EndFlag     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Wed May 17 14:17:03 2023
+Info: Command: quartus_sta VECTOR_CPU -c VECTOR_CPU
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'VECTOR_CPU.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.355
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.355             -22.565 clk 
+Info (332146): Worst-case hold slack is 0.392
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.392               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -28.500 clk 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.085
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.085             -19.683 clk 
+Info (332146): Worst-case hold slack is 0.344
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.344               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -28.500 clk 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.617
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.617              -4.866 clk 
+Info (332146): Worst-case hold slack is 0.175
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.175               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -20.588 clk 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4946 megabytes
+    Info: Processing ended: Wed May 17 14:17:05 2023
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

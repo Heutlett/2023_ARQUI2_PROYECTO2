@@ -1,6 +1,6 @@
 Flow report for VECTOR_CPU
-Sun May 14 23:14:41 2023
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Wed May 17 14:17:06 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
@@ -41,26 +41,26 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun May 14 23:14:41 2023       ;
-; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Flow Status                        ; Successful - Wed May 17 14:17:06 2023       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; VECTOR_CPU                                  ;
 ; Top-level Entity Name              ; top                                         ;
 ; Family                             ; Cyclone IV GX                               ;
 ; Device                             ; EP4CGX150DF31C7                             ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 4                                           ;
+; Total logic elements               ; 43 / 149,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 40 / 149,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 17 / 149,760 ( < 1 % )                      ;
+; Total registers                    ; 17                                          ;
+; Total pins                         ; 4 / 508 ( < 1 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total GXB Receiver Channel PCS     ; 0                                           ;
-; Total GXB Receiver Channel PMA     ; 0                                           ;
-; Total GXB Transmitter Channel PCS  ; 0                                           ;
-; Total GXB Transmitter Channel PMA  ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
+; Total memory bits                  ; 0 / 6,635,520 ( 0 % )                       ;
+; Embedded Multiplier 9-bit elements ; 0 / 720 ( 0 % )                             ;
+; Total GXB Receiver Channel PCS     ; 0 / 8 ( 0 % )                               ;
+; Total GXB Receiver Channel PMA     ; 0 / 8 ( 0 % )                               ;
+; Total GXB Transmitter Channel PCS  ; 0 / 8 ( 0 % )                               ;
+; Total GXB Transmitter Channel PMA  ; 0 / 8 ( 0 % )                               ;
+; Total PLLs                         ; 0 / 8 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -69,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/14/2023 23:14:17 ;
+; Start date & time ; 05/17/2023 14:16:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; VECTOR_CPU          ;
 +-------------------+---------------------+
@@ -80,7 +80,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 74780423315271.168412765706464         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 224948468512080.168435459908588        ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_TOP_MODULES                    ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_TOP                            ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TB_DATAPATH_MODULES               ;
@@ -135,8 +135,8 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TEST_BENCH_FILE                  ; MODULES/alu_defs.sv                    ; --            ; --          ; TB_TOP                            ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/alu.sv                         ; --            ; --          ; TB_TOP                            ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/address_offset.sv              ; --            ; --          ; TB_TOP                            ;
-; EDA_TEST_BENCH_FILE                  ; INIT/data_mem_init.dat                 ; --            ; --          ; TB_TOP                            ;
-; EDA_TEST_BENCH_FILE                  ; INIT/inst_mem_init.dat                 ; --            ; --          ; TB_TOP                            ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/data_mem_init.dat              ; --            ; --          ; TB_TOP                            ;
+; EDA_TEST_BENCH_FILE                  ; MODULES/inst_mem_init.dat              ; --            ; --          ; TB_TOP                            ;
 ; EDA_TEST_BENCH_FILE                  ; TESTBENCHES/TB_DATAPATH_MODULES.sv     ; --            ; --          ; TB_DATAPATH_MODULES               ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/segment_mem_wb.sv              ; --            ; --          ; TB_DATAPATH_MODULES               ;
 ; EDA_TEST_BENCH_FILE                  ; MODULES/segment_if_id.sv               ; --            ; --          ; TB_DATAPATH_MODULES               ;
@@ -179,8 +179,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 4796 MB             ; 00:00:33                           ;
-; Total                ; 00:00:24     ; --                      ; --                  ; 00:00:33                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4901 MB             ; 00:00:04                           ;
+; Fitter               ; 00:00:12     ; 1.0                     ; 6283 MB             ; 00:00:11                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4768 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4946 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4725 MB             ; 00:00:00                           ;
+; Total                ; 00:00:24     ; --                      ; --                  ; 00:00:17                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -189,7 +193,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; jey              ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-IJICAMK  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-IJICAMK  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-IJICAMK  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-IJICAMK  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-IJICAMK  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -197,6 +205,10 @@ https://fpgasoftware.intel.com/eula.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off VECTOR_CPU -c VECTOR_CPU
+quartus_fit --read_settings_files=off --write_settings_files=off VECTOR_CPU -c VECTOR_CPU
+quartus_asm --read_settings_files=off --write_settings_files=off VECTOR_CPU -c VECTOR_CPU
+quartus_sta VECTOR_CPU -c VECTOR_CPU
+quartus_eda --read_settings_files=off --write_settings_files=off VECTOR_CPU -c VECTOR_CPU
 
 
 
