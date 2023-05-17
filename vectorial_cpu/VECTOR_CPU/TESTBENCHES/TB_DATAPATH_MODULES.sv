@@ -7,6 +7,7 @@ module TB_DATAPATH_MODULES;
 	// Input
 	logic clk, reset, RegWriteD, MemtoRegD, MemWriteD, FlagsWriteD, RegSrcD;
 	logic [1:0] VSIFlagD;
+	logic LDFlagD;
 	logic [2:0] ALUControlD;
 //	logic [I-1:0] InstrF;
 	logic [I-1:0] PC;
@@ -51,7 +52,8 @@ module TB_DATAPATH_MODULES;
 	// para poder hacer testing con las instrucciones.
 	// cuando se quita esto, se descomenta InstrF y InstrD del las entradas.
 	// logic [I-1:0] InstrF = {tipo, op, IS, rd, ra, imm, none};
-	logic [I-1:0] InstrF = {tipo, op, S, null1, rd, ra, imm, none};
+//	logic [I-1:0] InstrF = {tipo, op, S, null1, rd, ra, imm, none};
+	logic [I-1:0] InstrF = 'b01100110011010000000001000000000;
 	logic [I-1:0] InstrD;
 	
 	
@@ -68,7 +70,7 @@ module TB_DATAPATH_MODULES;
 			
 	
 // DECODE ***********************************************************************
-
+		
 	control_unit cn (
 		// Entradas
 		.Id(InstrD[31:25]),
@@ -80,42 +82,44 @@ module TB_DATAPATH_MODULES;
 		.FlagsWrite(FlagsWriteD),
 		.RegSrc(RegSrcD),
 		.VSIFlag(VSIFlagD),
+		.LDFlag(LDFlagD),
 		.ALUControl(ALUControlD)
 	);
+
 	
-	logic [3:0] RA2D;	
+	logic [3:0] RA2D;
 
 	mux2 #(4) ra2mux	(
 	// Entradas
-		.d0(InstrD[16:13]), 
-		.d1(InstrD[24:21]), 
-		.s(RegSrcD), 
+		.d0(InstrD[16:13]),
+		.d1(InstrD[24:21]),
+		.s(RegSrcD),
 	// Salidas
 		.y(RA2D)
 	);
-		
+
 	logic [3:0] WA3W;   				// Se recibe de la etapa Write-back
 	logic [R-1:0][N-1:0] ResultW;	// Se recibe de la etapa Write-back
 	logic RegWriteW;					// Se recibe de la etapa Write-back
 	logic [R-1:0][N-1:0] RD1D, RD2D;
 	logic [1:0] VSIFlagW;
+	logic LDFlagW;
 
 	
 	regfile reg_file (
 	// Entradas
 		.clk(clk), 
-		.WE3(RegWriteW), 
-		.A1(InstrD[20:17]), 
+		.WE3(RegWriteW),
+		.LDFlag(LDFlagW),
+		.A1(InstrD[20:17]),
 		.A2(RA2D),
 		.A3(WA3W),
 		.SFlag(VSIFlagW[0]),
 		.WD3(ResultW),
 	// Salidas
-		.RD1(RD1D), 
+		.RD1(RD1D),
 		.RD2(RD2D)
 	);
-	
-	
 		
 		
 	logic RegWriteE, MemtoRegE, MemWriteE, FlagsWriteE;
@@ -125,7 +129,7 @@ module TB_DATAPATH_MODULES;
 	logic [3:0] RA2E;
 	logic [N-1:0] ImmE;
 	logic [1:0] VSIFlagE;
-
+	logic LDFlagE;
 	logic [3:0] WA3E;
 	
 	segment_id_ex seg_id_ex	(
@@ -136,6 +140,7 @@ module TB_DATAPATH_MODULES;
 		.MemtoRegD(MemtoRegD),
 		.MemWriteD(MemWriteD),
 		.VSIFlagD(VSIFlagD),
+		.LDFlagD(LDFlagD),
 		.FlagsWriteD(FlagsWriteD),
 		.ALUControlD(ALUControlD),
 		.WA3D(InstrD[24:21]), 			// Write address RD
@@ -147,7 +152,8 @@ module TB_DATAPATH_MODULES;
 		.RegWriteE(RegWriteE), 
 		.MemtoRegE(MemtoRegE), 
 		.MemWriteE(MemWriteE), 
-		.VSIFlagE(VSIFlagE), 
+		.VSIFlagE(VSIFlagE),
+		.LDFlagE(LDFlagE),
 		.FlagsWriteE(FlagsWriteE),
 		.ALUControlE(ALUControlE), 
 		.WA3E(WA3E),
@@ -158,9 +164,9 @@ module TB_DATAPATH_MODULES;
 	);
 	
 	
-	
 		
 // EXECUTE ----------------------------------------------------------------------
+	
 	
 	logic [I-1:0] AddressE;
 	
@@ -169,7 +175,6 @@ module TB_DATAPATH_MODULES;
 		.offset(ImmE),
 		.A(AddressE)
 	);
-
 
 	logic [1:0] ALUFlagsE;
 	logic [R-1:0][N-1:0] ALUOutputE;
@@ -180,12 +185,12 @@ module TB_DATAPATH_MODULES;
 	  .SrcAE(RD1E),
 	  .SrcBE(RD2E),
 	  .SrcBiE(RA2E),
-	  .Imm(ImmE),
-	  .VSIFlag(VSIFlagE),
-	  .ALUControl(ALUControlE),
+	  .ImmE(ImmE),
+	  .VSIFlagE(VSIFlagE),
+	  .ALUControlE(ALUControlE),
 	// Salidas
-	  .ALUFlags(ALUFlagsE),
-	  .ALUOutput(ALUOutputE)
+	  .ALUFlagsE(ALUFlagsE),
+	  .ALUOutputE(ALUOutputE)
 	); 
 
 
@@ -194,6 +199,7 @@ module TB_DATAPATH_MODULES;
 	logic [R-1:0][N-1:0] ALUOutputM;
 	logic [3:0] WA3M;	
 	logic [1:0] VSIFlagM;
+	logic LDFlagM;
 	
 	segment_ex_mem seg_ex_mem	(
 	// Entradas
@@ -203,6 +209,7 @@ module TB_DATAPATH_MODULES;
 		.MemtoRegE(MemtoRegE), 
 		.MemWriteE(MemWriteE), 
 		.VSIFlagE(VSIFlagE),
+		.LDFlagE(LDFlagE),
 		.FlagsWriteE(FlagsWriteE),
 		.ALUFlagsE(ALUFlagsE),
 		.WA3E(WA3E),
@@ -214,6 +221,7 @@ module TB_DATAPATH_MODULES;
 		.MemtoRegM(MemtoRegM), 
 		.MemWriteM(MemWriteM), 
 		.VSIFlagM(VSIFlagM),
+		.LDFlagM(LDFlagM),
 		.FlagsWriteM(FlagsWriteM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
@@ -249,6 +257,7 @@ module TB_DATAPATH_MODULES;
 		.MemtoRegM(MemtoRegM), 
 		.FlagsWriteM(FlagsWriteM),
 		.VSIFlagM(VSIFlagM),
+		.LDFlagM(LDFlagM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
 		.ReadDataM(ReadData), 
@@ -259,6 +268,7 @@ module TB_DATAPATH_MODULES;
 		.FlagsWriteW(FlagsWriteW),
 		.ALUFlagsW(ALUFlagsW),
 		.VSIFlagW(VSIFlagW),
+		.LDFlagW(LDFlagW),
 		.WA3W(WA3W),
 		.ReadDataW(ReadDataW),
 		.ALUOutputW(ALUOutputW)

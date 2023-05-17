@@ -4,6 +4,7 @@ module datapath
 	// Entradas
 	input logic clk, reset, RegWriteD, MemtoRegD, MemWriteD, FlagsWriteD, RegSrcD,
 	input logic [1:0] VSIFlagD,
+	input logic LDFlagD,
 	input logic [2:0] ALUControlD,
 	input logic [I-1:0] InstrF,
 	input logic [R-1:0][N-1:0] ReadData,
@@ -49,19 +50,21 @@ module datapath
 	logic RegWriteW;					// Se recibe de la etapa Write-back
 	logic [R-1:0][N-1:0] RD1D, RD2D;
 	logic [1:0] VSIFlagW;
+	logic LDFlagW;
 
 	
 	regfile reg_file (
 	// Entradas
 		.clk(clk), 
-		.WE3(RegWriteW), 
-		.A1(InstrD[20:17]), 
+		.WE3(RegWriteW),
+		.LDFlag(LDFlagW),
+		.A1(InstrD[20:17]),
 		.A2(RA2D),
 		.A3(WA3W),
 		.SFlag(VSIFlagW[0]),
 		.WD3(ResultW),
 	// Salidas
-		.RD1(RD1D), 
+		.RD1(RD1D),
 		.RD2(RD2D)
 	);
 	
@@ -73,7 +76,7 @@ module datapath
 	logic [3:0] RA2E;
 	logic [N-1:0] ImmE;
 	logic [1:0] VSIFlagE;
-
+	logic LDFlagE;
 	logic [3:0] WA3E;
 	
 	segment_id_ex seg_id_ex	(
@@ -84,6 +87,7 @@ module datapath
 		.MemtoRegD(MemtoRegD),
 		.MemWriteD(MemWriteD),
 		.VSIFlagD(VSIFlagD),
+		.LDFlagD(LDFlagD),
 		.FlagsWriteD(FlagsWriteD),
 		.ALUControlD(ALUControlD),
 		.WA3D(InstrD[24:21]), 			// Write address RD
@@ -95,7 +99,8 @@ module datapath
 		.RegWriteE(RegWriteE), 
 		.MemtoRegE(MemtoRegE), 
 		.MemWriteE(MemWriteE), 
-		.VSIFlagE(VSIFlagE), 
+		.VSIFlagE(VSIFlagE),
+		.LDFlagE(LDFlagE),
 		.FlagsWriteE(FlagsWriteE),
 		.ALUControlE(ALUControlE), 
 		.WA3E(WA3E),
@@ -139,6 +144,7 @@ module datapath
 	logic [R-1:0][N-1:0] ALUOutputM;
 	logic [3:0] WA3M;	
 	logic [1:0] VSIFlagM;
+	logic LDFlagM;
 	
 	segment_ex_mem seg_ex_mem	(
 	// Entradas
@@ -148,6 +154,7 @@ module datapath
 		.MemtoRegE(MemtoRegE), 
 		.MemWriteE(MemWriteE), 
 		.VSIFlagE(VSIFlagE),
+		.LDFlagE(LDFlagE),
 		.FlagsWriteE(FlagsWriteE),
 		.ALUFlagsE(ALUFlagsE),
 		.WA3E(WA3E),
@@ -159,6 +166,7 @@ module datapath
 		.MemtoRegM(MemtoRegM), 
 		.MemWriteM(MemWriteM), 
 		.VSIFlagM(VSIFlagM),
+		.LDFlagM(LDFlagM),
 		.FlagsWriteM(FlagsWriteM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
@@ -180,6 +188,7 @@ module datapath
 		.MemtoRegM(MemtoRegM), 
 		.FlagsWriteM(FlagsWriteM),
 		.VSIFlagM(VSIFlagM),
+		.LDFlagM(LDFlagM),
 		.ALUFlagsM(ALUFlagsM),
 		.WA3M(WA3M),
 		.ReadDataM(ReadData), 
@@ -190,6 +199,7 @@ module datapath
 		.FlagsWriteW(FlagsWriteW),
 		.ALUFlagsW(ALUFlagsW),
 		.VSIFlagW(VSIFlagW),
+		.LDFlagW(LDFlagW),
 		.WA3W(WA3W),
 		.ReadDataW(ReadDataW),
 		.ALUOutputW(ALUOutputW)

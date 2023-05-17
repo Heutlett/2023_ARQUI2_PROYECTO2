@@ -3,6 +3,7 @@ module TB_REG_FILE;
 	// Definición de las señales de entrada
 	logic clk;
 	logic WE3;
+	logic LDFlag;
 	logic [3:0] A1;
 	logic [3:0] A2;
 	logic [3:0] A3;
@@ -17,6 +18,7 @@ module TB_REG_FILE;
 	regfile regfile_inst (
 		.clk(clk),
 		.WE3(WE3),
+		.LDFlag(LDFlag),
 		.A1(A1),
 		.A2(A2),
 		.A3(A3),

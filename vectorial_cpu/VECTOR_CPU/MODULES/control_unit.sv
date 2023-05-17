@@ -5,6 +5,7 @@ module control_unit (
 	// Salidas
 	output logic RegWrite, MemtoReg, MemWrite, FlagsWrite, RegSrc,
 	output logic [1:0] VSIFlag,
+	output logic LDFlag,
 	output logic [2:0] ALUControl
 );
 
@@ -25,6 +26,7 @@ module control_unit (
 				MemtoReg 	= 1'b0;
 				RegWrite 	= 1'b0;
 				MemWrite 	= 1'b0;
+				LDFlag		= 1'b0;
 			end
 			
 			
@@ -34,11 +36,12 @@ module control_unit (
 				// Tipo		Op	    	IS
 				//	6:5	 	4:2		1:0
 				//	01		 	000		11
-				FlagsWrite 	= (Id[4:2] == 3'b100)  ? 1'b1 : 1'b0;			// CMP: modifica las banderas pero no registros
-				RegWrite 	= (Id[4:2] == 3'b100)  ? 1'b0 : 1'b1;			// CMP: modifica las banderas pero no registros
-				RegSrc 		= (VSIFlag[1] == 1'b0) ? 1'b0 : 1'bz; 			// 1 -> Z, 0 -> RB
+				FlagsWrite 	= (Id[4:2] == CMP)  ? 1'b1 : 1'b0;			// CMP: modifica las banderas pero no registros
+				RegWrite 	= (Id[4:2] == CMP)  ? 1'b0 : 1'b1;			// CMP: modifica las banderas pero no registros
+				RegSrc 		= (VSIFlag[1] == 1'b0) ? 1'b0 : 1'bz; 		// 1 -> Z, 0 -> RB
 				MemtoReg 	= 1'b0;
 				MemWrite 	= 1'b0;
+				LDFlag		= 1'b0;
 			end
 			
 			
@@ -53,6 +56,7 @@ module control_unit (
 				MemtoReg 	= (Id[4] == 1'b1) ? 1'b0 : 1'b1; 	// LDR -> (RB y escritura en registro)
 				RegWrite 	= (Id[4] == 1'b1) ? 1'b0 : 1'b1;
 				MemWrite		= (Id[4] == 1'b1) ? 1'b1 : 1'b0;
+				LDFlag		= 1'b1;
 			end
 
 			// Control
@@ -65,6 +69,7 @@ module control_unit (
 				MemtoReg 	= 1'b0;
 				RegWrite 	= 1'b0;
 				MemWrite 	= 1'b0;
+				LDFlag		= 1'b0;
 			end
 
 			default: begin  // Unimplemented
@@ -74,6 +79,7 @@ module control_unit (
 				MemtoReg 	= 1'bz;
 				RegWrite 	= 1'bz;
 				MemWrite 	= 1'bz;
+				LDFlag		= 1'bz;
 				end
 		endcase
 	end

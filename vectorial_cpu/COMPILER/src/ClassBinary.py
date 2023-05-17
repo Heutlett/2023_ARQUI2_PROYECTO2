@@ -234,7 +234,7 @@ class Binary:
             str = f"{self.Type.value} {self.Opcode} {IS} {RD} {RA} {RB_or_IMM} {0:09b}"
         else:
             RB_or_IMM = regs_dict[regs[2]]
-            IS = "01" if "s" in RB_or_IMM else "00"
+            IS = "01" if "s" in regs[2] else "00"
             str = f"{self.Type.value} {self.Opcode} {IS} {RD} {RA} {RB_or_IMM} {0:013b}"
 
         # Get String
@@ -257,7 +257,6 @@ class Binary:
 
         # Si es MOV, entonces RA es cero.
         if "mov" in self.Mnemonic:
-            print(regs[0])
             RD = regs_dict[regs[0]]
 
         # Si es CMP, entonces RD es cero.
@@ -278,7 +277,7 @@ class Binary:
             str = f"{self.Type.value} {self.Opcode} {IS} {RD} {RA} {RB_or_IMM} {0:09b}"
         else:
             RB_or_IMM = regs_dict[regs[1]]
-            IS = "01" if "s" in RB_or_IMM else "00"
+            IS = "01" if "s" in regs[1] else "00"
             str = f"{self.Type.value} {self.Opcode} {IS} {RD} {RA} {RB_or_IMM} {0:013b}"
 
         # Get String

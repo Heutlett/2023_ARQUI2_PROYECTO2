@@ -3,11 +3,10 @@ import re
 from src.ClassBinary import Binary
 from src.ClassBinary import opcode_dict
 
-
 class Compiler:
     labels = []
     instructions = []
-    errors = []
+    error = False
     comment = "@"
 
     def __init__(self, in_file, out_file):
@@ -24,8 +23,12 @@ class Compiler:
     def compile(self):
         self.read()
         self.run()
-        self.write()
-        print(f"\33[32m" + "\nSe ha compilado el programa correctamente\n" + "\33[0m")
+
+        if not self.error:
+            self.write()
+            print(
+                f"\33[32m" + "\nSe ha compilado el programa correctamente\n" + "\33[0m"
+            )
 
     def read(self):
         with open(self.i_file) as file:
@@ -42,12 +45,14 @@ class Compiler:
     def run(self):
         self.remove_noise()
         labels, instr = self.extract_instr()
+
+        if self.error:
+            return
         Binary.Labels = labels
         self.instructions = list(map(self.parse, instr))
 
     def parse(self, x):
         instr = Binary(Line=x["line"], Mnemonic=x["mnem"], Rest=x["body"])
-        # print(instr)
         return instr.getHex()
 
     def remove_noise(self):
@@ -85,12 +90,16 @@ class Compiler:
             # Check if line is a valid label
             if re.findall(end_with, ln):  # Termina con ":"
                 if not re.findall(start_with, ln):  # Todo antes de los ":"
-                    print(f"Err (en {i+1}): formato incorrecto.")
+                    text = f"ERROR (linea {i+1}): formato incorrecto."
+                    print("\33[31m" + text + "\33[0m")
+                    self.error = True
                     break
 
                 label = ln[:-1]
                 if label in labels:
-                    print(f"Err (en {i+1}): etiqueta repetida.")
+                    text = f"ERROR (linea {i+1}): etiqueta repetida."
+                    print("\33[31m" + text + "\33[0m")
+                    self.error = True
                     break
 
                 labels[label] = (i + 1) - len(labels) - counter
@@ -101,6 +110,12 @@ class Compiler:
             for key in opcode_dict:
                 if key.lower() == ln[0]:
                     if len(ln) == 2:
+                        if "s" in ln[1] and ln[0][-1] == "v":
+                            text = f"ERROR (linea {i+1}): Operacion vectorial {ln[0].upper()} con registro escalar."
+                            print("\33[31m" + text + "\33[0m")
+                            self.error = True
+                            break
+                        
                         x = {"line": i + 1, "mnem": ln[0], "body": ln[1]}
                     else:
                         x = {"line": i + 1, "mnem": ln[0], "body": False}

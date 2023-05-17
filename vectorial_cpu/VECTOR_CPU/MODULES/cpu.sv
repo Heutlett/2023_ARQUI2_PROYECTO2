@@ -40,6 +40,7 @@ module cpu // Unidades de control y ruta de datos
 	logic [I-1:0] InstrD;
 	logic RegWriteD, MemtoRegD, MemWriteD, FlagsWriteD, RegSrcD;
 	logic [1:0] VSIFlagD;
+	logic LDFlagD;
 	logic [2:0] ALUControlD;
 		
 	control_unit cn (
@@ -53,6 +54,7 @@ module cpu // Unidades de control y ruta de datos
 		.FlagsWrite(FlagsWriteD),
 		.RegSrc(RegSrcD),
 		.VSIFlag(VSIFlagD),
+		.LDFlag(LDFlagD),
 		.ALUControl(ALUControlD)
 	);
 
@@ -69,6 +71,7 @@ module cpu // Unidades de control y ruta de datos
 		.FlagsWriteD(FlagsWriteD),
 		.RegSrcD(RegSrcD),
 		.VSIFlagD(VSIFlagD),
+		.LDFlagD(LDFlagD),
 		.ALUControlD(ALUControlD),
 		.InstrF(Instr),
 		.ReadData(ReadData),
