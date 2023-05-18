@@ -20,11 +20,10 @@ module data_mem
 		if (WE) begin
 		
 			RAM[A[13:2]] = WD;
-			
-			$display("\n|<<| DATA_MEM");
-			$display(" o A (dec):  %0d", A);
-			$display(" o D (hex):  %0h %0h %0h %0h %0h %0h\n", WD[5], WD[4], WD[3], WD[2], WD[1], WD[0]);
-			$display(" - - - - - - - - - - - - - - - - - - - ");
+			$display("\n  - - - - - - - - - - - - - - - - - - - ");
+			$display("|<<| DATA_MEM");
+			$display(" o A (dec):  %h", A);
+			$display(" o D (hex):  %0h %0h %0h %0h %0h %0h", WD[5], WD[4], WD[3], WD[2], WD[1], WD[0]);
 
 		end
 		

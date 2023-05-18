@@ -6,7 +6,7 @@ module regfile
 	input logic clk,
 	
 	// WE3 : Señal de escritura
-	input logic WE3,
+	input logic WE3, WE1,
 	
 	// Type : Tipo de operacion
 	input logic LDFlag,
@@ -21,6 +21,10 @@ module regfile
 	// SFlag : bandera de operacion escalar
 	input logic SFlag,
 	
+	// SP index, SP data
+	input logic [3:0] SP1,
+	input logic [5:0][7:0] WD1,
+	
 // Salidas
 	
 	// RD1, RD2 : vectores 1 y 2
@@ -31,18 +35,30 @@ module regfile
 //	logic [5:0][7:0] rf[9:0] = '{default:'0};
 	// El primer vector equivale a 6 Registros escalares
 
-	logic [5:0][7:0] rf[9:0] = '{ 
-											'{8'h05, 8'h04, 8'h03, 8'h02, 8'h01, 8'h00}, // 9
+	logic [5:0][7:0] rf[14:0] = '{ 
+	
 											
-											'{8'h00, 8'h01, 8'h02, 8'h03, 8'h04, 8'h05}, // 8
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 14
+											
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 13
+											
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 12
+											
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 11
+											
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00},// 10
+											
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 9
+
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 8
 											
 											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 7
 											
-											'{8'h01, 8'h00, 8'h01, 8'h00, 8'h01, 8'h00}, // 6
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 6
 											
-											'{8'h00, 8'h01, 8'h00, 8'h01, 8'h00, 8'h01}, // 5
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 5
 											
-											'{8'h20, 8'h10, 8'h08, 8'h04, 8'h02, 8'h01}, // 4
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 4
 											
 											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 3
 											
@@ -50,12 +66,21 @@ module regfile
 											
 											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00}, // 1
 											
-											'{8'h00, 8'h00, 8'h00, 8'h01, 8'h00, 8'h00}  // Scalar
+											'{8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00} // Scalar
 										};
 	
 
-	
 	always_ff @(posedge clk) begin
+	
+		// Write in address reg
+		if (WE1) begin
+			// SP1, SP2, SP3, SP4, 
+			rf[SP1] <= WD1;
+			$display("\n  () Updating... StackPointer");
+			$display("     o RA%0d  =  %h", SP1-10, WD1);
+			$display(" - - - - - - - - - - - - - - - - - - - ");
+		end
+		
 		
 		// LOAD escalar
 		if (WE3 && SFlag && LDFlag) begin

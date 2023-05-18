@@ -48,8 +48,8 @@ opcode_dict = {
     "shrs": "100",
     "shlv": "101",
     "shls": "101",
-    "cmpv": "110",
     "cmps": "110",
+    "cmpv": "110",
     # Memory
     "ldr": "0",
     "str": "1",
@@ -79,6 +79,13 @@ regs_dict = {
     "rv7": "0111",
     "rv8": "1000",
     "rv9": "1001",
+    "rv10": "1010",
+    # Address
+    "ra1": "1011",
+    "ra2": "1100",
+    "ra3": "1101",
+    "ra4": "1110",
+    "ra5": "1111",
 }
 
 
@@ -161,7 +168,7 @@ class Binary:
         IMM = getbinary(int(regs[2][1:]), self.IMM_SIZE)
 
         # Get IS
-        IS = "01" if "s" in RD else "00"
+        IS = "01" if "s" in regs[0] else "00"
 
         # Get String
         str = f"{self.Type.value} {self.Opcode} 00 {IS} {RD} {RA} {IMM} {0:09b}"
@@ -180,11 +187,13 @@ class Binary:
     # Funcion para JUMPS
     def control(self):
         # Obtener la etiqueta
+
         result = [tup for tup in self.Labels if tup[0] == self.Rest]
         if result == []:
-            print(
+            text = (
                 f"Err[ln {self.Line}): No se ha encontrado la etiqueta '{self.Rest}'."
             )
+            print("\33[31m" + text + "\33[0m")
         """
         Si se quiere la instruccion 3
         4*3 - 4 = 8

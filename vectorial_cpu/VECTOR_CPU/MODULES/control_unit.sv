@@ -3,7 +3,7 @@ module control_unit (
 	input logic [6:0] Id,
 
 	// Salidas
-	output logic RegWrite, MemtoReg, MemWrite, FlagsWrite, RegSrc,
+	output logic RegWrite, SPWrite, MemtoReg, MemWrite, FlagsWrite, RegSrc,
 	output logic [1:0] VSIFlag,
 	output logic LDFlag,
 	output logic [2:0] ALUControl
@@ -13,7 +13,8 @@ module control_unit (
 	
 	// Instruction decoder
 	always_comb begin
-	
+			
+		
 		VSIFlag 	= Id[1:0]; 		// Asignar las banderas IS
 		
 		case (Id[6:5])
@@ -27,6 +28,8 @@ module control_unit (
 				RegWrite 	= 1'b0;
 				MemWrite 	= 1'b0;
 				LDFlag		= 1'b0;
+				SPWrite		= 1'b0;
+				ALUControl  = 3'bz;
 			end
 			
 			
@@ -42,6 +45,8 @@ module control_unit (
 				MemtoReg 	= 1'b0;
 				MemWrite 	= 1'b0;
 				LDFlag		= 1'b0;
+				SPWrite		= 1'b0;
+				ALUControl = Id[4:2];	// Arith operation
 			end
 			
 			
@@ -57,6 +62,8 @@ module control_unit (
 				RegWrite 	= (Id[4] == 1'b1) ? 1'b0 : 1'b1;
 				MemWrite		= (Id[4] == 1'b1) ? 1'b1 : 1'b0;
 				LDFlag		= 1'b1;
+				SPWrite		= (Id[4] == 1'b1) ? 1'b1 : 1'b0;	   // STR -> actualiza registro sp
+				ALUControl  = 3'bz;
 			end
 
 			// Control
@@ -70,6 +77,8 @@ module control_unit (
 				RegWrite 	= 1'b0;
 				MemWrite 	= 1'b0;
 				LDFlag		= 1'b0;
+				SPWrite		= 1'b0;
+				ALUControl  = 3'bz;
 			end
 
 			default: begin  // Unimplemented
@@ -80,14 +89,11 @@ module control_unit (
 				RegWrite 	= 1'bz;
 				MemWrite 	= 1'bz;
 				LDFlag		= 1'bz;
+				SPWrite		= 1'bz;
+				ALUControl  = 3'bz;
 				end
 		endcase
 	end
 
-	// ALU Decoder
-	always_comb begin		
-		// Arith operation or -overwrite -> ADD for MEM Instructions
-		ALUControl = (Id[6:5] == 2'b10) ? 3'b000 : Id[4:2];
-	
-	end
+
 endmodule
