@@ -25,6 +25,8 @@ types_dict = {
         "shls",
         "cmpv",
         "cmps",
+        "subs",
+        "subv",
     ],
     Type.MEMORY: ["ldr", "str"],
     Type.CONTROL: ["jmp", "jeq", "jlt"],
@@ -50,6 +52,8 @@ opcode_dict = {
     "shls": "101",
     "cmps": "110",
     "cmpv": "110",
+    "subs": "111",
+    "subv": "111",
     # Memory
     "ldr": "0",
     "str": "1",

@@ -40,6 +40,10 @@ continue:
   NOP
   NOP
   NOP
+  SUBV RV4, RV4, #6
+  NOP
+  NOP
+  NOP
   CMPV RV2, RV4
   NOP
   NOP

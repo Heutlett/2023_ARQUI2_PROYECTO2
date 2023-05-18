@@ -24,7 +24,7 @@ module alu
 			SHR: result_r = (a_i >> b_i);
 			SHL: result_r = (a_i << b_i);
 			CMP: result_r = (a_i - b_i);
-
+			SUB: result_r = (a_i - b_i);
 			default: result_r = 8'bz;
 		
 		endcase

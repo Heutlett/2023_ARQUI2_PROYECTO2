@@ -10,5 +10,6 @@ package alu_defs;
 	parameter SHR =  	3'b100;
 	parameter SHL =  	3'b101;
 	parameter CMP =   3'b110;
-
+	parameter SUB =   3'b111;
+	
 endpackage
