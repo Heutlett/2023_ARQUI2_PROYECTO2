@@ -10,8 +10,16 @@ module top
 	
 	// Salidas
 //	output logic clk_out,
-	output logic EndFlag
+	output logic EndFlag,
 //	output logic [7:0] ReadDataOut
+
+	// VGA outputs
+	output clk_vga,
+	output hsync_out,
+	output vsync_out,
+	output [7:0] o_red,
+	output [7:0] o_blue,
+	output [7:0] o_green
 	
 );
 	
@@ -30,6 +38,17 @@ module top
 //		.COMFlag(COMFlag),
 //		.clk(clk)
 //	);
+
+	VGA display(
+		.clk_fpga(clk),
+		.clk_out(clk_vga),
+		.hsync_out(hsync_out),
+		.vsync_out(vsync_out),
+		.o_red(o_red),
+		.o_blue(o_blue),
+		.o_green(o_green)
+//		.tex(tex)
+	);
 	
 	
 	// Instanciar el módulo CPU
