@@ -13,7 +13,7 @@ module data_mem
 	initial 
 		$readmemh("data_mem_init.dat",RAM);
 	
-	logic [5:0][7:0] RAM[101:0];
+	logic [5:0][7:0] RAM[10923:0];
 	
 	always_ff @(posedge clk) begin
 	
