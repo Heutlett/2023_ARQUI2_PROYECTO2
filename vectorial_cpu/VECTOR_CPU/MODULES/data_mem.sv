@@ -2,7 +2,7 @@ module data_mem
 (
 	// Entradas
 	input logic clk, WE,
-	input logic [31:0] A,
+	input logic [13:0] A,
 	input logic [5:0][7:0] WD,
 	
 	// Salidas

@@ -39,6 +39,8 @@ module top
 //		.clk(clk)
 //	);
 
+	wire [5:0][7:0] vram[10923:0];
+
 	VGA display(
 		.clk_fpga(clk),
 		.clk_out(clk_vga),
@@ -46,8 +48,8 @@ module top
 		.vsync_out(vsync_out),
 		.o_red(o_red),
 		.o_blue(o_blue),
-		.o_green(o_green)
-//		.tex(tex)
+		.o_green(o_green),
+		.vram_i(vram)
 	);
 	
 	
@@ -80,14 +82,18 @@ module top
 	
 	
 	// DATA MEMORY
-	data_mem data_mem(
+	
+	
+	
+	data_ram data_mem(
 		// Entradas
 		.clk(clk), 
 		.WE(MemWriteM), 
 		.A(Address), 
 		.WD(WriteData),
 		// Salidas
-		.RD(ReadData)
+		.RD(ReadData),
+		.vram_o(vram)
 	);
 	
 //	// Modulo para comuncacion con interprete

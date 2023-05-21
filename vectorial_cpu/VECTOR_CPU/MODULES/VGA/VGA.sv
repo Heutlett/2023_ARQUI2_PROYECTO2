@@ -1,12 +1,12 @@
 module VGA(
 	input clk_fpga,
+	input [5:0][7:0] vram_i[10923:0],
 	output clk_out,
 	output hsync_out,
 	output vsync_out,
 	output [7:0] o_red,
 	output [7:0] o_blue,
 	output [7:0] o_green
-//	input [31:0] tex [20:0]
 );
 	
 	logic inDisplayArea;
@@ -39,7 +39,7 @@ module VGA(
 		.horzCoord(CounterX), // current position.x
 		.vertCoord(CounterY), // current position.y
 		.pixel(res),  // result, 1 if current pixel is on text, 0 otherwise
-//		.tex(tex),
+		.vram_i(vram_i),
 		.colors(colors)
 		);
 
