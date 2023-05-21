@@ -9,7 +9,7 @@ module segment_ex_mem
 	input logic [R-1:0][N-1:0] WD1E,
 	input logic [I-1:0] AddressE,
 	input logic [1:0] VSIFlagE,
-	input logic LDFlagE,
+	input logic LDSFlagE,
 	input logic [R-1:0][N-1:0] ALUOutputE, WriteDataE,
 	
 	// Salidas
@@ -20,7 +20,7 @@ module segment_ex_mem
 	output logic [1:0] VSIFlagM,
 	output logic [3:0] RA1M,
 	output logic [R-1:0][N-1:0] WD1M,
-	output logic LDFlagM,
+	output logic LDSFlagM,
 	output logic [R-1:0][N-1:0] ALUOutputM, WriteDataM
 );
 			
@@ -35,7 +35,7 @@ module segment_ex_mem
 				ALUOutputM = 0;
 				WriteDataM = 0;
 				VSIFlagM = 0;
-				LDFlagM = 0;
+				LDSFlagM = 0;
 				WA3M = 0;
 				RA1M = 0;
 				WD1M = 0;
@@ -57,7 +57,7 @@ module segment_ex_mem
 				WA3M = WA3E;
 				AddressM = AddressE;
 				VSIFlagM = VSIFlagE;
-				LDFlagM = LDFlagE;
+				LDSFlagM = LDSFlagE;
 				RA1M = RA1E;
 				WD1M = WD1E;
 				FlagsWriteM = FlagsWriteE;

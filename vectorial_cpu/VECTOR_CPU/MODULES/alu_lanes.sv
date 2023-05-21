@@ -49,11 +49,24 @@ module alu_lanes #(parameter N = 8)
 	alu #(N) alu4    (SrcAE[3], SrcB4, ALUControlE, Aluresult4, ALUFlags4);
 	alu #(N) alu5    (SrcAE[4], SrcB5, ALUControlE, Aluresult5, ALUFlags5);
 	alu #(N) alu6    (SrcAE[5], SrcB6, ALUControlE, Aluresult6, ALUFlags6);
-
 	
-	assign ALUFlagsE = ALUFlags1;
+//	always_comb begin
+	
+//		if (ALUControlE == 3'b110) begin
+////			if (ALUFlags1[0] != 1'bx) begin
+//				$display("\n  > COMPARE");
+//				$display("     o A    =  %h", (VSIFlagE[0] == 0) ? ({SrcAE[5],SrcAE[4],SrcAE[3],SrcAE[2],SrcAE[1],SrcAE[0]}) : SrcAE[0]);
+//				$display("     o B    =  %h", (VSIFlagE[0] == 0) ? ({SrcB6,SrcB5,SrcB4,SrcB3,SrcB2,SrcB1}) : ImmE);
+//				$display("     o out  =  %h", (VSIFlagE[0] == 0) ? ({Aluresult6, Aluresult5, Aluresult4, Aluresult3, Aluresult2, Aluresult1}) : Aluresult1);
+//				$display("     o flg  =  %b", (VSIFlagE[0] == 0) ? (ALUFlags1 & ALUFlags2 & ALUFlags3 & ALUFlags4 & ALUFlags5 & ALUFlags6) : ALUFlags1);
+////			end
+//		end
+//	end
+//	
+	// Si es un CMP vectorial, entonces se toma el and de todas las Banderas
+	// Si es un CMP escalar, se toma solo la bandera de los primeros 8 bits
+	assign ALUFlagsE = (VSIFlagE[0] == 0) ? (ALUFlags1 & ALUFlags2 & ALUFlags3 & ALUFlags4 & ALUFlags5 & ALUFlags6) : ALUFlags1;
 	assign ALUOutputE = {Aluresult6, Aluresult5, Aluresult4, Aluresult3, Aluresult2, Aluresult1};
 	
 
-	
 endmodule

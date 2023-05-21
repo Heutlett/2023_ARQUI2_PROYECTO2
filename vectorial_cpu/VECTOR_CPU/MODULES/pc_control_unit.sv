@@ -1,11 +1,19 @@
 module pc_control_unit
-#(parameter I=32, N=8, R=6)
+#(parameter I=32, R=6)
 (	
 	// Entradas
 	input logic clk, reset, FlagsWrite, start,
+	
+	// algoritmo seleccionado
+	input logic [1:0] select,
+	
+	// pausa del switch, 1 es pausa, 0 es continuar
+	input logic pause,
+
 	input logic [1:0] ALUFlags,
 	input logic [3:0] Id,
-	input logic [N-1:0] Imm,
+	input logic [27:0] Address, // 28 bits
+	input logic [1:0] Imm, // dos bits
 	
 	// Salidas
 	output logic EndFlag, COMFlag,
@@ -50,40 +58,45 @@ module pc_control_unit
 		case(Id)
 	
 			4'b0000: PC <= PCNext + 4;		 		// NOP
-		
-		
-			4'b0001: begin 							// COM
-			
-				PC <= PCNext + 4;							
-				$display("\n\n *** Se inicia la comunicacion con el interprete ***");
+
+			4'b0001: begin 							// PSE
+				if (pause == Imm[0]) begin
+					PC <= Address[25:0];
+					$display("\n\n *** CONTINUAR... ***");
+				end
+				else 
+					PC <= PCNext + 4;
 				
 			end
-		
-			4'b0010: begin 
-			
+
+			4'b0010: begin							   // SEL
+				if (select == Imm) begin
+					PC <= Address[25:0];
+					$display("\n\n *** SELECT %0d ***", Imm);
+				end
+				else  
+					PC <= PCNext + 4;
+			end
+
+			4'b0011: begin 
 				PC <= PCNext;							// END
-				$display("\n\n *** El programa ha terminado exitosamente ***");
-				
+				$display("\n\n *** EL PROGRAMA HA TERMINADO EXITOSAMENTE ***");
 			end
+			
 	
-			4'b1100: PC <= Imm; 						// JMP
+			4'b1100: PC <= Address; 				// JMP
 			
 			4'b1101: if (ALUFlagsTemp[0])		 	// JEQ
-						begin 
-							PC <= Imm;	
-						end
-						else begin
+							PC <= Address;	
+						else 
 							PC <= PCNext + 4;
-						end
+						
 						
 			4'b1110: if (ALUFlagsTemp[1])			// JLT
-						begin
-							PC <= Imm;
-						end
-						
-						else begin
+							PC <= Address;
+						else 
 							PC <= PCNext + 4;
-						end
+						
 			
 			default: PC <= PCNext + 4;				// Not control instruction
 		

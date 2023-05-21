@@ -4,6 +4,8 @@ module TB_TOP();
 	logic clk;
 	logic reset;
 	logic start;
+	logic pause;
+	logic [1:0] select;
 
 	// Salida
 	logic EndFlag;
@@ -13,6 +15,8 @@ module TB_TOP();
 		.clk(clk),
 		.reset(reset),
 		.start(start),
+		.pause(pause),
+		.select(select),
 		.EndFlag(EndFlag)
 	);
 	 
@@ -21,7 +25,12 @@ module TB_TOP();
 	initial begin
 		clk = 0;
 		reset = 1; # 6; reset = 0;
+		select = 0;
+		pause = 1;
 		start = 0; # 5; start = 1;
+		
+		#500; pause = 0;
+				
 	end
 
 	// generate clock to sequence tests

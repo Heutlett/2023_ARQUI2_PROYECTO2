@@ -1,147 +1,123 @@
-@ Los registros estan inicializados de la siguiente manera:
+@ Constantes a modificar:
+@ #KEY = cantidad de shifts necesarios (debe ser menor a 8)
 
-@ Registros vectoriales:
-@ RV9 = {05, 04, 03, 02, 01, 00}
-@ RV8 = {01, 03, 04, 05, 05, 06}
-@ RV7 = {00, 00, 00, 00, 00, 00}
-@ RV6 = {01, 00, 01, 00, 01, 00}
-@ RV5 = {00, 01, 00, 01, 00, 01}
-@ RV4 = {20, 10, 08, 04, 02, 01}
-@ RV3 = {00, 00, 00, 00, 00, 00}
-@ RV2 = {00, 00, 00, 00, 00, 00}
-@ RV1 = {00, 00, 00, 00, 00, 00}
+@ RA5: Registro de direccion para cargar INPUT, inicio y final de VGA. 
+@ SEL: Registro que contiene el estado del switch que controla la seleccion del SELoritmo.
+@ PSE: Registro que contiene el estado del switch que indica cuando iniciar el desencriptado.
+@ PSE = 1: pausa
+@ PSE = 0: continuar
 
-@ Registros escalares:
-@ {00, 00, 00, 01, 00, 00}
+_start:
+	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
 
-@ La memoria esta inicializada de la siguiente manera:
-@ 0x0 = 10CC442211FF
-  @ Memoria empieza en 0 0 0 0 0 5
-  LDR RS1, [RA1]
-  NOP
-  NOP
-loop:
-  ADDV RV2, RV2, #1
-  NOP
-  NOP
-  NOP
-  STR  RV2, [RA1, #4]
-  NOP
-  NOP
-  NOP
-  CMPS RV2, RS1
-  NOP
-  NOP
-  NOP
-  JEQ continue
-  JMP loop
-continue:
-  ADDV RV4, RV4, #6
-  NOP
-  NOP
-  NOP
-  SUBV RV4, RV4, #6
-  NOP
-  NOP
-  NOP
-  CMPV RV2, RV4
-  NOP
-  NOP
-  NOP
-  JLT finish
-  ADDV RV2, RV2, #7
-  NOP
-  NOP
-  NOP
-finish:
-  END
+	SEL #3, _end
+	SEL #2, _end
+	SEL #1, _end
+	SEL #0, ROTATE
+
+_end:
+	NOP
+	END
 
 
 
+@ ALGORITMO 1: ROTATE O CIRCULAR SHIFT 
+@ Encriptar y desencriptar imagen usando un circular shift de #KEY posiciones
+ROTATE:
 
+	@ ENCRIPTAR
+	encrypt:
+	@ Cargar valores iniciales
+	MOV RS1, #1		  	@ KEY - Cargar llave
+	XOR RV3, RV3, RV3     @ Asegurar el cero        
+	ADD RV3, RV3, #8      @ Cargar 8 8 8 8 8 8 en RV3
 
+		encrypt_loop:
+		LDR RV1, [RA1, #4]            @ load vector
+		NOP
+		NOP
 
+		@ CIRCULAR SHIFT RIGHT
+		@ RV1 -> vector a aplicar shift
+		@ RS1 -> #KEY
+		@ RV3 -> vector que tiene 8 8 8 8 8 8
+		@ RV2 -> vector con shift aplicado
+		@ Modifica registros RV2, RV4, RV5, RV6
+		SUB RV4, RV3, RS1
+		SHR RV6, RV1, RS1
+		NOP
+		NOP
+		NOP
+		SHL RV5, RV1, RV4
+		NOP
+		NOP
+		NOP
+		OR  RV2, RV6, RV5
+		NOP
+		NOP
+		NOP
 
+		@ GUARDAR PIXELES
+		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		NOP
+		NOP
+		NOP
+		JEQ pause_loop
+		JMP encrypt_loop
 
+	@ PAUSAR
+	pause_loop:
+	PSE #0, decrypt                    	@ Revisar si switch de continuar se activa
+	NOP
+	JMP pause_loop
 
-@ @ Operaciones: Memoria
-@ LDR RV2, [RV1]          @ Carga el valor de la dir 0x0 de memoria en el registro vectorial RV2
-@ NOP
-@ NOP
-@ STR RV2, [SP1, #4]      @ Guarda el valor del registro RV2 en la dir 0x4 de memoria
-@ NOP
-@ NOP
+	@ DESENCRIPTAR
+	decrypt:
+	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
 
-@ @ Operaciones: Data register-register / vectorial-vectorial
+		decrypt_loop:
+		LDR RV1, [RA1, #4]            @ load vector
+		NOP
+		NOP
 
-@ @ ADDV:
-@ ADDV RV3, RV9, RV8
-@ NOP
-@ NOP
-@ STR RV3, [SP1, #4]
-@ NOP
-@ NOP
+		@ CIRCULAR SHIFT LEFT
+		@ RV1 -> vector a aplicar shift
+		@ RS1 -> #KEY
+		@ RV3 -> vector que tiene 8 8 8 8 8 8
+		@ RV2 -> vector con shift aplicado
+		@ Modifica registros RV2, RV4, RV5, RV6
+		SUB RV4, RV3, RS1
+		SHL RV6, RV1, RS1
+		NOP
+		NOP
+		NOP
+		SHR RV5, RV1, RV4
+		NOP
+		NOP
+		NOP
+		OR  RV2, RV6, RV5
+		NOP
+		NOP
+		NOP
 
-@ @ MOVV:
-@ MOVV RV3, RV9 
-@ NOP
-@ NOP
-@ STR RV3, [SP1, #4]
-@ NOP
-@ NOP
-
-@ @ XORV:
-@ XORV RV3, RV5, RV6    @ Todo en 1 1 1 1 1 1
-@ NOP
-@ NOP
-@ STR RV3, [SP1, #4]
-@ NOP
-@ NOP
-@ @ ORV:
-@ ORV RV3, RV7, RV6     @ Todo en 1 0 1 0 1 0
-@ NOP
-@ NOP
-@ STR RV3, [SP1, #4]
-@ NOP
-@ NOP
-
-@ @ SHRV:
-@ SHRS RV3, RV4, #1     @ 10 08 04 02 00
-@ NOP
-@ NOP
-@ NOP
-
-@ STR RV3, [SP1, #4]
-@ NOP
-@ NOP
-
-@ @ SHLV:
-@ SHLS RV3, RV3, #1     @ 20 10 08 04 00
-@ NOP
-@ NOP
-@ NOP
-
-@ STR RV3, [SP1, #4]
-@ NOP
-@ NOP
-
-@ @ XORV:
-@ XORS RV2, SP1,SP1     @ 0 0 0 0 0 0 
-@ NOP
-@ NOP
-
-@ @ CMPS:
-@ CMPS RV2, RS5       @ Si R2[0] es 0
-@ JMP skip
-@ NOP
-@ NOP
-@ STR RV9, [SP1, #4]    @ Save 0 0 0 0 0 0 
-@ NOP
-@ NOP
-@ skip:
-@ NOP
-@ NOP
-@ STR RV2, [SP1, #8]    @ save 1 1 1 1 1 1  saltando dos posiciones
-@ NOP
-@ NOP
-@ END
+		@ GUARDAR PIXELES
+		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		NOP
+		NOP
+		NOP
+		JEQ _end
+		JMP decrypt_loop

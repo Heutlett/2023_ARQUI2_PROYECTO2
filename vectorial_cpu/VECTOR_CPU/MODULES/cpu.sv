@@ -2,7 +2,8 @@ module cpu // Unidades de control y ruta de datos
 #(parameter I=32, N=8, R=6)
 (
 	// Entradas
-	input logic clk, reset, start,
+	input logic clk, reset, start, pause,
+	input logic [1:0] select,
 	input logic [31:0] Instr,
 	input logic [R-1:0][N-1:0] ReadData,
 	
@@ -21,14 +22,16 @@ module cpu // Unidades de control y ruta de datos
 	// PC Control
 	pc_control_unit pcu(
 		// Entradas
-		.clk(clk), 
+		.clk(clk),
 		.reset(reset),
 		.start(start),
+		.pause(pause),
+		.select(select),
 		.FlagsWrite(FlagsWriteW),
-		.Id(Instr[31:28]), 
+		.Id(Instr[31:28]),
 		.ALUFlags(ALUFlagsW),
-		.Imm(Instr[16:9]),
-		
+		.Address(Instr[27:0]),
+		.Imm(Instr[27:26]),
 		// Salidas
 		.EndFlag(EndFlag),
 		.COMFlag(COMFlag),
@@ -40,7 +43,7 @@ module cpu // Unidades de control y ruta de datos
 	logic [I-1:0] InstrD;
 	logic RegWriteD, SPWriteD, MemtoRegD, MemWriteD, FlagsWriteD, RegSrcD;
 	logic [1:0] VSIFlagD;
-	logic LDFlagD;
+	logic LDSFlagD;
 	logic [2:0] ALUControlD;
 		
 	control_unit cn (
@@ -55,7 +58,7 @@ module cpu // Unidades de control y ruta de datos
 		.FlagsWrite(FlagsWriteD),
 		.RegSrc(RegSrcD),
 		.VSIFlag(VSIFlagD),
-		.LDFlag(LDFlagD),
+		.LDSFlag(LDSFlagD),
 		.ALUControl(ALUControlD)
 	);
 
@@ -73,7 +76,7 @@ module cpu // Unidades de control y ruta de datos
 		.FlagsWriteD(FlagsWriteD),
 		.RegSrcD(RegSrcD),
 		.VSIFlagD(VSIFlagD),
-		.LDFlagD(LDFlagD),
+		.LDSFlagD(LDSFlagD),
 		.ALUControlD(ALUControlD),
 		.InstrF(Instr),
 		.ReadData(ReadData),

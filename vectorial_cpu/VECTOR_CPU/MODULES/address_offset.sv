@@ -7,7 +7,7 @@ module address_offset (
 
     always_comb begin
         A = address + offset;
-        WD1E = {16'b0, A[31:24], A[23:15], A[15:8], A[7:0]};
+        WD1E = {16'b0, A[31:24], A[23:16], A[15:8], A[7:0]};
     end
 
 endmodule

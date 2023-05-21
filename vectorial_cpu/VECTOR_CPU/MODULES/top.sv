@@ -2,11 +2,10 @@ module top
 #(parameter I=32, N=8, R=6)
 (
 	// Entradas
-	input logic clk,
+	input logic clk, reset, start, pause,
+	input logic [1:0] select,
 	
 //	input logic clk_FPGA, 
-	input logic reset,
-	input logic start,
 	
 	// Salidas
 //	output logic clk_out,
@@ -58,6 +57,8 @@ module top
 		.clk(clk),
 		.reset(reset),
 		.start(start),
+		.pause(pause),
+		.select(select),
 		.Instr(Instr),
 		.ReadData(ReadData),
 		// Salidas

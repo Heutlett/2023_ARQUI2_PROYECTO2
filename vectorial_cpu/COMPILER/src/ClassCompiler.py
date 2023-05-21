@@ -3,6 +3,7 @@ import re
 from src.ClassBinary import Binary
 from src.ClassBinary import opcode_dict
 
+
 class Compiler:
     labels = []
     instructions = []
@@ -49,10 +50,25 @@ class Compiler:
         if self.error:
             return
         Binary.Labels = labels
-        self.instructions = list(map(self.parse, instr))
+        self.instructions = []
+        for i in instr:
+            out = self.parse(i)
+            
+            if len(out) != 8:
+                text = f"ERROR (linea {out.Line}): tamaño del binario incorrecto."
+                print("\33[31m" + text + "\33[0m")
+                self.error == True
+                
+            if self.error == True:
+                break
+
+            self.instructions.append(out)
 
     def parse(self, x):
         instr = Binary(Line=x["line"], Mnemonic=x["mnem"], Rest=x["body"])
+        if instr.Error == True:
+            self.error == True
+            return
         return instr.getHex()
 
     def remove_noise(self):
@@ -110,15 +126,32 @@ class Compiler:
             for key in opcode_dict:
                 if key.lower() == ln[0]:
                     if len(ln) == 2:
-                        if "s" in ln[1] and ln[0][-1] == "v":
-                            text = f"ERROR (linea {i+1}): Operacion vectorial {ln[0].upper()} con registro escalar."
-                            print("\33[31m" + text + "\33[0m")
-                            self.error = True
-                            break
-                        
+                        if ln[0] not in ["mov", "ldr"]:
+                            if "rs" == ln[1][0:1]:  # Si RA es escalar y no es MOV o LDR, esta mal
+                                text = f"ERROR (linea {i+1}): No se acepta RA escalar en {ln[0].upper()}."
+                                print("\33[31m" + text + "\33[0m")
+                                self.error = True
+                                break
+
+                        elif ln[0] == "mov":
+                            ra, rb = ln[1].split(",")
+                            if (
+                                not ("rv" in ra and "rv" in rb)
+                                and not ("rv" in ra and "ra" in rb)
+                                and not ("ra" in ra and "rv" in rb)
+                                and not ("ra" in ra and "ra" in rb)
+                                and not ("rs" in ra and "rs" in rb)
+                                and not ("rs" in ra and "#" in rb)
+                            ):
+                                text = f"ERROR (linea {i+1}): Las dimensiones de '{ra.upper()}' y '{rb.upper()}' no coincidir en el {ln[0].upper()}."
+                                print("\33[31m" + text + "\33[0m")
+                                self.error = True
+                                break
+
                         x = {"line": i + 1, "mnem": ln[0], "body": ln[1]}
                     else:
                         x = {"line": i + 1, "mnem": ln[0], "body": False}
+
                     instr.append(x)
 
         labels = list(labels.items())

@@ -5,7 +5,8 @@ module TB_DATAPATH_MODULES;
 	parameter R = 6;
   
 	// Input
-	logic clk, reset, RegWriteD, MemtoRegD, MemWriteD, FlagsWriteD, RegSrcD;
+	logic clk, reset, pause, RegWriteD, MemtoRegD, MemWriteD, FlagsWriteD, RegSrcD;
+	logic [1:0] select;
 	logic [1:0] VSIFlagD;
 	logic LDFlagD;
 	logic [2:0] ALUControlD;
@@ -109,13 +110,18 @@ module TB_DATAPATH_MODULES;
 	regfile reg_file (
 	// Entradas
 		.clk(clk), 
+		.pause(pause),
+		.select(select),
 		.WE3(RegWriteW),
+		.WE1(SPWriteW),
 		.LDFlag(LDFlagW),
 		.A1(InstrD[20:17]),
 		.A2(RA2D),
 		.A3(WA3W),
 		.SFlag(VSIFlagW[0]),
 		.WD3(ResultW),
+		.WD1(WD1W),
+		.SP1(RA1W),
 	// Salidas
 		.RD1(RD1D),
 		.RD2(RD2D)
