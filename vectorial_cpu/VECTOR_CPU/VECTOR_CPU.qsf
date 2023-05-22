@@ -48,7 +48,7 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name EDA_SIMULATION_TOOL "Questa Intel FPGA (SystemVerilog)"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (SystemVerilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
@@ -73,67 +73,6 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME TB_TOP_MODULES -section_i
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCHES/TB_DATAPATH_MODULES.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_mem_wb.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_if_id.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_id_ex.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_ex_mem.sv.bak -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_ex_mem.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/regfile.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux3.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2_vec.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/datapath.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/control_unit.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_lanes.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_defs.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/address_offset.sv -section_id TB_DATAPATH_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCHES/TB_TOP.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/top.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_if_id.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_id_ex.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_mem_wb.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_ex_mem.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/regfile.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/pc_control_unit.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux3.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2_vec.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/instr_mem.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/flopr.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/flopenr.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/datapath.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/cpu.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/control_unit.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/clockDivider.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/clock_manager.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_lanes.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_defs.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/address_offset.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem_init.dat -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/inst_mem_init.dat -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/shift_module.sv -section_id TB_TOP
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem_init.dat -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/inst_mem_init.dat -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCHES/TB_TOP_MODULES.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/regfile.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_mem_wb.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_lanes.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/pc_control_unit.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux3.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/datapath.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/control_unit.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_if_id.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_defs.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/address_offset.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2.sv -section_id TB_TOP_MODULES
-set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/instr_mem.sv -section_id TB_TOP_MODULES
 set_location_assignment PIN_V28 -to start
 set_location_assignment PIN_U30 -to reset
 set_location_assignment PIN_AJ16 -to clk
@@ -204,3 +143,64 @@ set_global_assignment -name SYSTEMVERILOG_FILE MODULES/alu_defs.sv
 set_global_assignment -name SYSTEMVERILOG_FILE MODULES/alu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE MODULES/address_offset.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCHES/TB_DATAPATH_MODULES.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_mem_wb.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_if_id.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_id_ex.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_ex_mem.sv.bak -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_ex_mem.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/regfile.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux3.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2_vec.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/datapath.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/control_unit.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_lanes.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_defs.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/address_offset.sv -section_id TB_DATAPATH_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCHES/TB_TOP.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/top.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_if_id.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_id_ex.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_mem_wb.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_ex_mem.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/regfile.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/pc_control_unit.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux3.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2_vec.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/instr_mem.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/flopr.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/flopenr.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/datapath.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/cpu.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/control_unit.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/clockDivider.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/clock_manager.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_lanes.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_defs.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/address_offset.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem_init.dat -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/inst_mem_init.dat -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/shift_module.sv -section_id TB_TOP
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem_init.dat -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/inst_mem_init.dat -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCHES/TB_TOP_MODULES.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/regfile.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_mem_wb.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_lanes.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/pc_control_unit.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux3.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/datapath.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/data_mem.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/control_unit.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/segment_if_id.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/alu_defs.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/address_offset.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/mux2.sv -section_id TB_TOP_MODULES
+set_global_assignment -name EDA_TEST_BENCH_FILE MODULES/instr_mem.sv -section_id TB_TOP_MODULES
