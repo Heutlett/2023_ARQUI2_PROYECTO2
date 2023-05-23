@@ -7,9 +7,10 @@
 @ PSE = 0: continuar
 
 _start:
-	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
-	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
-	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
+
+	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
 
 	SEL #3, RSA
 	SEL #2, ROT128
@@ -21,8 +22,7 @@ _end:
 	END
 
 
-
-@ ALGORITMO 2: XOR
+@ ALGORITMO 1: XOR
 @ Encriptar y desencriptar imagen usando un XOR de #KEY posiciones
 XOR:
 
@@ -43,12 +43,12 @@ XOR:
 		NOP
 
 		@ GUARDAR PIXELES
-		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA3, #4]            @ store vector in VGA + advance pointer
 		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
 		NOP
 		NOP
 		NOP
-		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		CMP RA1, RA2                  @ Revisar si es el final de la memoria de video
 		NOP
 		NOP
 		NOP
@@ -63,9 +63,10 @@ XOR:
 
 	@ DESENCRIPTAR
 	decrypt_xor:
-	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
-	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
-	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
+	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
+
 
 		decrypt_xor_loop:
 		LDR RV1, [RA1, #4]            @ load vector
@@ -77,12 +78,12 @@ XOR:
 		NOP
 
 		@ GUARDAR PIXELES
-		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA3, #4]            @ store vector in VGA + advance pointer
 		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
 		NOP
 		NOP
 		NOP
-		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		CMP RA1, RA2                  @ Revisar si es el final de la memoria de video
 		NOP
 		NOP
 		NOP
@@ -91,7 +92,7 @@ XOR:
 
 
 
-@ ALGORITMO 1: ROTATE O CIRCULAR SHIFT 
+@ ALGORITMO 2: ROTATE O CIRCULAR SHIFT 
 @ Encriptar y desencriptar imagen usando un circular shift de #KEY posiciones
 CIRCULAR_SHIFT:
 
@@ -128,12 +129,12 @@ CIRCULAR_SHIFT:
 		NOP
 
 		@ GUARDAR PIXELES
-		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA3, #4]            @ store vector in VGA + advance pointer
 		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
 		NOP
 		NOP
 		NOP
-		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		CMP RA1, RA2                  @ Revisar si es el final de la memoria de video
 		NOP
 		NOP
 		NOP
@@ -148,9 +149,9 @@ CIRCULAR_SHIFT:
 
 	@ DESENCRIPTAR
 	decrypt_circular_shift:
-	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
-	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
-	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
+	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
 
 		decrypt_circular_shift_loop:
 		LDR RV1, [RA1, #4]            @ load vector
@@ -178,12 +179,12 @@ CIRCULAR_SHIFT:
 		NOP
 
 		@ GUARDAR PIXELES
-		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA3, #4]            @ store vector in VGA + advance pointer
 		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
 		NOP
 		NOP
 		NOP
-		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		CMP RA1, RA2                  @ Revisar si es el final de la memoria de video
 		NOP
 		NOP
 		NOP
@@ -210,12 +211,12 @@ ROT128:
 		NOP
 
 		@ GUARDAR PIXELES
-		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA3, #4]            @ store vector in VGA + advance pointer
 		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
 		NOP
 		NOP
 		NOP
-		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		CMP RA1, RA2                  @ Revisar si es el final de la memoria de video
 		NOP
 		NOP
 		NOP
@@ -230,9 +231,9 @@ ROT128:
 
 	@ DESENCRIPTAR
 	decrypt_rot:
-	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
-	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
-	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
+	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
 
 		decrypt_rot_loop:
 		LDR RV1, [RA1, #4]            @ load vector
@@ -244,12 +245,12 @@ ROT128:
 		NOP
 
 		@ GUARDAR PIXELES
-		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA3, #4]            @ store vector in VGA + advance pointer
 		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
 		NOP
 		NOP
 		NOP
-		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		CMP RA1, RA2                  @ Revisar si es el final de la memoria de video
 		NOP
 		NOP
 		NOP
