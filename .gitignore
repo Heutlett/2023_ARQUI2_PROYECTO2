@@ -65,3 +65,4 @@
 **/*_sim/
 **/_output_files/
 **/PLLJ_PLLSPE_INFO.txt
+*.pyc
