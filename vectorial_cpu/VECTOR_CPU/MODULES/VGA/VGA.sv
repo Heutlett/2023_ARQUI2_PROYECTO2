@@ -1,9 +1,10 @@
 module VGA(
 	input clk_fpga,
-	input [5:0][7:0] vram_i[10923:0],
+	input [5:0][7:0] vram_i,
 	output clk_out,
 	output hsync_out,
 	output vsync_out,
+	output [16:0] a_vga,
 	output [7:0] o_red,
 	output [7:0] o_blue,
 	output [7:0] o_green
@@ -19,14 +20,9 @@ module VGA(
 	logic [7:0] r_blue;
 	logic res;
 	logic [23:0] colors;
-	 
-	clockDivider clk_div(
-		.clk_in(clk_fpga),
-		.clk_out(clk_25)
-	);
 
 	hvsync_generator hvsync(
-		.clk(clk_25),
+		.clk(clk_fpga),
 		.vga_h_sync(hsync_out),
 		.vga_v_sync(vsync_out),
 		.CounterX(CounterX),
@@ -35,16 +31,17 @@ module VGA(
 	);
 				
 	painter t1(
-		.clk(clk_25),
+		.clk(clk_fpga),
 		.horzCoord(CounterX), // current position.x
 		.vertCoord(CounterY), // current position.y
 		.pixel(res),  // result, 1 if current pixel is on text, 0 otherwise
 		.vram_i(vram_i),
-		.colors(colors)
+		.colors(colors),
+		.a_vga(a_vga)
 		);
 
 
-always_ff @(posedge clk_25)
+always_ff @(posedge clk_fpga)
 	begin
 		if (res)
 			{r_red, r_green, r_blue} <= colors;
@@ -55,6 +52,6 @@ always_ff @(posedge clk_25)
 	assign o_red = inDisplayArea ? r_red : 24'h000000;
 	assign o_green = inDisplayArea ? r_green : 24'h000000;
 	assign o_blue = inDisplayArea ? r_blue : 24'h000000;
-	assign clk_out = clk_25;
+	assign clk_out = clk_fpga;
 
 endmodule

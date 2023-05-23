@@ -2,7 +2,7 @@ module data_mem
 (
 	// Entradas
 	input logic clk, WE,
-	input logic [13:0] A,
+	input logic [16:0] A,
 	input logic [5:0][7:0] WD,
 	
 	// Salidas
@@ -10,8 +10,8 @@ module data_mem
 );
 	
 	// Se inicializa la memoria de datos
-	initial 
-		$readmemh("data_mem_init.dat",RAM);
+//	initial 
+//		$readmemh("data_mem_init.dat",RAM);
 	
 	logic [5:0][7:0] RAM[10923:0];
 	
@@ -19,7 +19,7 @@ module data_mem
 	
 		if (WE) begin
 		
-			RAM[A[13:2]] = WD;
+			RAM[A[16:0]] = WD;
 			$display("\n  - - - - - - - - - - - - - - - - - - - ");
 			$display("|<<| DATA_MEM");
 			$display(" o A (dec):  %h", A);
@@ -29,7 +29,7 @@ module data_mem
 		
 	end
 	
-	assign RD = RAM[A[13:2]];
+	assign RD = RAM[A[16:0]];
 	
 	
 	

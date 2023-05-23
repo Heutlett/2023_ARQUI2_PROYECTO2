@@ -2,7 +2,7 @@ module top
 #(parameter I=32, N=8, R=6)
 (
 	// Entradas
-	input logic clk,
+	input logic clk_50,
 	
 //	input logic clk_FPGA, 
 	input logic reset,
@@ -38,8 +38,18 @@ module top
 //		.COMFlag(COMFlag),
 //		.clk(clk)
 //	);
+	
+	logic clk;
 
-	wire [5:0][7:0] vram[10923:0];
+	vga_pll clock_pll (
+		.areset(0),
+		.inclk0(clk_50),
+		.c0(clk),
+		.locked()
+	);
+
+	wire [5:0][7:0] vram;
+	wire [16:0] a_vga;
 
 	VGA display(
 		.clk_fpga(clk),
@@ -49,7 +59,8 @@ module top
 		.o_red(o_red),
 		.o_blue(o_blue),
 		.o_green(o_green),
-		.vram_i(vram)
+		.vram_i(vram),
+		.a_vga(a_vga)
 	);
 	
 	
@@ -90,6 +101,7 @@ module top
 		.clk(clk), 
 		.WE(MemWriteM), 
 		.A(Address), 
+		.A_VGA(a_vga),
 		.WD(WriteData),
 		// Salidas
 		.RD(ReadData),
