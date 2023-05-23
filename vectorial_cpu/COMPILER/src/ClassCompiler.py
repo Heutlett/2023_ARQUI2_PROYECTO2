@@ -27,17 +27,17 @@ class Compiler:
 
         if not self.error:
             self.write()
-            print(
-                f"\33[32m" + "\nSe ha compilado el programa correctamente\n" + "\33[0m"
-            )
+            print(f"\33[32m" + " \n¡Compilación exitosa..!" + "\33[0m")
+            print(f"\33[33m" + f"Instrucciones: {self.n}\n" + "\33[0m")
 
     def read(self):
         with open(self.i_file) as file:
             self.lines = file.readlines()
 
     def write(self):
+        self.n = len(self.instructions)
         with open(self.o_file, "w") as file:
-            for i in range(0, len(self.instructions) - 1):
+            for i in range(self.n - 1):
                 file.write(self.instructions[i] + "\n")
             file.write(self.instructions[len(self.instructions) - 1])
 
@@ -53,12 +53,12 @@ class Compiler:
         self.instructions = []
         for i in instr:
             out = self.parse(i)
-            
+
             if len(out) != 8:
                 text = f"ERROR (linea {out.Line}): tamaño del binario incorrecto."
                 print("\33[31m" + text + "\33[0m")
                 self.error == True
-                
+
             if self.error == True:
                 break
 
@@ -127,7 +127,9 @@ class Compiler:
                 if key.lower() == ln[0]:
                     if len(ln) == 2:
                         if ln[0] not in ["mov", "ldr"]:
-                            if "rs" == ln[1][0:1]:  # Si RA es escalar y no es MOV o LDR, esta mal
+                            if (
+                                "rs" == ln[1][0:1]
+                            ):  # Si RA es escalar y no es MOV o LDR, esta mal
                                 text = f"ERROR (linea {i+1}): No se acepta RA escalar en {ln[0].upper()}."
                                 print("\33[31m" + text + "\33[0m")
                                 self.error = True

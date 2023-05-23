@@ -1,6 +1,5 @@
 @ Constantes a modificar:
-@ #KEY = cantidad de shifts necesarios (debe ser menor a 8)
-
+@ @RS1, RS2 => #KEY = cantidad de shifts necesarios (debe ser menor a 8)
 @ RA5: Registro de direccion para cargar INPUT, inicio y final de VGA. 
 @ SEL: Registro que contiene el estado del switch que controla la seleccion del SELoritmo.
 @ PSE: Registro que contiene el estado del switch que indica cuando iniciar el desencriptado.
@@ -12,10 +11,10 @@ _start:
 	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
 	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
 
-	SEL #3, _end
-	SEL #2, _end
-	SEL #1, _end
-	SEL #0, ROTATE
+	SEL #3, RSA
+	SEL #2, ROT128
+	SEL #1, CIRCULAR_SHIFT
+	SEL #0, XOR
 
 _end:
 	NOP
@@ -23,18 +22,87 @@ _end:
 
 
 
-@ ALGORITMO 1: ROTATE O CIRCULAR SHIFT 
-@ Encriptar y desencriptar imagen usando un circular shift de #KEY posiciones
-ROTATE:
+@ ALGORITMO 2: XOR
+@ Encriptar y desencriptar imagen usando un XOR de #KEY posiciones
+XOR:
 
 	@ ENCRIPTAR
-	encrypt:
+	encrypt_xor:
 	@ Cargar valores iniciales
-	MOV RS1, #1		  	@ KEY - Cargar llave
+	MOV RS1, #1		  	  @ KEY - Cargar llave
 	XOR RV3, RV3, RV3     @ Asegurar el cero        
 	ADD RV3, RV3, #8      @ Cargar 8 8 8 8 8 8 en RV3
 
-		encrypt_loop:
+		encrypt_xor_loop:
+		LDR RV1, [RA1, #4]            @ load vector
+		NOP
+		NOP
+		XOR RV2, RV1, RS1		      @ XOR
+		NOP
+		NOP
+		NOP
+
+		@ GUARDAR PIXELES
+		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		NOP
+		NOP
+		NOP
+		JEQ pause_xor_loop
+		JMP encrypt_xor_loop
+
+	@ PAUSAR
+	pause_xor_loop:
+	PSE #0, decrypt_xor               @ Revisar si switch de continuar se activa
+	NOP
+	JMP pause_xor_loop
+
+	@ DESENCRIPTAR
+	decrypt_xor:
+	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
+
+		decrypt_xor_loop:
+		LDR RV1, [RA1, #4]            @ load vector
+		NOP
+		NOP
+		XOR RV2, RV1, RS1
+		NOP
+		NOP
+		NOP
+
+		@ GUARDAR PIXELES
+		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		NOP
+		NOP
+		NOP
+		JEQ _end
+		JMP decrypt_xor_loop
+
+
+
+@ ALGORITMO 1: ROTATE O CIRCULAR SHIFT 
+@ Encriptar y desencriptar imagen usando un circular shift de #KEY posiciones
+CIRCULAR_SHIFT:
+
+	@ ENCRIPTAR
+	encrypt_circular_shift:
+	@ Cargar valores iniciales
+	MOV RS1, #1		  	  @ KEY - Cargar llave
+	XOR RV3, RV3, RV3     @ Asegurar el cero        
+	ADD RV3, RV3, #8      @ Cargar 8 8 8 8 8 8 en RV3
+
+		encrypt_circular_shift_loop:
 		LDR RV1, [RA1, #4]            @ load vector
 		NOP
 		NOP
@@ -69,22 +137,22 @@ ROTATE:
 		NOP
 		NOP
 		NOP
-		JEQ pause_loop
-		JMP encrypt_loop
+		JEQ pause_circular_shift_loop
+		JMP encrypt_circular_shift_loop
 
 	@ PAUSAR
-	pause_loop:
-	PSE #0, decrypt                    	@ Revisar si switch de continuar se activa
+	pause_circular_shift_loop:
+	PSE #0, decrypt_circular_shift                    	@ Revisar si switch de continuar se activa
 	NOP
-	JMP pause_loop
+	JMP pause_circular_shift_loop
 
 	@ DESENCRIPTAR
-	decrypt:
+	decrypt_circular_shift:
 	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
 	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
 	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
 
-		decrypt_loop:
+		decrypt_circular_shift_loop:
 		LDR RV1, [RA1, #4]            @ load vector
 		NOP
 		NOP
@@ -120,4 +188,79 @@ ROTATE:
 		NOP
 		NOP
 		JEQ _end
-		JMP decrypt_loop
+		JMP decrypt_circular_shift_loop
+
+
+@ ALGORITMO 3: ROT128
+@ Encriptar y desencriptar imagen usando un XOR de #KEY posiciones
+ROT128:
+
+	@ ENCRIPTAR
+	encrypt_rot:
+	@ Cargar valores iniciales
+	MOV RS2, #128			@ Guardar 128
+
+		encrypt_rot_loop:
+		LDR RV1, [RA1, #4]            @ load vector
+		NOP
+		NOP
+		ADD RV2, RV1, RS2		      @ ROT128
+		NOP
+		NOP
+		NOP
+
+		@ GUARDAR PIXELES
+		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		NOP
+		NOP
+		NOP
+		JEQ pause_rot_loop
+		JMP encrypt_rot_loop
+
+	@ PAUSAR
+	pause_rot_loop:
+	PSE #0, decrypt_rot               @ Revisar si switch de continuar se activa
+	NOP
+	JMP pause_rot_loop
+
+	@ DESENCRIPTAR
+	decrypt_rot:
+	LDR RA1, [RA5]      @ RA1 = dirección de INPUT START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de VGA START - 4
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA END
+
+		decrypt_rot_loop:
+		LDR RV1, [RA1, #4]            @ load vector
+		NOP
+		NOP
+		ADD RV2, RV1, RS2		      @ ROT128
+		NOP
+		NOP
+		NOP
+
+		@ GUARDAR PIXELES
+		STR RV2, [RA2, #4]            @ store vector + advance pointer
+		STR RV2, [RA1, #4]            @ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+		CMP RA2, RA3                  @ Revisar si es el final de la memoria de video
+		NOP
+		NOP
+		NOP
+		JEQ _end
+		JMP decrypt_rot_loop
+
+
+
+@ ALGORITMO 4: RSA
+@ Encriptar y desencriptar imagen usando un XOR de #KEY posiciones
+RSA:
+
+	@ @ ENCRIPTAR
+	@ encrypt_rsa:

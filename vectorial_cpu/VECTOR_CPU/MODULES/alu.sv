@@ -33,9 +33,8 @@ module alu
 		
 		endcase
 	end
- 
-	
-	
+
+
 	assign result_o = result_r[N-1:0];		// Result
 	assign ALUFlags[0] = (opcode_i == CMP) ? (result_r == '0) : 1'bx;	// ZERO flag
 	assign ALUFlags[1] = (opcode_i == CMP) ? result_r[N-1] : 1'bx; 	// SIGN flag

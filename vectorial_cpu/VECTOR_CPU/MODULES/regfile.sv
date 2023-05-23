@@ -25,8 +25,11 @@ module regfile
 	// WD3 : dato a escribir en A3
 	input logic [5:0][7:0] WD3,
 	
-	// SFlag : bandera de operacion escalar
-	input logic SFlag,
+	// SFlag : bandera de guardado escalar 
+	input logic WSFlag,
+
+	// RSFlag : bandera de operacion escalar 
+	input logic RSFlag,
 	
 	// SP index, SP data
 	input logic [3:0] SP1,
@@ -91,17 +94,17 @@ module regfile
 			$display("     o RA%0d  =  %h", SP1-10, WD1);
 			$display(" - - - - - - - - - - - - - - - - - - - ");
 		end
-		
-		
+	
+	
 		// LOAD escalar
-		if (WE3 && SFlag && LDSFlag) begin
+		if (WE3 && WSFlag && LDSFlag) begin
 
 			// R0, R1, R2, R3, R4, R5
 			rf[0][A3] <= WD3[0];
 			$display("\n  > RegFile Scalar");
-			$display("     o RS%0d  =  %0h", A3+1, WD3[0]);
+			$display("     o RS%0d  =  %0d", A3+1, WD3[0]);
 		end
-	
+
 		// LOAD vectorial
 		// Todas las operaciones aritmeticas
 		else if (WE3) begin
@@ -110,9 +113,9 @@ module regfile
 			
 			$display("\n  > RegFile Vectorial");
 			if (A3 < 11)
-				$display("     o RV%0d  =  %0h %0h %0h %0h %0h %0h", A3, WD3[5], WD3[4], WD3[3], WD3[2], WD3[1], WD3[0]);
+				$display("     o RV%0d  =  %d %d %d %d %d %d", A3, WD3[5], WD3[4], WD3[3], WD3[2], WD3[1], WD3[0]);
 			else
-				$display("     o RA%0d  =  %h", A3-10, WD3);
+				$display("     o RA%0d  =  %d", A3-10, WD3);
 
 		end
 	end
@@ -124,7 +127,7 @@ module regfile
 
 	// RD2
 	// Si es escalar se envia el vector de registros escalares al alu, sino el vector correspondientes.
-	assign RD2 = SFlag ? rf[0] : rf[A2];
+	assign RD2 = RSFlag ? rf[0] : rf[A2];
 	
 
 	

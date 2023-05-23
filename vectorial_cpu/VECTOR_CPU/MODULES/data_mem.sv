@@ -1,4 +1,5 @@
-module data_mem
+module data_mem #(parameter DMEM_SIZE = 10926)
+
 (
 	// Entradas
 	input logic clk, WE,
@@ -13,7 +14,7 @@ module data_mem
 	initial 
 		$readmemh("data_mem_init.dat",RAM);
 	
-	logic [5:0][7:0] RAM[10923:0];
+	logic [5:0][7:0] RAM[DMEM_SIZE:0];
 	
 	always_ff @(posedge clk) begin
 	
@@ -23,7 +24,7 @@ module data_mem
 			$display("\n  - - - - - - - - - - - - - - - - - - - ");
 			$display("|<<| DATA_MEM");
 			$display(" o A (dec):  %h", A);
-			$display(" o D (hex):  %0h %0h %0h %0h %0h %0h", WD[5], WD[4], WD[3], WD[2], WD[1], WD[0]);
+			$display(" o D (hex):  %d %d %d %d %d %d", WD[5], WD[4], WD[3], WD[2], WD[1], WD[0]);
 
 		end
 		
