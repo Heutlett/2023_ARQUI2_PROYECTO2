@@ -1,12 +1,15 @@
+package top_params;
+	localparam int IMEM_SIZE = 500;
+	localparam int DMEM_SIZE = 10930;
+endpackage
+
 module top
 #(parameter I=32, N=8, R=6)
 (
 	// Entradas
 	input logic clk_50,
-	
-//	input logic clk_FPGA, 
-	input logic reset,
-	input logic start,
+	input logic reset, start, pause,
+	input logic [1:0] select,
 	
 	// Salidas
 //	output logic clk_out,
@@ -23,6 +26,8 @@ module top
 	
 );
 	
+// Importar el paquete de parámetros
+	import top_params::*;
 	
 //	logic clk; // Es el actual clock del sistema, despues de pasar por el clock manager
 	logic [I-1:0] Instr; // Sale de la memoria de instrucciones
@@ -71,6 +76,8 @@ module top
 		.clk(clk),
 		.reset(reset),
 		.start(start),
+		.pause(pause),
+		.select(select),
 		.Instr(Instr),
 		.ReadData(ReadData),
 		// Salidas
@@ -83,7 +90,7 @@ module top
 	);
 
 	// INSTRUCTIONS MEMORY
-	instr_mem instr_mem(
+	instr_mem #(IMEM_SIZE) instr_mem(
 		// Entradas
 		.A(PC),
 		
@@ -93,9 +100,6 @@ module top
 	
 	
 	// DATA MEMORY
-	
-	
-	
 	data_ram data_mem(
 		// Entradas
 		.clk(clk), 
