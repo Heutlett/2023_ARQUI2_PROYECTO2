@@ -4,6 +4,7 @@ module regfile
 
 	// clock
 	input logic clk,
+	input logic reset,
 
 //	// algoritmo seleccionado
 //	input logic [1:0] select,
@@ -84,42 +85,52 @@ module regfile
 										};
 	
 
-	always_ff @(posedge clk) begin
+always_ff @(posedge clk, posedge reset) begin
 		
-		// Write in address reg
-		if (WE1) begin
-			// SP1, SP2, SP3, SP4, 
-			rf[SP1] <= WD1;
-			$display("\n  () Updating... StackPointer");
-			$display("     o RA%0d  =  %h", SP1-10, WD1);
-			$display(" - - - - - - - - - - - - - - - - - - - ");
+		if (reset) begin
+			// Reset condition
+			for (integer i = 0; i < 16; i = i + 1) begin
+				rf[i] = 48'b0;
+			end
 		end
-	
-	
-		// LOAD escalar
-		if (WE3 && WSFlag && LDSFlag) begin
-
-			// R0, R1, R2, R3, R4, R5
-			rf[0][A3] <= WD3[0];
-			$display("\n  > RegFile Scalar");
-			$display("     o RS%0d  =  %0d", A3+1, WD3[0]);
-		end
-
-		// LOAD vectorial
-		// Todas las operaciones aritmeticas
-		else if (WE3) begin
+	 
+		else begin
 		
-			rf[A3] <= WD3;
+		
+			// Write in address reg
+			if (WE1) begin
+				// SP1, SP2, SP3, SP4, 
+				rf[SP1] <= WD1;
+				$display("\n  () Updating... StackPointer");
+				$display("     o RA%0d  =  %0h", SP1-10, WD1);
+				$display(" - - - - - - - - - - - - - - - - - - - ");
+			end
+		
+		
+			// LOAD escalar
+			if (WE3 && WSFlag && LDSFlag) begin
+
+				// R0, R1, R2, R3, R4, R5
+				rf[0][A3] <= WD3[0];
+				$display("\n  > RegFile Scalar");
+				$display("     o RS%0d  =  %0h", A3+1, WD3[0]);
+			end
+
+			// LOAD vectorial
+			// Todas las operaciones aritmeticas
+			else if (WE3) begin
 			
-			$display("\n  > RegFile Vectorial");
-			if (A3 < 11)
-				$display("     o RV%0d  =  %d %d %d %d %d %d", A3, WD3[5], WD3[4], WD3[3], WD3[2], WD3[1], WD3[0]);
-			else
-				$display("     o RA%0d  =  %d", A3-10, WD3);
+				rf[A3] <= WD3;
+				
+				$display("\n  > RegFile Vectorial");
+				if (A3 < 11)
+					$display("     o RV%0d  =  %0h %0h %0h %0h %0h %0h", A3, WD3[5], WD3[4], WD3[3], WD3[2], WD3[1], WD3[0]);
+				else
+					$display("     o RA%0d  =  %0h", A3-10, WD3);
 
+			end
 		end
 	end
-
 	
 	// RD1
 	// Solo puede ser vectorial

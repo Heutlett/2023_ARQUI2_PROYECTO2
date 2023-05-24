@@ -4,8 +4,8 @@ module data_ram
 	input logic [31:0] A,
 	input logic [16:0] A_VGA,
 	input logic [5:0][7:0] WD,
-	output logic [31:0] RD,
-	output [5:0][7:0] vram_o
+	output logic [5:0][7:0] RD,
+	output logic [5:0][7:0] vram_o
 );
 
 	logic ram_select;
@@ -33,6 +33,7 @@ module data_ram
 		.a_cpu(addr),
 		.a_vga(A_VGA),
 		.wd(WD),
+		//Salidas
 		.vram_o(vram_o)
 	);
 	

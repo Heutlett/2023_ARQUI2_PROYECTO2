@@ -8,7 +8,7 @@
 
 _start:
 
-	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
+	LDR RA1, [RA5]      @ RA1 = dir-ección de PIXELS START - 4
 	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
 	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
 
@@ -29,7 +29,7 @@ XOR:
 	@ ENCRIPTAR
 	encrypt_xor:
 	@ Cargar valores iniciales
-	MOV RS1, #1		  	  @ KEY - Cargar llave
+	MOV RS1, #202		  	  @ KEY - Cargar llave
 	XOR RV3, RV3, RV3     @ Asegurar el cero  
 	NOP
 	NOP

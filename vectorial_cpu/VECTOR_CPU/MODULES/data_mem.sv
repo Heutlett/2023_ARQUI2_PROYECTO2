@@ -11,8 +11,8 @@ module data_mem #(parameter DMEM_SIZE = 10926)
 );
 	
 	// Se inicializa la memoria de datos
-//	initial 
-//		$readmemh("data_mem_init.dat",RAM);
+	initial 
+		$readmemh("data_mem_init.dat",RAM);
 	
 	logic [5:0][7:0] RAM[DMEM_SIZE:0];
 	
@@ -20,17 +20,17 @@ module data_mem #(parameter DMEM_SIZE = 10926)
 	
 		if (WE) begin
 		
-			RAM[A[16:0]] = WD;
+			RAM[A[16:2]] = WD;
 			$display("\n  - - - - - - - - - - - - - - - - - - - ");
 			$display("|<<| DATA_MEM");
 			$display(" o A (dec):  %h", A);
-			$display(" o D (hex):  %d %d %d %d %d %d", WD[5], WD[4], WD[3], WD[2], WD[1], WD[0]);
+			$display(" o D (hex):  %h %h %h %h %h %h", WD[5], WD[4], WD[3], WD[2], WD[1], WD[0]);
 
 		end
 		
 	end
 	
-	assign RD = RAM[A[16:0]];
+	assign RD = RAM[A[16:2]];
 	
 	
 	

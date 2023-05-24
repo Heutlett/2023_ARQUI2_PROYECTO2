@@ -47,14 +47,14 @@ module top
 	logic clk;
 
 	vga_pll clock_pll (
-		.areset(0),
+		.areset(1'b0),
 		.inclk0(clk_50),
 		.c0(clk),
 		.locked()
 	);
 
-	wire [5:0][7:0] vram;
-	wire [16:0] a_vga;
+	logic [5:0][7:0] vram;
+	logic [16:0] a_vga;
 
 	VGA display(
 		.clk_fpga(clk),
@@ -111,19 +111,6 @@ module top
 		.RD(ReadData),
 		.vram_o(vram)
 	);
-	
-//	// Modulo para comuncacion con interprete
-//	interpreter_comunication ic (
-//		// Entradas
-//		.clk(clk), 
-//		.reset(reset), 
-//		.MemtoReg(MemtoReg),
-//		.COM(COMFlag),
-//		.ReadData(ReadData),
-//		// Salidas
-//		.clk_out(clk_out),
-//		.ReadDataOut(ReadDataOut)
-//	);
 
 	
 endmodule

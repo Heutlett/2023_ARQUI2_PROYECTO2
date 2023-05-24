@@ -57,6 +57,7 @@ module datapath
 	regfile reg_file (
 	// Entradas
 		.clk(clk), 
+		.reset(reset),
 		.WE3(RegWriteW),
 		.WE1(SPWriteW),
 		.LDSFlag(LDSFlagW),

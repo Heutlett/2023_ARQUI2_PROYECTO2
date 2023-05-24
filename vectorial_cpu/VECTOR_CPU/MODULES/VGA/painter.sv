@@ -11,10 +11,12 @@ module painter
 	logic [16:0] index;
 	logic [16:0] pixels;
 	
-	assign pixels = ((vertCoord - 111) * 256 + (horzCoord - 191));
-	always_ff @(negedge clk) begin
+	assign pixels = ((vertCoord - 112) * 256 + (horzCoord - 177));
+
+	assign a_vga = pixels / 6 + (pixels % 6 > 0);
+
+	always_ff @(posedge clk) begin
 		if ((191 < horzCoord && horzCoord < 447) && (111 < vertCoord && vertCoord < 367)) begin
-			a_vga <= pixels / 6 + (pixels % 6 > 0);
 			colors <= {vram_i[pixels % 6], vram_i[pixels % 6], vram_i[pixels % 6]};
 			pixel <= 1'b1;
 		end else begin
