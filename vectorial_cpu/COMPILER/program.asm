@@ -12,7 +12,7 @@ _start:
 	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
 	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
 
-	SEL #3, RSA
+	SEL #3, CHACHA
 	SEL #2, ROT128
 	SEL #1, CIRCULAR_SHIFT
 	SEL #0, XOR
@@ -30,11 +30,15 @@ XOR:
 	encrypt_xor:
 	@ Cargar valores iniciales
 	MOV RS1, #1		  	  @ KEY - Cargar llave
-	XOR RV3, RV3, RV3     @ Asegurar el cero        
+	XOR RV3, RV3, RV3     @ Asegurar el cero  
+	NOP
+	NOP
+	NOP      
 	ADD RV3, RV3, #8      @ Cargar 8 8 8 8 8 8 en RV3
 
 		encrypt_xor_loop:
 		LDR RV1, [RA1, #4]            @ load vector
+		NOP
 		NOP
 		NOP
 		XOR RV2, RV1, RS1		      @ XOR
@@ -66,10 +70,11 @@ XOR:
 	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
 	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
 	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
-
+	NOP
 
 		decrypt_xor_loop:
 		LDR RV1, [RA1, #4]            @ load vector
+		NOP
 		NOP
 		NOP
 		XOR RV2, RV1, RS1
@@ -100,7 +105,10 @@ CIRCULAR_SHIFT:
 	encrypt_circular_shift:
 	@ Cargar valores iniciales
 	MOV RS1, #1		  	  @ KEY - Cargar llave
-	XOR RV3, RV3, RV3     @ Asegurar el cero        
+	XOR RV3, RV3, RV3     @ Asegurar el cero
+	NOP
+	NOP
+	NOP
 	ADD RV3, RV3, #8      @ Cargar 8 8 8 8 8 8 en RV3
 
 		encrypt_circular_shift_loop:
@@ -152,6 +160,7 @@ CIRCULAR_SHIFT:
 	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
 	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
 	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
+	NOP
 
 		decrypt_circular_shift_loop:
 		LDR RV1, [RA1, #4]            @ load vector
@@ -200,9 +209,12 @@ ROT128:
 	encrypt_rot:
 	@ Cargar valores iniciales
 	MOV RS2, #128			@ Guardar 128
+	NOP
+	NOP
 
 		encrypt_rot_loop:
 		LDR RV1, [RA1, #4]            @ load vector
+		NOP
 		NOP
 		NOP
 		ADD RV2, RV1, RS2		      @ ROT128
@@ -234,9 +246,11 @@ ROT128:
 	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
 	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
 	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
+	NOP
 
 		decrypt_rot_loop:
 		LDR RV1, [RA1, #4]            @ load vector
+		NOP
 		NOP
 		NOP
 		ADD RV2, RV1, RS2		      @ ROT128
@@ -259,9 +273,227 @@ ROT128:
 
 
 
-@ ALGORITMO 4: RSA
+@ ALGORITMO 4: CHACHA
 @ Encriptar y desencriptar imagen usando un XOR de #KEY posiciones
-RSA:
+CHACHA:
+	
+	@ ENCRIPTAR
+	encrypt_chacha:
 
-	@ @ ENCRIPTAR
-	@ encrypt_rsa:
+	@ Asegurar registros son 0
+	XOR RV7, RV7, RV7
+	XOR RV8, RV8, RV8
+	XOR RV9, RV9, RV9
+	XOR RV10, RV10, RV10
+
+	@ Cargar llaves iniciales en registros vectoriales
+	MOV RS1, #1
+	MOV RS2, #2
+	MOV RS3, #3
+	MOV RS4, #4
+
+	@ Agregar llave a los vectores
+	ADD RV7, RV7, RS1   	@ KEY_A
+	ADD RV8, RV8, RS2   	@ KEY_B
+	ADD RV9, RV9, RS3   	@ KEY_C
+	ADD RV10, RV10, RS4  	@ KEY_D
+
+	@ Combinar llaves
+	ADD RV7, RV7, RV8
+	NOP
+	NOP
+	NOP
+	XOR RV10, RV7, RV10
+	NOP
+	NOP
+	NOP
+	SHL RV10, RV10, RS4
+	NOP
+	NOP
+	NOP
+	ADD RV9, RV9, RV10
+	NOP
+	NOP
+	NOP
+	XOR RV8, RV8, RV9
+	NOP
+	NOP
+	NOP
+	SHL RV8, RV8, RS3
+	NOP
+	NOP
+	NOP
+	ADD RV7, RV7, RV8
+	NOP
+	NOP
+	NOP
+	XOR RV10, RV7, RV10
+	NOP
+	NOP
+	NOP
+	SHL RV10, RV10, RS2
+	NOP
+	NOP
+	NOP
+	ADD RV9, RV9, RV10
+	NOP
+	NOP
+	NOP
+	XOR RV8, RV8, RV9
+	NOP
+	NOP
+	NOP
+	SHL RV8, RV8, RS1
+	NOP
+	NOP
+	NOP
+		encrypt_chacha_loop:
+		@ Vector 1
+		LDR RV1, [RA1, #4]	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV7 	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		@ Vector 2
+		LDR RV1, [RA1, #4] 	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV8  	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		@ Vector 3
+		LDR RV1, [RA1, #4] 	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV9  	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		@ Vector 4
+		LDR RV1, [RA1, #4] 	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV10 	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		CMP RA1, RA2 		@ Revisar si  RA1 (PIXELS actual) < RA2 (PIXELS end) 
+		NOP
+		NOP
+		NOP
+		JLT encrypt_chacha_loop
+		JMP pause_chacha_loop
+
+	@ PAUSAR
+	pause_chacha_loop:
+	PSE #0, decrypt_chacha               @ Revisar si switch de continuar se activa
+	NOP
+	JMP pause_chacha_loop
+
+	@ DESENCRIPTAR
+	decrypt_chacha:
+	LDR RA1, [RA5]      @ RA1 = dirección de PIXELS START - 4
+	LDR RA2, [RA5, #4]  @ RA2 = dirección de PIXELS END
+	LDR RA3, [RA5, #8]  @ RA3 = dirección de VGA START - 4
+	NOP
+
+		decrypt_chacha_loop:
+	
+		@ Vector 1
+		LDR RV1, [RA1, #4]	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV7 	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		@ Vector 2
+		LDR RV1, [RA1, #4] 	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV8  	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		@ Vector 3
+		LDR RV1, [RA1, #4] 	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV9  	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		@ Vector 4
+		LDR RV1, [RA1, #4] 	@ load vector
+		NOP
+		NOP
+		NOP
+		XOR RV2, RV1, RV10 	@ XOR
+		NOP
+		NOP
+		NOP
+		STR RV2, [RA3, #4]	@ store vector in VGA + advance pointer
+		STR RV2, [RA1, #4]	@ sobreescribir input + advance pointer
+		NOP
+		NOP
+		NOP
+
+		CMP RA1, RA2 		@ Revisar si  RA1 (PIXELS actual) < RA2 (PIXELS end) 
+		NOP
+		NOP
+		NOP
+
+		JLT decrypt_chacha_loop
+		JMP _end

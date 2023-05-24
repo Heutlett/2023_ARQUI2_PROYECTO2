@@ -1,6 +1,6 @@
 package top_params;
-	localparam int IMEM_SIZE = 250;
-	localparam int DMEM_SIZE = 10926;
+	localparam int IMEM_SIZE = 500;
+	localparam int DMEM_SIZE = 10930;
 endpackage
 
 module top
