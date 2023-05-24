@@ -22,7 +22,7 @@ def guardar_pixeles_en_archivo(ruta_imagen, ruta_archivo):
     print(f"Los valores de los píxeles en formato hexadecimal se han guardado en: {ruta_archivo}")
 
 # Ruta de la imagen en escala de grises
-ruta_imagen_gris = 'marilyn_gris.jpg'
+ruta_imagen_gris = 'carrera_gris.jpg'
 
 # Ruta del archivo para guardar los valores de los píxeles en formato hexadecimal
 ruta_archivo = 'data_mem_init.dat'

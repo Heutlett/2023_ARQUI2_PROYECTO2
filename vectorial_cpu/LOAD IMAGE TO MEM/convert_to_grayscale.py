@@ -7,7 +7,7 @@ def convertir_a_escala_de_grises(ruta_imagen):
     print(f"La imagen se ha convertido a escala de grises y se ha guardado en: {nueva_ruta}")
 
 # Ruta de la imagen de entrada
-ruta_imagen = 'marilyn.jpg'
+ruta_imagen = 'carrera.jpg'
 
 # Llamar a la función para convertir la imagen a escala de grises
 convertir_a_escala_de_grises(ruta_imagen)
