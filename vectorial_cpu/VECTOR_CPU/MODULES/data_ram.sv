@@ -8,7 +8,7 @@ module data_ram
 	output [5:0][7:0] vram_o
 );
 
-	logic ram_select;
+	logic ram_select;z
 	logic vram_select;
 	logic [16:0] addr;
 	
